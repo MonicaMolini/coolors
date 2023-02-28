@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        body > *{
+            flex: 1;
+        }
+        #animationColor{
+            animation: colorRotate 5s linear 0s infinite;
+        }
+        @keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}
+    </style>
+</head>
+<body>
+    
+    <div id="hero">
+        <h1>
+            HERO:
+        </h1>
+        <script>{
+        const heroElement = document.getElementById("hero");
+        const aka = new Map();
+
+        aka.set("font_weight", "font-weight");
+        aka.set("font_size", "font-size");
+        aka.set("line_height", "line-height");
+        aka.set("color", "color")
+        aka.set("animation", "animation");
+
+        Object.keys(hero).forEach((e) => {
+            const section = document.createElement("section");
+            const name = document.createElement("h1");
+            name.innerText = e;
+            section.appendChild(name);
+            Object.keys(hero[e]).forEach((s) => {
+                name.style.setProperty(aka.get(s), hero[e][s])
+            });
+            console.log(name.style.cssText)
+            name.addEventListener("click", () => {
+                console.log(name.style.cssText)
+                copyText(JSON.stringify(name.style.cssText))
+            })
+            document.getElementById("hero").append(section)
+            
+        })
+        }
+    </script>
+    <img src="imgs/hero.png">
+    </div>
+    
+
+    <div id="card">
+        <h1>
+            CARD:
+        </h1>
+        <script>{
+        const heroElement = document.getElementById("card");
+        const aka = new Map();
+
+        aka.set("font_weight", "font-weight");
+        aka.set("font_size", "font-size");
+        aka.set("line_height", "line-height");
+        aka.set("color", "color")
+
+        Object.keys(card).forEach((e) => {
+            const section = document.createElement("section");
+            const name = document.createElement("h1");
+            name.innerText = e;
+            section.appendChild(name);
+            Object.keys(card[e]).forEach((s) => {
+                name.style.setProperty(aka.get(s), card[e][s])
+            });
+            console.log(name.style.cssText)
+            name.addEventListener("click", () => {
+                console.log(name.style.cssText)
+                copyText(JSON.stringify(name.style.cssText))
+            })
+            document.getElementById("card").append(section)
+            
+        })
+    }
+    </script>
+    <img src="imgs/card.png">
+    </div>
+    
+
+    <div id="footer">
+        <h1>
+            FOOTER:
+        </h1>
+        <script>{
+        const heroElement = document.getElementById("footer");
+        const aka = new Map();
+
+        aka.set("font_weight", "font-weight");
+        aka.set("font_size", "font-size");
+        aka.set("line_height", "line-height");
+        aka.set("color", "color")
+
+        Object.keys(footer).forEach((e) => {
+            const section = document.createElement("section");
+            const name = document.createElement("h1");
+            name.innerText = e;
+            section.appendChild(name);
+            Object.keys(footer[e]).forEach((s) => {
+                name.style.setProperty(aka.get(s), footer[e][s])
+            });
+            console.log(name.style.cssText)
+            name.addEventListener("click", () => {
+                console.log(name.style.cssText)
+                copyText(JSON.stringify(name.style.cssText))
+            })
+            document.getElementById("footer").append(section)
+            
+        })
+    }
+    </script>
+    <img src="imgs/footer.png">
+    </div>
+    
+
+    <div id="colors">
+        <h1>
+            COLORS:
+        </h1>
+        <script>{
+        const heroElement = document.getElementById("colors");
+        const aka = new Map();
+
+        aka.set("font_weight", "font-weight");
+        aka.set("font_size", "font-size");
+        aka.set("line_height", "line-height");
+        aka.set("color", "color")
+
+        Object.keys(colors).forEach((e) => {
+            const section = document.createElement("section");
+            const name = document.createElement("h1");
+            name.innerText = e;
+            section.appendChild(name);
+            Object.keys(colors[e]).forEach((s) => {
+                name.style.setProperty(aka.get(s), colors[e][s])
+            });
+            console.log(name.style.cssText)
+            name.addEventListener("click", () => {
+                console.log(name.style.cssText)
+                copyText(JSON.stringify(name.style.cssText))
+            })
+            document.getElementById("colors").append(section)
+            
+        })
+    }
+    </script>
+    <img src="imgs/colors.png">
+    </div>
+    
+
+    <h1 id="animationColor" onclick="copyText('@keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}')">
+        ANIMAZIONE COLORE
+    </h1>    
+    
+</body>
+
+</html>
