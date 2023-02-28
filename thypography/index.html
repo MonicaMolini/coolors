@@ -167,11 +167,27 @@
     <img src="imgs/colors.png">
     </div>
     
-
-    <h1 id="animationColor" onclick="copyText('@keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}')">
+    <div id="utils">
+    <h1 onclick='copyText(`<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">`)'>
+        Font Family Link
+    </h1>
+    <h1 onclick="copyText('font-family: \'Inter\', sans-serif;')">
+        Font Family
+    </h1>
+        <h1 id="animationColor" onclick="copyText('@keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}')">
         ANIMAZIONE COLORE
-    </h1>    
+    </h1>
+
+    </div>
     
+    <script>
+        //alert("Clicca per copiare lo stile del testo");
+        document.body.onload = function(){
+            alert("Clicca per copiare lo stile del testo");
+        }
+    </script>
 </body>
 
 </html>

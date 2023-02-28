@@ -3,7 +3,7 @@ function copyText(toCopyText) {
   alert(`Copied ${toCopyText}`)
 }
 
-alert("Clicca per copiare lo stile del testo");
+
 
 const hero = {
   title: {
