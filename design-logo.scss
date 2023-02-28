@@ -1,0 +1,139 @@
+@use "sass:color";
+
+$theme-color: #0066ff;
+$theme-color-grey: #f7f7f8;
+$pastel-color-green: #d5f8ef;
+$pastel-color-blue: #d8f6ff;
+$pastel-color-pink: #ffe5f4;
+$pastel-color-violet: #e8e2f7;
+$pastel-color-yellow: #FDF3CE;
+$color-blue: #00AEE5;
+$color-green: #14B789;
+$color-pink: #E50087;
+$color-violet: #802FDE;
+$color-yellow: #DAAB00;
+
+
+
+
+body {
+  background-color: #72ddf7;
+  padding: 1rem;
+  main {
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
+    gap: 2rem;
+
+    .design__card {
+      background-color: #ffffff;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-columns: auto;
+      row-gap: 1rem;
+      h2 {
+        font-size: 1.5rem;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-color: #72ddf7;
+      }
+      p {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
+      &__colors {
+        display: grid; 
+        grid-template-columns: 80%;
+        justify-content: start;      
+
+        &__color {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto;
+          gap: 0.5rem;
+          p {
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 600;
+          }
+          &--1 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $theme-color;            
+          }
+          &--2 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: #000000;
+            
+          }
+          &--3 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $theme-color-grey;
+            p {
+                color: #000000;
+              }
+          }         
+          }
+
+        &__secondary {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 0.5rem;
+            p {                
+                font-size: 0.6rem;
+                font-weight: 600;
+                }
+            &--1 {
+              width: 5rem;
+              height: 2.5rem;
+              background-color: $pastel-color-blue;   
+              p {
+                color: $color-blue;                  
+                }          
+               }
+            &--2 {
+              width: 5rem;
+              height: 2.5rem;
+              background-color: $pastel-color-green;    
+              p {
+                color: $color-green;                  
+                }          
+             }
+            &--3 {
+                width: 5rem;
+                height: 2.5rem;
+                background-color: $pastel-color-pink; 
+                p {
+                    color: $color-pink;                  
+                    }               
+              }
+            &--4 {
+                width: 5rem;
+                height: 2.5rem;
+                background-color: $pastel-color-violet;   
+                p {
+                    color: $color-violet;                  
+                    }             
+              }
+            &--5 {
+                width: 5rem;
+                height: 2.5rem;
+                background-color: $pastel-color-yellow;  
+                p {
+                    color: $color-yellow;                  
+                    }             
+              }
+            }
+        }
+      }
+    }
+  }
+
