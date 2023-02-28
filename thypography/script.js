@@ -10,7 +10,7 @@ const hero = {
     font_weight: 700,
     font_size: "3.125rem",
     line_height: "3.438rem",
-    color: "black",
+    //color: "black",
   },
   paragraphs: {
     font_weight: 400,
@@ -19,10 +19,10 @@ const hero = {
     color: "#464853",
   },
   buttons: {
-    font_weight: 400,
+    font_weight: 600,
     font_size: "1rem",
     line_height: "2.875rem",
-    color: "black",
+    //color: "black",
   },
   hero_party: {
     font_weight: 400,
@@ -36,7 +36,7 @@ const card = {
     font_weight: 700,
     font_size: "1.5rem",
     line_height: "1.5rem",
-    color: "black",
+    //color: "black",
   },
   paragraph: {
     font_weight: 400,
@@ -56,16 +56,19 @@ const footer = {
     font_weight: 800,
     font_size: "1.375rem",
     line_height: "1.375rem",
-    color: "black",
+    //color: "black",
   },
   paragraph: {
     font_weight: 450,
     font_size: "1rem",
     line_height: "1rem",
     color: "black",
-    hover: {
-      color: "#0066ff",
-    },
+  },
+  paragraph_hover: {
+    font_weight: 450,
+    font_size: "1rem",
+    line_height: "1rem",
+    color: "#0066ff",
   },
 };
 const colors = {
@@ -73,7 +76,7 @@ const colors = {
       font_weight: 400,
       font_size: "1.875rem",
       line_height: "1.875rem",
-      color: "black",
+      //color: "black",
     },
     color_name: {
       font_weight: 400,
@@ -81,7 +84,8 @@ const colors = {
       line_height: "14px",
       color: "rgba(0, 0, 0, .6)",
     },
-  },
+  };
+
   navbar = {
     font_weight: 450,
     font_size: "0.938rem",
@@ -89,5 +93,5 @@ const colors = {
     color: "black",
     hover: {
       color: "#0066ff",
-    },
+    }
   };

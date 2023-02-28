@@ -1,193 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
     <script src="script.js"></script>
     <title>Document</title>
     <style>
-        body{
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: space-evenly;
+      body {
+        font-family: "Inter", sans-serif;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      body > * {
+        flex: 1;
+      }
+      #animationColor {
+        animation: colorRotate 5s linear 0s infinite;
+      }
+      [onclick],
+      [click] {
+        cursor: pointer;
+      }
+      #navbar {
+        font-weight: 500;
+        font-size: 0.938rem;
+        line-height: 0.938rem;
+        color: "black";
+      }
+      #navbar-hover {
+        font-weight: 500;
+        font-size: 0.938rem;
+        line-height: 0.938rem;
+        color: #0066ff;
+      }
+      @keyframes colorRotate {
+        from {
+          color: #0067fb;
         }
-        body > *{
-            flex: 1;
+        33% {
+          color: #10d100;
         }
-        #animationColor{
-            animation: colorRotate 5s linear 0s infinite;
+        66% {
+          color: #ff003d;
         }
-        @keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}
+        100% {
+          color: #0067fb;
+        }
+      }
     </style>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div id="hero">
-        <h1>
-            HERO:
-        </h1>
-        <script>{
-        const heroElement = document.getElementById("hero");
-        const aka = new Map();
-
-        aka.set("font_weight", "font-weight");
-        aka.set("font_size", "font-size");
-        aka.set("line_height", "line-height");
-        aka.set("color", "color")
-        aka.set("animation", "animation");
-
-        Object.keys(hero).forEach((e) => {
-            const section = document.createElement("section");
-            const name = document.createElement("h1");
-            name.innerText = e;
-            section.appendChild(name);
-            Object.keys(hero[e]).forEach((s) => {
-                name.style.setProperty(aka.get(s), hero[e][s])
-            });
-            console.log(name.style.cssText)
-            name.addEventListener("click", () => {
-                console.log(name.style.cssText)
-                copyText(JSON.stringify(name.style.cssText))
-            })
-            document.getElementById("hero").append(section)
-            
-        })
-        }
-    </script>
-    <img src="imgs/hero.png">
+      <h1>HERO:</h1>
+      <section><h1 style="font-weight: 700; font-size: 3.125rem; line-height: 3.438rem;" click="">title</h1></section><section><h1 style="font-weight: 400; font-size: 1.125rem; line-height: 1.563rem; color: rgb(70, 72, 83);" click="">paragraphs</h1></section><section><h1 style="font-weight: 600; font-size: 1rem; line-height: 2.875rem;" click="">buttons</h1></section><section><h1 style="font-weight: 400; font-size: 0.938rem; line-height: 0.938rem; animation: 5s linear 0s infinite normal none running colorRotate;" click="">hero_party</h1></section>
+      <img src="imgs/hero.png">
     </div>
-    
 
     <div id="card">
-        <h1>
-            CARD:
-        </h1>
-        <script>{
-        const heroElement = document.getElementById("card");
-        const aka = new Map();
-
-        aka.set("font_weight", "font-weight");
-        aka.set("font_size", "font-size");
-        aka.set("line_height", "line-height");
-        aka.set("color", "color")
-
-        Object.keys(card).forEach((e) => {
-            const section = document.createElement("section");
-            const name = document.createElement("h1");
-            name.innerText = e;
-            section.appendChild(name);
-            Object.keys(card[e]).forEach((s) => {
-                name.style.setProperty(aka.get(s), card[e][s])
-            });
-            console.log(name.style.cssText)
-            name.addEventListener("click", () => {
-                console.log(name.style.cssText)
-                copyText(JSON.stringify(name.style.cssText))
-            })
-            document.getElementById("card").append(section)
-            
-        })
-    }
-    </script>
-    <img src="imgs/card.png">
+      <h1>CARD:</h1>
+      <section><h1 style="font-weight: 700; font-size: 1.5rem; line-height: 1.5rem;" click="">title</h1></section><section><h1 style="font-weight: 400; font-size: 1rem; line-height: 1.7em; color: rgb(70, 72, 83);" click="">paragraph</h1></section><section><h1 style="font-weight: 800; font-size: 1.875rem; line-height: 2.625rem;" click="">hover_text</h1></section>
+      <img src="imgs/card.png">
     </div>
-    
 
     <div id="footer">
-        <h1>
-            FOOTER:
-        </h1>
-        <script>{
-        const heroElement = document.getElementById("footer");
-        const aka = new Map();
-
-        aka.set("font_weight", "font-weight");
-        aka.set("font_size", "font-size");
-        aka.set("line_height", "line-height");
-        aka.set("color", "color")
-
-        Object.keys(footer).forEach((e) => {
-            const section = document.createElement("section");
-            const name = document.createElement("h1");
-            name.innerText = e;
-            section.appendChild(name);
-            Object.keys(footer[e]).forEach((s) => {
-                name.style.setProperty(aka.get(s), footer[e][s])
-            });
-            console.log(name.style.cssText)
-            name.addEventListener("click", () => {
-                console.log(name.style.cssText)
-                copyText(JSON.stringify(name.style.cssText))
-            })
-            document.getElementById("footer").append(section)
-            
-        })
-    }
-    </script>
-    <img src="imgs/footer.png">
+      <h1>FOOTER:</h1>
+      <section><h1 style="font-weight: 800; font-size: 1.375rem; line-height: 1.375rem;" click="">title</h1></section><section><h1 style="font-weight: 450; font-size: 1rem; line-height: 1rem; color: black;" click="">paragraph</h1></section><section><h1 style="font-weight: 450; font-size: 1rem; line-height: 1rem; color: rgb(0, 102, 255);" click="">paragraph_hover</h1></section>
+      <img src="imgs/footer.png">
     </div>
-    
 
     <div id="colors">
-        <h1>
-            COLORS:
-        </h1>
-        <script>{
-        const heroElement = document.getElementById("colors");
-        const aka = new Map();
-
-        aka.set("font_weight", "font-weight");
-        aka.set("font_size", "font-size");
-        aka.set("line_height", "line-height");
-        aka.set("color", "color")
-
-        Object.keys(colors).forEach((e) => {
-            const section = document.createElement("section");
-            const name = document.createElement("h1");
-            name.innerText = e;
-            section.appendChild(name);
-            Object.keys(colors[e]).forEach((s) => {
-                name.style.setProperty(aka.get(s), colors[e][s])
-            });
-            console.log(name.style.cssText)
-            name.addEventListener("click", () => {
-                console.log(name.style.cssText)
-                copyText(JSON.stringify(name.style.cssText))
-            })
-            document.getElementById("colors").append(section)
-            
-        })
-    }
-    </script>
-    <img src="imgs/colors.png">
+      <h1>COLORS:</h1>
+      <section><h1 style="font-weight: 400; font-size: 1.875rem; line-height: 1.875rem;" click="">color_code</h1></section><section><h1 style="font-weight: 400; font-size: 11px; line-height: 14px; color: rgba(0, 0, 0, 0.6);" click="">color_name</h1></section>
+      <img src="imgs/colors.png">
     </div>
-    
+
+
+    <div id="nav">
+        <h1>Navbar:</h1>
+        <section onclick="copyText(`font-weight: 500; font-size: 0.938rem; line-height: 0.938rem; color: black;`)" id="navbar">
+            Navbar item
+        </section>
+        <section onclick="copyText(`font-weight: 500; font-size: 0.938rem; line-height: 0.938rem; color: #0066ff;`)" id="navbar-hover">
+            Navbar hover
+        </section>
+        <img src="imgs/navbar.png">
+    </div>
+
     <div id="utils">
-    <h1 onclick='copyText(`<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">`)'>
+      <h1 onclick="copyText(`<link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;>
+    <link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin>
+    <link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>`)">
         Font Family Link
-    </h1>
-    <h1 onclick="copyText('font-family: \'Inter\', sans-serif;')">
+      </h1>
+      <h1 onclick="copyText('font-family: \'Inter\', sans-serif;')">
         Font Family
-    </h1>
-        <h1 id="animationColor" onclick="copyText('@keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}')">
+      </h1>
+      <h1 id="animationColor" onclick="copyText('@keyframes colorRotate{from{color:#0067FB}33%{color:#10D100}66%{color:#FF003D}100%{color:#0067FB}}')">
         ANIMAZIONE COLORE
-    </h1>
-
+      </h1>
     </div>
     
-    <script>
-        //alert("Clicca per copiare lo stile del testo");
-        document.body.onload = function(){
-            alert("Clicca per copiare lo stile del testo");
-        }
-    </script>
-</body>
+    
 
-</html>
+    <script>
+      //alert("Clicca per copiare lo stile del testo");
+      document.body.onload = function () {
+        //alert("Clicca per copiare lo stile del testo");
+      };
+    </script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
