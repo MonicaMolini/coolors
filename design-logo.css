@@ -16,6 +16,12 @@ body main .design__card {
   grid-template-columns: 1fr;
   grid-template-columns: auto;
   row-gap: 1rem;
+  /*
+  <div><span>Titles: </span><span class="title" onclick="copyText(JSON.stringify(this.style))">Lorem, ipsum dolor.</span></div>
+  <div><span>Paragraphs: </span><span class="paragraphs">Lorem, ipsum dolor.</span></div>
+  <div><span>Subheadings: </span><span class="subheadings">Lorem, ipsum dolor.</span></div>
+  <div><span>Call To Actions: </span><span class="ctas">Lorem, ipsum dolor.</span></div>
+  */
 }
 body main .design__card h2 {
   font-size: 1.5rem;
@@ -29,6 +35,38 @@ body main .design__card p {
 }
 body main .design__card h3 {
   font-size: 0.8rem;
+}
+body main .design__card--thypography > div {
+  display: flex;
+}
+body main .design__card--thypography > div > span:first-child {
+  width: 10rem;
+  font-weight: 600;
+}
+body main .design__card--thypography > div > span {
+  display: flex;
+  align-items: center;
+}
+body main .design__card--thypography .title {
+  font-weight: 700;
+  font-size: 3.125rem;
+  line-height: 3.438rem;
+}
+body main .design__card--thypography .paragraphs {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.563rem;
+  color: rgb(70, 72, 83);
+}
+body main .design__card--thypography .subheadings {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+body main .design__card--thypography .ctas {
+  font-weight: 800;
+  font-size: 1.875rem;
+  line-height: 2.625rem;
 }
 body main .design__card__colors {
   display: grid;
