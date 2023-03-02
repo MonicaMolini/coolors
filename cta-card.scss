@@ -27,11 +27,36 @@ $cta-card-colors: (
     "name": "yellow",
   );
 
+$cta-card-logos: (
+    "name": "apple",
+    "url": "icons/Apple.svg",
+  ),
+  (
+    "name": "android",
+    "url": "icons/android.svg",
+  ),
+  (
+    "name": "figma",
+    "url": "icons/figma.svg",
+  ),
+  (
+    "name": "chrome",
+    "url": "icons/chrome.svg",
+  ),
+  (
+    "name": "adobe",
+    "url": "icons/adobe.svg",
+  );
+
 @mixin cta-card-transition {
-  $transitionRule: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.15s ease;
+  $transitionRule: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.25s ease;
   transition: $transitionRule;
   & > * {
     transition: $transitionRule;
+
+    & > *{
+      transition: $transitionRule;
+    }
   }
 }
 
@@ -41,12 +66,14 @@ $cta-card-colors: (
   width: 445px;
   border-radius: calc(1rem - 2px);
   overflow: hidden;
+  cursor: pointer;
   &__contents {
     @include cta-card-transition();
     height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
     padding: 15%;
     & > * {
@@ -56,6 +83,7 @@ $cta-card-colors: (
       font-weight: 700;
       font-size: 1.5rem;
       line-height: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     &__paragraph {
       font-weight: 400;
@@ -64,13 +92,28 @@ $cta-card-colors: (
       color: rgb(70, 72, 83);
     }
 
+    &__image {
+      height: 3.125rem;
+      width: 2.625rem;
+      margin-bottom: 1.875rem;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @each $logo in $cta-card-logos {
+      &[logo="#{map.get($logo, 'name')}"] > .cta-card__contents__image {
+        background-image: url('#{map.get($logo, "url")}');
+      }
+    }
+
     @each $colors in $cta-card-colors {
-      &[#{map.get($colors, "name")}] > .cta-card__contents__cta {
+      &[color="#{map.get($colors, 'name')}"] > .cta-card__contents__cta {
         color: #{map.get($colors, "color")};
       }
 
       &:hover {
-        &[#{map.get($colors, "name")}] > .cta-card__contents__cta {
+        &[color="#{map.get($colors, 'name')}"]{
           background-color: #{map.get($colors, "background-color")};
         }
       }

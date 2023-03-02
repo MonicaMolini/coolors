@@ -1,6 +1,11 @@
 @use "helpers" as h;
 @use "cta-card";
 
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
