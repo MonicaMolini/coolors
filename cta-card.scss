@@ -1,0 +1,106 @@
+@use "variables" as v;
+@use "sass:map";
+
+$cta-card-colors: (
+    "background-color": "#D8F6FF",
+    "color": "#00AEE5",
+    "name": "cyan",
+  ),
+  (
+    "background-color": "#D5F8EF",
+    "color": "#14B789",
+    "name": "green",
+  ),
+  (
+    "background-color": "#FFE5F4",
+    "color": "#E50087",
+    "name": "magenta",
+  ),
+  (
+    "background-color": "#E8E2F7",
+    "color": "#802FDE",
+    "name": "purple",
+  ),
+  (
+    "background-color": "#FDF3CE",
+    "color": "#DAAB00",
+    "name": "yellow",
+  );
+
+@mixin cta-card-transition {
+  $transitionRule: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.15s ease;
+  transition: $transitionRule;
+  & > * {
+    transition: $transitionRule;
+  }
+}
+
+.cta-card {
+  background-color: v.$ctaCardBackgroundColor;
+  height: 312px;
+  width: 445px;
+  border-radius: calc(1rem - 2px);
+  overflow: hidden;
+  &__contents {
+    @include cta-card-transition();
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 15%;
+    & > * {
+      text-align: center;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+    &__paragraph {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.7em;
+      color: rgb(70, 72, 83);
+    }
+
+    @each $colors in $cta-card-colors {
+      &[#{map.get($colors, "name")}] > .cta-card__contents__cta {
+        color: #{map.get($colors, "color")};
+      }
+
+      &:hover {
+        &[#{map.get($colors, "name")}] > .cta-card__contents__cta {
+          background-color: #{map.get($colors, "background-color")};
+        }
+      }
+    }
+
+    &__cta {
+      font-weight: 800;
+      font-size: 1.875rem;
+      line-height: 2.625rem;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15%;
+      display: grid;
+      place-items: center;
+      box-sizing: border-box;
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    &:hover {
+      & > * {
+        opacity: 0;
+      }
+      & > .cta-card__contents__cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

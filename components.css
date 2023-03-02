@@ -1,0 +1,106 @@
+@keyframes colorRotate {
+  from {
+    color: #0067fb;
+  }
+  33% {
+    color: #10d100;
+  }
+  66% {
+    color: #ff003d;
+  }
+  100% {
+    color: #0067fb;
+  }
+}
+.cta-card {
+  background-color: rgb(247, 247, 248);
+  height: 312px;
+  width: 445px;
+  border-radius: calc(1rem - 2px);
+  overflow: hidden;
+}
+.cta-card__contents {
+  transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.15s ease;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 15%;
+}
+.cta-card__contents > * {
+  transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.15s ease;
+}
+.cta-card__contents > * {
+  text-align: center;
+}
+.cta-card__contents__title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+.cta-card__contents__paragraph {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7em;
+  color: rgb(70, 72, 83);
+}
+.cta-card__contents[cyan] > .cta-card__contents__cta {
+  color: #00AEE5;
+}
+.cta-card__contents:hover[cyan] > .cta-card__contents__cta {
+  background-color: #D8F6FF;
+}
+.cta-card__contents[green] > .cta-card__contents__cta {
+  color: #14B789;
+}
+.cta-card__contents:hover[green] > .cta-card__contents__cta {
+  background-color: #D5F8EF;
+}
+.cta-card__contents[magenta] > .cta-card__contents__cta {
+  color: #E50087;
+}
+.cta-card__contents:hover[magenta] > .cta-card__contents__cta {
+  background-color: #FFE5F4;
+}
+.cta-card__contents[purple] > .cta-card__contents__cta {
+  color: #802FDE;
+}
+.cta-card__contents:hover[purple] > .cta-card__contents__cta {
+  background-color: #E8E2F7;
+}
+.cta-card__contents[yellow] > .cta-card__contents__cta {
+  color: #DAAB00;
+}
+.cta-card__contents:hover[yellow] > .cta-card__contents__cta {
+  background-color: #FDF3CE;
+}
+.cta-card__contents__cta {
+  font-weight: 800;
+  font-size: 1.875rem;
+  line-height: 2.625rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15%;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.cta-card__contents:hover > * {
+  opacity: 0;
+}
+.cta-card__contents:hover > .cta-card__contents__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/*# sourceMappingURL=components.css.map */
