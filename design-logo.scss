@@ -12,6 +12,10 @@ $color-green: #14B789;
 $color-pink: #E50087;
 $color-violet: #802FDE;
 $color-yellow: #DAAB00;
+$white-button: #ffffff;
+$black-text: #000000;
+$button-hover: #005ce6;
+$border-button: #b1b0b5;
 
 
 
@@ -179,6 +183,55 @@ body {
             }
         }
       }
-    }
+
+    .container__buttons{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 35rem;
+      padding: 1rem 3rem 1rem 3rem;
+      .blue__button__small, .blue__button__large, .button__small, .button__large{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:2.25rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+      }      
+      .blue__button__small, .blue__button__large{
+        background-color: $theme-color;
+         a{
+          text-decoration: none;
+          color: $white-button;
+         }
+        &:hover{
+          background-color: $button-hover;
+          transition: 0.5s;
+        }
+      }
+  
+      .button__small, .button__large{
+        border: 0.06rem solid $theme-color-grey;
+        background-color: $white-button;
+        box-sizing: border-box;
+        a{
+          text-decoration: none;
+          color: $black-text
+        }
+        &:hover{
+          transition: 0.5s;
+          box-shadow: $border-button 0 0 0 1px;
+        }
+      }
+  
+      .blue__button__large, .button__large{
+        width: 16rem;
+      }
+      
+      .blue__button__small, .button__small{
+        width: 4rem;
+      }
+    } 
   }
+}
 

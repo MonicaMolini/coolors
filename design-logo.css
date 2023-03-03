@@ -152,5 +152,50 @@ body main .design__card__colors__secondary--5 {
 body main .design__card__colors__secondary--5 p {
   color: #DAAB00;
 }
+body main .container__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 35rem;
+  padding: 1rem 3rem 1rem 3rem;
+}
+body main .container__buttons .blue__button__small, body main .container__buttons .blue__button__large, body main .container__buttons .button__small, body main .container__buttons .button__large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+body main .container__buttons .blue__button__small, body main .container__buttons .blue__button__large {
+  background-color: #0066ff;
+}
+body main .container__buttons .blue__button__small a, body main .container__buttons .blue__button__large a {
+  text-decoration: none;
+  color: #ffffff;
+}
+body main .container__buttons .blue__button__small:hover, body main .container__buttons .blue__button__large:hover {
+  background-color: #005ce6;
+  transition: 0.5s;
+}
+body main .container__buttons .button__small, body main .container__buttons .button__large {
+  border: 0.06rem solid #f7f7f8;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+body main .container__buttons .button__small a, body main .container__buttons .button__large a {
+  text-decoration: none;
+  color: #000000;
+}
+body main .container__buttons .button__small:hover, body main .container__buttons .button__large:hover {
+  transition: 0.5s;
+  box-shadow: #b1b0b5 0 0 0 1px;
+}
+body main .container__buttons .blue__button__large, body main .container__buttons .button__large {
+  width: 16rem;
+}
+body main .container__buttons .blue__button__small, body main .container__buttons .button__small {
+  width: 4rem;
+}
 
 /*# sourceMappingURL=design-logo.css.map */
