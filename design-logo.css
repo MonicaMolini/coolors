@@ -181,7 +181,7 @@ body main .container__buttons .button__small, body main .container__buttons .but
   border: 0.06rem solid #f7f7f8;
   background-color: #ffffff;
   box-sizing: border-box;
-  box-shadow: inset #d8d8da 0 0 0 1px;
+  box-shadow: #d8d8da 0 0 0 1px;
 }
 body main .container__buttons .button__small a, body main .container__buttons .button__large a {
   text-decoration: none;

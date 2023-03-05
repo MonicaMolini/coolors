@@ -192,12 +192,12 @@ body {
       width: 35rem;
       padding: 1rem 3rem 1rem 3rem;
       .blue__button__small, .blue__button__large, .button__small, .button__large{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height:2.25rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:2.25rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
       }      
       .blue__button__small, .blue__button__large{
         background-color: $theme-color;
@@ -215,7 +215,7 @@ body {
         border: 0.06rem solid $theme-color-grey;
         background-color: $white-button;
         box-sizing: border-box;
-        box-shadow: inset $border-button 0 0 0 1px;
+        box-shadow: $border-button 0 0 0 1px;
         a{
           text-decoration: none;
           color: $black-text
