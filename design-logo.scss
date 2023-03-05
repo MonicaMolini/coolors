@@ -15,7 +15,8 @@ $color-yellow: #DAAB00;
 $white-button: #ffffff;
 $black-text: #000000;
 $button-hover: #005ce6;
-$border-button: #b1b0b5;
+$border-button: #d8d8da;
+$border-button-hover: #b1b0b5;
 
 
 
@@ -206,7 +207,7 @@ body {
          }
         &:hover{
           background-color: $button-hover;
-          transition: 0.5s;
+          //transition: 0.5s;
         }
       }
   
@@ -214,13 +215,14 @@ body {
         border: 0.06rem solid $theme-color-grey;
         background-color: $white-button;
         box-sizing: border-box;
+        box-shadow: inset $border-button 0 0 0 1px;
         a{
           text-decoration: none;
           color: $black-text
         }
         &:hover{
-          transition: 0.5s;
-          box-shadow: $border-button 0 0 0 1px;
+          //transition: 0.5s;
+          box-shadow: $border-button-hover 0 0 0 1px;
         }
       }
   

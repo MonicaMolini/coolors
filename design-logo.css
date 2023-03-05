@@ -176,19 +176,18 @@ body main .container__buttons .blue__button__small a, body main .container__butt
 }
 body main .container__buttons .blue__button__small:hover, body main .container__buttons .blue__button__large:hover {
   background-color: #005ce6;
-  transition: 0.5s;
 }
 body main .container__buttons .button__small, body main .container__buttons .button__large {
   border: 0.06rem solid #f7f7f8;
   background-color: #ffffff;
   box-sizing: border-box;
+  box-shadow: inset #d8d8da 0 0 0 1px;
 }
 body main .container__buttons .button__small a, body main .container__buttons .button__large a {
   text-decoration: none;
   color: #000000;
 }
 body main .container__buttons .button__small:hover, body main .container__buttons .button__large:hover {
-  transition: 0.5s;
   box-shadow: #b1b0b5 0 0 0 1px;
 }
 body main .container__buttons .blue__button__large, body main .container__buttons .button__large {
