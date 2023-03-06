@@ -1,4 +1,4 @@
-$ctaCardBackgroundColor:rgb(247, 247, 248);
+
 $backgroundColor1: #ffffff;
 $theme-color: #0066ff;
 $theme-color-grey: #f7f7f8;
@@ -22,4 +22,10 @@ $white-button: #ffffff;
 $black-text: #000000;
 $button-hover: #005ce6;
 $border-button: #b1b0b5;
+
+
+$ctaCardBackgroundColor: $theme-color-grey;
+$footerBackgroundColor: $theme-color-grey;
+$footerTextColorHover: $theme-color;
+$footerCreatorTextColor: #636369;
 
