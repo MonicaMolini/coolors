@@ -1,5 +1,111 @@
 @use "variables" as v;
 
+
+.small-menu
+{
+  font-family: "Inter", sans-serif;
+  background-color: v.$backgroundColor1;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 0 0 1px, rgba(0, 0, 0, 0.12) 0 15px 30px 0px;
+  border-radius: 10px;
+  text-align: left;
+  box-sizing: border-box;
+  outline: none;
+  max-height: 164px;
+  max-width: 331px;
+  * {
+    white-space: nowrap;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  a {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding-right: 30px;
+    
+    div {
+      span:first-child {
+        color: black;
+        font-weight: 700;
+        font-size: 3.125rem;
+        font-variation-settings: "wght" 760;
+        display: block;
+        margin-bottom: 6px;
+        transition: color 0.1s ease-in-out;
+        font-size: 18px;
+        letter-spacing: -0.03em;
+      }
+      span:last-child {
+        color: #7d7c83;
+        display: block;
+        font-size: 14px;
+        transition: color 0.1s ease-in-out;
+      }
+    }
+    img {
+      min-width: 28px;
+      max-width: 28px;
+      margin-right: 15px;
+    }
+  }
+
+  &--left {
+    padding: 10px;
+    text-align: left;
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      margin: 0;
+      li {
+        position: relative;
+        z-index: 1;
+        flex-grow: 1;
+        &:nth-child(1):hover {
+          a {
+            background-color: v.$pastel-green;
+            border-radius: 10px;
+            transition: 0.1s ease-in-out;
+            div {
+              span:first-child {
+                color: v.$color-green;
+              }
+              span:last-child {
+                color: v.$black-text;
+              }
+            }
+          }
+        }
+        &:nth-child(2):hover {
+          a {
+            background-color: v.$pastel-blue;
+            border-radius: 10px;
+            transition: 0.1s ease-in-out;
+            div {
+              span:first-child {
+                color: v.$color-blue2;
+              }
+              span:last-child {
+                color: v.$black-text;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
 .big-menu {
   font-family: "Inter", sans-serif;
   background-color: v.$backgroundColor1;
@@ -11,6 +117,7 @@
   outline: none;
   max-height: 462px;
   max-width: 665px;
+
   * {
     white-space: nowrap;
   }
@@ -98,7 +205,7 @@
             transition: 0.1s ease-in-out;
             div {
               span:first-child {
-                color: v.$color-blue;
+                color: v.$color-blue2;
               }
               span:last-child {
                 color: v.$black-text;
