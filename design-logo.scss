@@ -184,6 +184,88 @@ body {
             }
         }
       }
+      .icon{
+        &__apple{
+            width: 2.625rem;
+            height: 3.125rem;
+        }
+        &__android{
+          width: 2.625rem;
+          height: 3.125rem;
+        }
+        &__figma{
+          width: 2.625rem;
+          height: 3.125rem;
+        }
+        &__chrome{
+          width: 2.625rem;
+          height: 3.125rem;
+        }
+        &__adobe{
+          width: 2.625rem;
+          height: 3.125rem;
+        }
+        &__twitter{
+            width: 1.238rem;
+            height: 1.238rem;
+        }
+        &__twitter--blue{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__facebook{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__facebook--blue{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__pinterest{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__pinterest--blue{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__instagram{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__instagram--blue{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__producthunt{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__producthunt--blue{
+          width: 1.238rem;
+          height: 1.238rem;
+        }
+        &__generate{
+            width: 3.438rem;
+            height: 3.438rem;
+        }
+        &__explore{
+          width: 3.438rem;
+          height: 3.438rem;
+        }
+        &__image__picker{
+          width: 3.438rem;
+          height: 3.438rem;
+        }
+        &__contrast__checker{
+          width: 3.438rem;
+            height: 3.438rem;
+        }
+        &__fonts{
+            width: 3.438rem;
+            height: 3.438rem;
+        }
+    }
 
     .container__buttons{
       display: grid;

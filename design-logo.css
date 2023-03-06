@@ -152,6 +152,86 @@ body main .design__card__colors__secondary--5 {
 body main .design__card__colors__secondary--5 p {
   color: #DAAB00;
 }
+body main .icon__apple {
+  width: 2.625rem;
+  height: 3.125rem;
+}
+body main .icon__android {
+  width: 2.625rem;
+  height: 3.125rem;
+}
+body main .icon__figma {
+  width: 2.625rem;
+  height: 3.125rem;
+}
+body main .icon__chrome {
+  width: 2.625rem;
+  height: 3.125rem;
+}
+body main .icon__adobe {
+  width: 2.625rem;
+  height: 3.125rem;
+}
+body main .icon__twitter {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__twitter--blue {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__facebook {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__facebook--blue {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__pinterest {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__pinterest--blue {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__instagram {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__instagram--blue {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__producthunt {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__producthunt--blue {
+  width: 1.238rem;
+  height: 1.238rem;
+}
+body main .icon__generate {
+  width: 3.438rem;
+  height: 3.438rem;
+}
+body main .icon__explore {
+  width: 3.438rem;
+  height: 3.438rem;
+}
+body main .icon__image__picker {
+  width: 3.438rem;
+  height: 3.438rem;
+}
+body main .icon__contrast__checker {
+  width: 3.438rem;
+  height: 3.438rem;
+}
+body main .icon__fonts {
+  width: 3.438rem;
+  height: 3.438rem;
+}
 body main .container__buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
