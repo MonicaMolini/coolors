@@ -50,6 +50,7 @@ body {
       }
       &--components {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         a:nth-child(1) {
           img {            
@@ -65,6 +66,9 @@ body {
           img {            
               width: 180px;            
           }
+        }
+        img[src="img/footer.png"]{
+          width: 300px;
         }
       }
       /*

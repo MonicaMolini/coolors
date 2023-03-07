@@ -38,6 +38,7 @@ body main .design__card h3 {
 }
 body main .design__card--components {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 body main .design__card--components a:nth-child(1) img {
@@ -48,6 +49,9 @@ body main .design__card--components a:nth-child(2) img {
 }
 body main .design__card--components a:nth-child(3) img {
   width: 180px;
+}
+body main .design__card--components img[src="img/footer.png"] {
+  width: 300px;
 }
 body main .design__card--thypography > div {
   display: flex;

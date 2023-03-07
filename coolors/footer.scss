@@ -1,5 +1,6 @@
 @use "variables" as v;
 
+
 .footer {
   width: 100%;
   background-color: v.$footerBackgroundColor;
@@ -54,6 +55,7 @@
       &__creator {
         color: v.$footerCreatorTextColor;
         font-size: 13px;
+        font-weight: 500;
         & > a {
           font-size: 15px;
           color: black;
