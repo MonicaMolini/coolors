@@ -6,20 +6,17 @@ $pastel-color-green: #d5f8ef;
 $pastel-color-blue: #d8f6ff;
 $pastel-color-pink: #ffe5f4;
 $pastel-color-violet: #e8e2f7;
-$pastel-color-yellow: #FDF3CE;
-$color-blue: #00AEE5;
-$color-green: #14B789;
-$color-pink: #E50087;
-$color-violet: #802FDE;
-$color-yellow: #DAAB00;
+$pastel-color-yellow: #fdf3ce;
+$color-blue: #00aee5;
+$color-green: #14b789;
+$color-pink: #e50087;
+$color-violet: #802fde;
+$color-yellow: #daab00;
 $white-button: #ffffff;
 $black-text: #000000;
 $button-hover: #005ce6;
 $border-button: #d8d8da;
 $border-button-hover: #b1b0b5;
-
-
-
 
 body {
   background-color: #72ddf7;
@@ -51,55 +48,72 @@ body {
       h3 {
         font-size: 0.8rem;
       }
-/*
+      &--components {
+        display: flex;
+        gap: 1rem;
+        a:nth-child(1) {
+          img {            
+              width: 350px;            
+          }
+        }
+        a:nth-child(2) {
+          img {            
+              width: 250px;            
+          }
+        }
+        a:nth-child(3) {
+          img {            
+              width: 180px;            
+          }
+        }
+      }
+      /*
 <div><span>Titles: </span><span class="title" onclick="copyText(JSON.stringify(this.style))">Lorem, ipsum dolor.</span></div>
 <div><span>Paragraphs: </span><span class="paragraphs">Lorem, ipsum dolor.</span></div>
 <div><span>Subheadings: </span><span class="subheadings">Lorem, ipsum dolor.</span></div>
 <div><span>Call To Actions: </span><span class="ctas">Lorem, ipsum dolor.</span></div>
 */
-      &--thypography{
-
-        &>div{
+      &--thypography {
+        & > div {
           display: flex;
-          &>span:first-child{
+          & > span:first-child {
             width: 10rem;
             font-weight: 600;
           }
-          &>span{
+          & > span {
             display: flex;
             align-items: center;
           }
         }
 
-        .title{
-          font-weight: 700; font-size: 3.125rem; line-height: 3.438rem;
+        .title {
+          font-weight: 700;
+          font-size: 3.125rem;
+          line-height: 3.438rem;
         }
-        .paragraphs{
-          font-weight: 400; font-size: 1.125rem; line-height: 1.563rem; color: rgb(70, 72, 83);
-        }
-
-        .subheadings{
-          font-weight: 700; font-size: 1.5rem; line-height: 1.5rem;
-        }
-        .ctas{
-          font-weight: 800; font-size: 1.875rem; line-height: 2.625rem;
+        .paragraphs {
+          font-weight: 400;
+          font-size: 1.125rem;
+          line-height: 1.563rem;
+          color: rgb(70, 72, 83);
         }
 
-
-
+        .subheadings {
+          font-weight: 700;
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+        .ctas {
+          font-weight: 800;
+          font-size: 1.875rem;
+          line-height: 2.625rem;
+        }
       }
 
-
-
-
-
-
-
-
       &__colors {
-        display: grid; 
+        display: grid;
         grid-template-columns: 80%;
-        justify-content: start;      
+        justify-content: start;
 
         &__color {
           display: grid;
@@ -114,208 +128,216 @@ body {
           &--1 {
             width: 5rem;
             height: 2.5rem;
-            background-color: $theme-color;            
+            background-color: $theme-color;
           }
           &--2 {
             width: 5rem;
             height: 2.5rem;
             background-color: #000000;
-            
           }
           &--3 {
             width: 5rem;
             height: 2.5rem;
             background-color: $theme-color-grey;
             p {
-                color: #000000;
-              }
-          }         
+              color: #000000;
+            }
           }
+        }
 
         &__secondary {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: auto;
-            gap: 0.5rem;
-            p {                
-                font-size: 0.6rem;
-                font-weight: 600;
-                }
-            &--1 {
-              width: 5rem;
-              height: 2.5rem;
-              background-color: $pastel-color-blue;   
-              p {
-                color: $color-blue;                  
-                }          
-               }
-            &--2 {
-              width: 5rem;
-              height: 2.5rem;
-              background-color: $pastel-color-green;    
-              p {
-                color: $color-green;                  
-                }          
-             }
-            &--3 {
-                width: 5rem;
-                height: 2.5rem;
-                background-color: $pastel-color-pink; 
-                p {
-                    color: $color-pink;                  
-                    }               
-              }
-            &--4 {
-                width: 5rem;
-                height: 2.5rem;
-                background-color: $pastel-color-violet;   
-                p {
-                    color: $color-violet;                  
-                    }             
-              }
-            &--5 {
-                width: 5rem;
-                height: 2.5rem;
-                background-color: $pastel-color-yellow;  
-                p {
-                    color: $color-yellow;                  
-                    }             
-              }
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto;
+          gap: 0.5rem;
+          p {
+            font-size: 0.6rem;
+            font-weight: 600;
+          }
+          &--1 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $pastel-color-blue;
+            p {
+              color: $color-blue;
             }
+          }
+          &--2 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $pastel-color-green;
+            p {
+              color: $color-green;
+            }
+          }
+          &--3 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $pastel-color-pink;
+            p {
+              color: $color-pink;
+            }
+          }
+          &--4 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $pastel-color-violet;
+            p {
+              color: $color-violet;
+            }
+          }
+          &--5 {
+            width: 5rem;
+            height: 2.5rem;
+            background-color: $pastel-color-yellow;
+            p {
+              color: $color-yellow;
+            }
+          }
         }
       }
-      .icon{
-        &__apple{
-            width: 2.625rem;
-            height: 3.125rem;
-        }
-        &__android{
+    }
+    .design__card__icons {
+      display: grid;
+      row-gap: 1rem;
+      .icon {
+        &__apple {
           width: 2.625rem;
           height: 3.125rem;
         }
-        &__figma{
+        &__android {
           width: 2.625rem;
           height: 3.125rem;
         }
-        &__chrome{
+        &__figma {
           width: 2.625rem;
           height: 3.125rem;
         }
-        &__adobe{
+        &__chrome {
           width: 2.625rem;
           height: 3.125rem;
         }
-        &__twitter{
-            width: 1.238rem;
-            height: 1.238rem;
+        &__adobe {
+          width: 2.625rem;
+          height: 3.125rem;
         }
-        &__twitter--blue{
+        &__twitter {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__facebook{
+        &__twitter--blue {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__facebook--blue{
+        &__facebook {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__pinterest{
+        &__facebook--blue {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__pinterest--blue{
+        &__pinterest {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__instagram{
+        &__pinterest--blue {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__instagram--blue{
+        &__instagram {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__producthunt{
+        &__instagram--blue {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__producthunt--blue{
+        &__producthunt {
           width: 1.238rem;
           height: 1.238rem;
         }
-        &__generate{
-            width: 3.438rem;
-            height: 3.438rem;
+        &__producthunt--blue {
+          width: 1.238rem;
+          height: 1.238rem;
         }
-        &__explore{
+        &__generate {
           width: 3.438rem;
           height: 3.438rem;
         }
-        &__image__picker{
+        &__explore {
           width: 3.438rem;
           height: 3.438rem;
         }
-        &__contrast__checker{
+        &__image__picker {
           width: 3.438rem;
-            height: 3.438rem;
+          height: 3.438rem;
         }
-        &__fonts{
-            width: 3.438rem;
-            height: 3.438rem;
+        &__contrast__checker {
+          width: 3.438rem;
+          height: 3.438rem;
         }
+        &__fonts {
+          width: 3.438rem;
+          height: 3.438rem;
+        }
+      }
     }
 
-    .container__buttons{
+    .container__buttons {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      width: 35rem;
-      padding: 1rem 3rem 1rem 3rem;
-      .blue__button__small, .blue__button__large, .button__small, .button__large{
+      grid-template-columns: 250px 250px; 
+      justify-items: center;  
+           
+      .blue__button__small,
+      .blue__button__large,
+      .button__small,
+      .button__large {
         display: flex;
         align-items: center;
         justify-content: center;
-        height:2.25rem;
+        height: 2.25rem;
         border-radius: 0.5rem;
         cursor: pointer;
-      }      
-      .blue__button__small, .blue__button__large{
+      }
+      .blue__button__small,
+      .blue__button__large {
         background-color: $theme-color;
-         a{
+        a {
           text-decoration: none;
           color: $white-button;
-         }
-        &:hover{
+        }
+        &:hover {
           background-color: $button-hover;
           //transition: 0.5s;
         }
       }
-  
-      .button__small, .button__large{
+
+      .button__small,
+      .button__large {
         border: 0.06rem solid $theme-color-grey;
         background-color: $white-button;
         box-sizing: border-box;
         box-shadow: $border-button 0 0 0 1px;
-        a{
+        a {
           text-decoration: none;
-          color: $black-text
+          color: $black-text;
         }
-        &:hover{
+        &:hover {
           //transition: 0.5s;
           box-shadow: $border-button-hover 0 0 0 1px;
         }
       }
-  
-      .blue__button__large, .button__large{
+
+      .blue__button__large,
+      .button__large {
         width: 16rem;
       }
-      
-      .blue__button__small, .button__small{
+
+      .blue__button__small,
+      .button__small {
         width: 4rem;
       }
-    } 
+    }
   }
 }
-

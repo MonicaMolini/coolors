@@ -8,13 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-logo.css">
+    <link rel="stylesheet" href="big-menu.css">
+    <link rel="stylesheet" href="compotents.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
 
 </head>
 
 <body>
     <script src="script.js"></script>
     <main>
-        <div class="design__card">
+        <div class="design__card design__card--logostyle">
             <h2>LOGOS</h2>
             <div class="design__card__logo">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -105,10 +109,8 @@
 		c0,0.586-0.17,1.131-0.467,1.588C101.242,20.469,100.343,21,99.319,21c-1.606,0-2.91-1.309-2.91-2.922V10.5
 		c0-5.795,4.674-10.493,10.441-10.5h0.011c-0.004,0-0.007,0-0.011,0h-0.005c0.005,0,0.011,0,0.016,0
 		c1.606,0,2.909,1.308,2.909,2.923C109.771,4.538,108.468,5.846,106.861,5.846" />
-                        <polyline fill=""
-                            points="115.004,13.115 115.004,13.115 114.999,13.105 115.004,13.115 	" />
-                        <polyline fill=""
-                            points="122.677,13.104 122.675,13.107 122.682,13.098 122.677,13.104 	" />
+                        <polyline fill="" points="115.004,13.115 115.004,13.115 114.999,13.105 115.004,13.115 	" />
+                        <polyline fill="" points="122.677,13.104 122.675,13.107 122.682,13.098 122.677,13.104 	" />
                         <polyline fill="" points="114.994,13.1 114.998,13.105 114.996,13.104 114.994,13.1 	" />
                         <path fill=""
                             d="M126.716,12.314c-0.087-0.061-0.18-0.113-0.271-0.162l-9.699-5.803c0.629-0.321,1.34-0.503,2.092-0.503
@@ -125,96 +127,113 @@
                 <p>without fill</p>
             </div>
 
-        </div>         
-        <div class="design__card design__card--thypography"> 
-            <h2>THYPOGRAPHY</h2>
-            <a href="thypography/">detailed thypography</a>
-            <div><span>Titles: </span><span class="title" onclick="copyText(JSON.stringify(this.style))">Lorem, ipsum dolor.</span></div>
-            <div><span>Call To Actions: </span><span class="ctas">Lorem, ipsum dolor.</span></div>
-            <div><span>Subheadings: </span><span class="subheadings">Lorem, ipsum dolor.</span></div>
-            <div><span>Paragraphs: </span><span class="paragraphs">Lorem, ipsum dolor.</span></div>
         </div>
-        <div class="design__card"> 
-            <h2>COMPONENTS</h2>           
+        <div class="design__card design__card--thypography">
+            <a href="thypography/" style="color: unset; text-decoration: none;">
+                <h2>THYPOGRAPHY</h2>
+            </a>
+            <div class=""></div>
+            <div><span>Titles: </span><span class="title" onclick="copyText(JSON.stringify(this.style))">The super
+                    fast</span></div>
+            <div><span>Call To Actions: </span><span class="ctas">Android App</span></div>
+            <div><span>Subheadings: </span><span class="subheadings">Tools</span></div>
+            <div><span>Paragraphs: </span><span class="paragraphs">Create the perfect palette</span></div>
         </div>
         <div class="design__card">
+            <h2>COMPONENTS</h2>
+            <div class="design__card--components">
+                <a href="coolors/big-menu.html"><img src="img/bigmenu.png" alt=""></a>
+                <a href="coolors/small-menu.html"><img src="img/smallmenu.png" alt=""></a>
+                <a href="coolors/cta-cards.html"><img src="img/card.png" alt=""></a>
+            </div>
+        </div>
+
+        </div>
+        <div class="design__card design__card--colorstyle">
             <h2>BRAND COLORS</h2>
             <div class="design__card__colors">
                 <h3>PRIMARY</h3>
                 <div class="design__card__colors__color">
                     <div class="design__card__colors__color--1">
                         <p>#0066ff</p>
-                    </div>                    
+                    </div>
                     <div class="design__card__colors__color--2">
                         <p>#000000</p>
-                    </div>                    
+                    </div>
                     <div class="design__card__colors__color--3">
                         <p>#f7f7f8</p>
-                    </div>                    
+                    </div>
                 </div>
                 <h3>SECONDARY</h3>
                 <div class="design__card__colors__secondary">
                     <div class="design__card__colors__secondary--1">
                         <p>#00AEE5</p>
-                    </div>                    
+                    </div>
                     <div class="design__card__colors__secondary--2">
                         <p>#14B789</p>
-                    </div>                    
+                    </div>
                     <div class="design__card__colors__secondary--3">
                         <p>#E50087</p>
-                    </div>  
+                    </div>
                     <div class="design__card__colors__secondary--4">
                         <p>#802FDE</p>
-                    </div> 
+                    </div>
                     <div class="design__card__colors__secondary--5">
                         <p>#DAAB00</p>
-                    </div>                   
+                    </div>
                 </div>
             </div>
 
         </div>
-        <div class="design__card">  
+        <div class="design__card">
             <h2>ICONS</h2>
             <div class="design__card__icons">
-            <img class="icon__apple" src="thypography/icons/Apple.svg">
-    <img class="icon__android" src="thypography/icons/android.svg">
-    <img class="icon__figma" src="thypography/icons/figma.svg">
-    <img class="icon__chrome" src="thypography/icons/chrome.svg">
-    <img class="icon__adobe" src="thypography/icons/adobe.svg">
-    <img class="icon__twitter" src="thypography/icons/twitter.svg">
-    <img class="icon__twitter--blue" src="thypography/icons/twitter-blue.svg">
-    <img class="icon__facebook" src="thypography/icons/facebook.svg">
-    <img class="icon__facebook--blue" src="thypography/icons/facebook-blue.svg">
-    <img class="icon__pinterest" src="thypography/icons/pinterest.svg">
-    <img class="icon__pinterest--blue" src="thypography/icons/pinterest-blue.svg">
-    <img class="icon__instagram" src="thypography/icons/instagram.svg">
-    <img class="icon__instagram--blue" src="thypography/icons/instagram-blue.svg">
-    <img class="icon__producthunt" src="thypography/icons/producthunt.svg">
-    <img class="icon__producthunt--blue" src="thypography/icons/producthunt-blue.svg">
-    <img class="icon__generate" src="thypography/icons/menu_icon_generate.svg">
-    <img class="icon__explore" src="thypography/icons/menu_icon_explore.svg">
-    <img class="icon__image__picker" src="thypography/icons/menu_icon_image_picker.svg">
-    <img class="icon__contrast__checker" src="thypography/icons/menu_icon_contrast_checker.svg">
-    <img class="icon__fonts" src="thypography/icons/menu_icon_fonts.svg">
-    </div>      
+                <div>
+                <img class="icon__apple" src="thypography/icons/Apple.svg">
+                <img class="icon__android" src="thypography/icons/android.svg">
+                <img class="icon__figma" src="thypography/icons/figma.svg">
+                <img class="icon__chrome" src="thypography/icons/chrome.svg">
+                <img class="icon__adobe" src="thypography/icons/adobe.svg">
+            </div>
+            <div>
+                <img class="icon__twitter" src="thypography/icons/twitter.svg">
+                <img class="icon__twitter--blue" src="thypography/icons/twitter-blue.svg">
+                <img class="icon__facebook" src="thypography/icons/facebook.svg">
+                <img class="icon__facebook--blue" src="thypography/icons/facebook-blue.svg">
+                <img class="icon__pinterest" src="thypography/icons/pinterest.svg">
+                <img class="icon__pinterest--blue" src="thypography/icons/pinterest-blue.svg">
+                <img class="icon__instagram" src="thypography/icons/instagram.svg">
+                <img class="icon__instagram--blue" src="thypography/icons/instagram-blue.svg">
+                <img class="icon__producthunt" src="thypography/icons/producthunt.svg">
+                <img class="icon__producthunt--blue" src="thypography/icons/producthunt-blue.svg">
+            </div>
+            <div>
+                <img class="icon__generate" src="thypography/icons/menu_icon_generate.svg">
+                <img class="icon__explore" src="thypography/icons/menu_icon_explore.svg">
+                <img class="icon__image__picker" src="thypography/icons/menu_icon_image_picker.svg">
+                <img class="icon__contrast__checker" src="thypography/icons/menu_icon_contrast_checker.svg">
+                <img class="icon__fonts" src="thypography/icons/menu_icon_fonts.svg">
+            </div>
+            </div>
         </div>
-        <div class="design__card"> 
-            <h2>BUTTON STYLES</h2>  
+        <div class="design__card design__card--buttonstyle">
+            <h2>BUTTON STYLES</h2>
             <div class="container__buttons">
                 <div class="blue__button__small">
                     <a href="#">Sing up</a>
                 </div>
                 <div class="blue__button__large">
-                  <a href="#">Blue Large Button</a>
+                    <a href="#">Start the generator!</a>
                 </div>
                 <div class="button__small">
-                  <a href="#">Button</a>
+                    <a href="#">Button</a>
                 </div>
                 <div class="button__large">
-                    <a href="#">Large Button</a>
+                    <a href="#">Explore trending palettes</a>
                 </div>
-        </div>        
-        
+            </div>
+        </div>
+
     </main>
 </body>
 
