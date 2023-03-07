@@ -284,59 +284,56 @@ body {
       }
     }
 
-    .container__buttons {
+    .container__buttons{
       display: grid;
-      grid-template-columns: 250px 250px; 
-      justify-items: center;  
-           
-      .blue__button__small,
-      .blue__button__large,
-      .button__small,
-      .button__large {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 35rem;
+      padding: 1rem 3rem 1rem 3rem;
+      .blue__button__small, .blue__button__large, .button__small, .button__large{
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 2.25rem;
+        height:2.25rem;
         border-radius: 0.5rem;
         cursor: pointer;
-      }
-      .blue__button__small,
-      .blue__button__large {
+
+      }      
+      .blue__button__small, .blue__button__large{
         background-color: $theme-color;
-        a {
+         a{
           text-decoration: none;
           color: $white-button;
-        }
-        &:hover {
+         }
+        &:hover{
           background-color: $button-hover;
           //transition: 0.5s;
         }
       }
-
-      .button__small,
-      .button__large {
+  
+      .button__small, .button__large{
         border: 0.06rem solid $theme-color-grey;
         background-color: $white-button;
-        box-sizing: border-box;
+        //box-sizing: border-box;
         box-shadow: $border-button 0 0 0 1px;
-        a {
+        a{
           text-decoration: none;
-          color: $black-text;
+          color: $black-text
         }
-        &:hover {
+        &:hover{
           //transition: 0.5s;
           box-shadow: $border-button-hover 0 0 0 1px;
         }
       }
-
-      .blue__button__large,
-      .button__large {
-        width: 16rem;
+  
+      .blue__button__large, .button__large{
+        width: 15rem;
+        height: 2.8rem;
       }
-
-      .blue__button__small,
-      .button__small {
+      
+      .blue__button__small, .button__small{
         width: 4rem;
+        padding: 0.2rem 0.55rem;
       }
     }
   }
