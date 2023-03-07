@@ -15,3 +15,7 @@ a{
 body {
   font-family: "Inter", sans-serif;
 }
+
+.badge{
+  @include h.badge()
+}
