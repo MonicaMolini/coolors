@@ -1,6 +1,9 @@
 @use "helpers" as h;
 @use "cta-card";
 @use "footer";
+@use "navbar";
+@use "big-menu";
+@use "buttons";
 
 *, *::after, *::before{
   margin: 0;
