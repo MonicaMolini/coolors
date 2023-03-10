@@ -5,69 +5,95 @@
 
 //nav__items__list__item
 
-.nav{
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: rgb(0 0 0 / 8%) 0 .0625rem;
-    //border-bottom: 0.1rem solid v.$border-button;
+.nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgb(0 0 0 / 8%) 0 0.0625rem;
+  //border-bottom: 0.1rem solid v.$border-button;
 
-    font-size: 0.938rem; line-height: 0.938rem; color: black;
-    font-variation-settings: 'wght' 500;
+  font-size: 0.938rem;
+  line-height: 0.938rem;
+  color: black;
+  font-variation-settings: "wght" 500;
 
-    &__logo{
+  &__logo {
     display: flex;
     align-items: center;
     padding-left: 2rem;
-    }
+  }
 
-    &:has(#navTools){
-        .big-menu{
-            display: block !important;
-        }
-        
-    }
+  &__items {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    &__list {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1rem;
+      cursor: pointer;
+      list-style-type: none;
+      border-right: 1px solid v.$separator;
+      height: 0.4rem;
 
-    &__items{
-        display: flex;
-        cursor: pointer;
-        align-items: center;
-        &__list{
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 1rem;
-            cursor: pointer;
-            z-index: 1;
-            list-style-type: none;
-            border-right: 1px solid v.$separator;
-            height: .4rem;
+      &:last-child {
+        border-right: none;
+      }
 
-            
+      &__item {
+        width: max-content;
+        position: relative
+        z-index -1;
 
-            &:last-child{
-                border-right: none;
+        &--big-menu {
+          display: flex;
+          margin-top: auto;
+          position: relative;
+          cursor: pointer;
+          height: auto;
+          width: auto;
+
+          &:hover {
+
+            color: red !important;
+            &  .big-menu {
+              display: flex !important;
+              
             }
-
-            &__item{
-                width: max-content;
-                
-                &--animated{
-                    color: v.$goProColor;
-                    &:hover{
-                        animation: colorRotate 3s infinite;
-                    }
-                }
-                &:hover{
-                    color: v.$theme-color
-                }
-
-            }
+          }
         }
-    }
 
-    .big-menu{
-        display: none;
+        &--animated {
+          color: v.$goProColor;
+          &:hover {
+            animation: colorRotate 3s infinite;
+          }
+        }
+
+        & > a {
+          display: flex;
+          align-items: center;
+          & > svg {
+            display: block;
+            height: 1rem;
+            width: 1rem;
+          }
+        }
+
+        &:hover {
+          color: v.$theme-color;
+        }
+      }
     }
+  }
+
+  .big-menu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+  }
 }
+

@@ -255,9 +255,6 @@ body {
   align-items: center;
   padding-left: 2rem;
 }
-.nav:has(#navTools) .big-menu {
-  display: block !important;
-}
 .nav__items {
   display: flex;
   cursor: pointer;
@@ -270,7 +267,6 @@ body {
   justify-content: space-around;
   gap: 1rem;
   cursor: pointer;
-  z-index: 1;
   list-style-type: none;
   border-right: 1px solid rgba(0, 0, 0, 0.075);
   height: 0.4rem;
@@ -280,6 +276,21 @@ body {
 }
 .nav__items__list__item {
   width: max-content;
+  position: relative z-index -1;
+}
+.nav__items__list__item--big-menu {
+  display: flex;
+  margin-top: auto;
+  position: relative;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+.nav__items__list__item--big-menu:hover {
+  color: red !important;
+}
+.nav__items__list__item--big-menu:hover .big-menu {
+  display: flex !important;
 }
 .nav__items__list__item--animated {
   color: #FF0099;
@@ -287,11 +298,23 @@ body {
 .nav__items__list__item--animated:hover {
   animation: colorRotate 3s infinite;
 }
+.nav__items__list__item > a {
+  display: flex;
+  align-items: center;
+}
+.nav__items__list__item > a > svg {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+}
 .nav__items__list__item:hover {
   color: #0066ff;
 }
 .nav .big-menu {
   display: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
 }
 
 .small-menu {
