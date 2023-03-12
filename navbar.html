@@ -105,7 +105,7 @@
             class="nav__items__list__item nav__items__list__item--big-menu"
             id="navTools">
             Tools
-            <div class="big-menu">
+            <div class="big-menu popupMenu">
               <div class="big-menu--left">
                 <ul>
                   <li>
@@ -213,6 +213,30 @@
           </li>
           <li class="nav__items__list__item nav__items__list__item--small-menu">
             Jobs
+            <div class="small-menu popupMenu">
+              <div class="small-menu--left">
+                <ul>
+                  <li>
+                    <a href="">
+                      <img src="svg\iconbag.svg" alt="" />
+                      <div>
+                        <span>Job Board</span>
+                        <span>Find your next dream job</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="svg\iconhands.svg" alt="" />
+                      <div>
+                        <span>Post a Job</span>
+                        <span>Hire talented designers worldwide</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li class="nav__items__list__item nav__items__list__item--animated">
             Go Pro
@@ -227,23 +251,15 @@
       </div>
     </nav>
 
-    <nav class="nav">
+    <nav class="nav nav--generator">
       <div class="nav__logo">
         Press the spacebar to generate color palettes!
       </div>
       <div class="nav__items">
         <ul class="nav__items__list">
-          <li
-            class="nav__items__list__item nav__items__list__item--big-menu"
-            id="navTools">
-            Tools
-          </li>
-          <li class="nav__items__list__item nav__items__list__item--small-menu">
-            Jobs
-          </li>
-          <li class="nav__items__list__item nav__items__list__item--animated">
-            Go Pro
-          </li>
+          <li class="nav__items__list__item" id="navTools">Tools</li>
+          <li class="nav__items__list__item">Jobs</li>
+          <li class="nav__items__list__item">Go Pro</li>
         </ul>
         <ul class="nav__items__list">
           <li class="nav__items__list__item">
@@ -265,9 +281,10 @@
                   <path
                     d="M2.537,33.673a2.9,2.9,0,0,1-.008-3.353C5.921,25.507,16.793,12,32,12c15.075,0,26.022,13.487,29.459,18.311a2.9,2.9,0,0,1-.008,3.373C57.992,38.5,46.96,52,32,52,16.912,52,5.955,38.481,2.537,33.673Z"></path>
                   <circle cx="32.004" cy="32" r="12" stroke="#212121"></circle>
-                </g></svg
-              >View</a
-            >
+                </g>
+              </svg>
+              View
+            </a>
           </li>
           <li class="nav__items__list__item">
             <a href="#">Export</a>
@@ -278,7 +295,7 @@
         </ul>
         <ul class="nav__items__list">
           <li class="nav__items__list__item">Sign in</li>
-          <li class="nav__items__list__item blue__button__small">
+          <li class="nav__items__list__item">
             <a href="#">Sing up</a>
           </li>
         </ul>
