@@ -275,6 +275,11 @@ body {
   border-right: 1px solid rgba(0, 0, 0, 0.075);
   height: 0.4rem;
 }
+.nav__items__list__point {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
 .nav__items__list:last-child {
   border-right: none;
 }

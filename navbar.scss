@@ -45,6 +45,11 @@
       list-style-type: none;
       border-right: 1px solid v.$separator;
       height: 0.4rem;
+      &__point{
+        display: flex;
+        justify-content: center;
+        font-weight: 600;
+      }
 
       &:last-child {
         border-right: none;
