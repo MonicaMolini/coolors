@@ -1,0 +1,130 @@
+@use "variables" as v;
+
+@keyframes colorRotate {
+  from {
+    color: #0067fb;
+  }
+  33% {
+    color: #10d100;
+  }
+  66% {
+    color: #ff003d;
+  }
+  100% {
+    color: #0067fb;
+  }
+}
+
+body {
+  main {
+    margin-top: 80px;
+    .hero__container__home {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      color: black;
+      font-family: "Inter", sans-serif;
+      padding: 0 42px;
+      margin-bottom: 200px;
+      margin-left: 200px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .hero__container__home__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 50px;
+        
+        
+        .hero__container__home__left__text {
+          h1 {
+            max-width: 500px;
+            font-weight: 900;
+            font-size: 70px;
+            line-height: 1.1em;
+            letter-spacing: -0.045em;
+            margin: 0px;
+            margin-bottom: 30px;
+            text-align: center;
+            span{
+              display: inline-block;
+            }
+          }
+          p {
+            max-width: 400px;
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.563rem;
+            color: rgb(70, 72, 83);
+            text-align: center;
+            margin: 0 48px;
+            margin-bottom: 35px;
+          }
+        }
+        .hero__container__home__left__buttons {
+          margin: 0 auto;
+          width: 260px;
+          padding: 0 24px;
+          .blue__button__large {
+            text-align: center;
+            margin-bottom: 14px;
+            a {
+              display: block;              
+              border-radius: 10px;
+              height: 46px;
+              line-height: 46px;
+              padding: 0 21px;
+              text-decoration: none;
+              color: v.$white-button;
+              
+            }
+            &:hover {
+              background-color: v.$button-hover;
+            }
+          }
+          .button__large {
+            text-align: center;
+            margin-bottom: 34px;
+            a {
+              display: block;              
+              text-decoration: none;
+              color: v.$black-text;
+              align-items: center;
+              border-radius: 10px;
+              height: 46px;
+              line-height: 46px;
+              padding: 0 21px;
+              
+            }
+            &:hover {
+              box-shadow: v.$border-button-hover 0 0 0 1px;
+            }
+          }
+        }
+
+        .hero__container__home__left__textparty {
+          font-weight: 400;
+          font-size: 0.938rem;
+          line-height: 0.938rem;          
+          animation: colorRotate 5s linear 0s infinite;
+          text-align: center;
+          svg{
+            animation: colorRotate 5s linear 0s infinite;
+          }
+        }
+      }
+      .hero__container__home__right {      
+      overflow: hidden;
+      svg{
+        width: 1100px;
+        position: absolute; 
+        height: 615px;
+        padding-left: 45px; 
+        padding-top: 15px;       
+      }
+      }
+    }
+  }
+}

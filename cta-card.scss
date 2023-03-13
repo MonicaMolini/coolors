@@ -1,0 +1,163 @@
+@use "variables" as v;
+@use "helpers" as h;
+@use "sass:map";
+
+$cta-card-colors: (
+    "background-color": "#D8F6FF",
+    "color": "#00AEE5",
+    "name": "cyan",
+  ),
+  (
+    "background-color": "#D5F8EF",
+    "color": "#14B789",
+    "name": "green",
+  ),
+  (
+    "background-color": "#FFE5F4",
+    "color": "#E50087",
+    "name": "magenta",
+  ),
+  (
+    "background-color": "#E8E2F7",
+    "color": "#802FDE",
+    "name": "purple",
+  ),
+  (
+    "background-color": "#FDF3CE",
+    "color": "#DAAB00",
+    "name": "yellow",
+  );
+
+$cta-card-logos: (
+    "name": "apple",
+    "url": "icons/Apple.svg",
+  ),
+  (
+    "name": "android",
+    "url": "icons/android.svg",
+  ),
+  (
+    "name": "figma",
+    "url": "icons/figma.svg",
+  ),
+  (
+    "name": "chrome",
+    "url": "icons/chrome.svg",
+  ),
+  (
+    "name": "adobe",
+    "url": "icons/adobe.svg",
+  );
+
+@mixin cta-card-transition {
+  $transitionRule: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.25s ease;
+  transition: $transitionRule;
+  & > * {
+    transition: $transitionRule;
+
+    & > *{
+      transition: $transitionRule;
+    }
+  }
+}
+
+body{
+  font-family: inter, 'sans-serif';
+}
+
+.cta-card {
+  background-color: v.$ctaCardBackgroundColor;
+  height: 312px;
+  width: 445px;
+  border-radius: calc(1rem - 2px);
+  overflow: hidden;
+  cursor: pointer;
+  &__contents {
+    @include cta-card-transition();
+
+    &>.badge{
+      @include h.badge(){
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 15%;
+    & > * {
+      text-align: center;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    &__paragraph {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.7em;
+      color: rgb(70, 72, 83);
+    }
+
+    &__image {
+      height: 3.125rem;
+      width: 2.625rem;
+      margin-bottom: 1.875rem;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @each $logo in $cta-card-logos {
+      &[logo="#{map.get($logo, 'name')}"] > .cta-card__contents__image {
+        background-image: url('#{map.get($logo, "url")}');
+      }
+    }
+
+    @each $colors in $cta-card-colors {
+      &[color="#{map.get($colors, 'name')}"] > .cta-card__contents__cta {
+        color: #{map.get($colors, "color")};
+      }
+
+      &:hover {
+        &[color="#{map.get($colors, 'name')}"]{
+          background-color: #{map.get($colors, "background-color")};
+        }
+      }
+    }
+
+    &__cta {
+      font-weight: 800;
+      font-size: 1.875rem;
+      line-height: 2.625rem;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15%;
+      display: grid;
+      place-items: center;
+      box-sizing: border-box;
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    &:hover {
+      & > * {
+        opacity: 0;
+      }
+      & > .cta-card__contents__cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
