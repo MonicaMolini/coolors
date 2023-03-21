@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20">
+  <title>Risorsa 14icon12</title>
+  <g id="Livello_2" data-name="Livello 2">
+    <g id="Livello_1-2" data-name="Livello 1">
+      <path d="M21.9,14.2v3.7H15.1V14.2h6.8m.7-2.1H14.4A1.4,1.4,0,0,0,13,13.5v5.1A1.4,1.4,0,0,0,14.4,20h8.2A1.4,1.4,0,0,0,24,18.6V13.5a1.4,1.4,0,0,0-1.4-1.4Z"/>
+      <path d="M8.7,14.2v3.7H2.1V14.2H8.7m.7-2.1h-8A1.4,1.4,0,0,0,0,13.5v5.1A1.4,1.4,0,0,0,1.4,20h8a1.4,1.4,0,0,0,1.4-1.4V13.5a1.4,1.4,0,0,0-1.4-1.4Z"/>
+      <polyline points="15.9 1.1 18.2 1.1 22.5 12.1 22.2 12.1 1.7 12.1 1.4 12.1 5.1 1 7.4 1.1" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+    </g>
+  </g>
+</svg>

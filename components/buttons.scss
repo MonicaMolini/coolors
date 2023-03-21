@@ -1,0 +1,56 @@
+@use "variables" as v;
+@use "sass:color";
+
+.blue__button__small,
+.blue__button__large,
+.button__small,
+.button__large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //height: 1.95rem;
+  height: 2.25rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+.blue__button__small,
+.blue__button__large {
+  background-color: v.$theme-color;
+  a {
+
+    text-decoration: none;
+    color: v.$white-button;
+  }
+  &:hover {
+    background-color: v.$button-hover;
+    //transition: 0.5s;
+  }
+}
+
+.button__small,
+.button__large {
+  border: 0.06rem solid v.$theme-color-grey;
+  background-color: v.$white-button;
+  //box-sizing: border-box;
+  box-shadow: v.$border-button 0 0 0 1px;
+  a {
+    text-decoration: none;
+    color: v.$black-text;
+  }
+  &:hover {
+    //transition: 0.5s;
+    box-shadow: v.$border-button-hover 0 0 0 1px;
+  }
+}
+
+.blue__button__large,
+.button__large {
+  width: 15rem;
+  height: 2.8rem;
+}
+
+.blue__button__small,
+.button__small {
+  width: 4rem;
+  padding: 0rem 0.55rem;
+}

@@ -1,0 +1,97 @@
+  .generator {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: calc(100vh - 120px);
+    overflow: hidden;
+
+    &__palette {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 80px;
+      gap: 2rem;
+      &:hover {
+        justify-content: space-between;
+        .generator_color_container {
+          display: flex;
+          height: 100vh;
+          align-items: flex-end;
+          .generator_color_btns {
+            display: flex;
+          }
+        }
+      }
+      .generator_color {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &_hex {
+          color: #000000;
+          font-size: 30px;
+          padding: 10px;
+          font-weight: 500;
+          cursor: pointer;
+          font-family: "Inter", sans-serif;
+          text-align: center;
+          text-transform: uppercase;          
+          letter-spacing: 0.03em;
+          white-space: nowrap;
+          transform: scaleY(0.8) scaleX(0.8);
+          &:hover {
+            display: flex;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.1s;
+            max-height: 40px;
+            border-radius: 10px;
+            padding-inline: 12px;
+            background: rgba(0, 0, 0, 0.05);
+          }
+        }
+        &_color-info {
+          color: #000000;
+          opacity: 0.6;
+          font-size: 11.2px;
+          width: 100%;
+          text-align: center;
+          padding: 0 10px;
+          letter-spacing: 0.04em;
+          line-height: 14px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+      .generator_color_container {
+        .generator_color_btns {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 300px;
+          min-height: 200px;
+          width: 40px;
+          flex-direction: column;
+          display: none;
+
+          div {
+            display: flex;
+            flex-grow: 1;
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.1s;
+            max-height: 40px;
+            border-radius: 10px;
+            max-height: 30px;
+            max-width: 40px;
+            padding: 10px 12px;
+
+            img {
+              width: 18px;
+            }
+            &:hover {
+              background: rgba(0, 0, 0, 0.05);
+            }
+          }
+        }
+      }
+    }
+  }
+

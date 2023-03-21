@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Design system - LOGO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+      rel="stylesheet" />    
+    <link rel="stylesheet" href="components.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap"
+      rel="stylesheet" />
+    <script src="ntc.js"></script>
+    <script src="palette-generator.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__logo">
+          <a href="homepage.html">
+          <img src="./svg/logocolors.svg" alt="">
+          </a>
+      </div>
+      <div class="nav__items">
+          <ul class="nav__items__list">
+              <li class="nav__items__list__item nav__items__list__item--big-menu" id="navTools">
+                  Tools
+                  <div class="big-menu popupMenu">
+                      <div class="big-menu--left">
+                          <ul>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\menu_icon_generate.svg" alt="" />
+                                      <div>
+                                          <span>Palette Generator</span>
+                                          <span>Create your palettes in seconds</span>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\menu_icon_explore.svg" alt="" />
+                                      <div>
+                                          <span>Explore Palettes</span>
+                                          <span>Browse millions of trending color schemes</span>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\menu_icon_image_picker.svg" alt="" />
+                                      <div>
+                                          <span>Image Picker</span>
+                                          <span>Get beautiful palettes from your photos</span>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\menu_icon_contrast_checker.svg" alt="" />
+                                      <div>
+                                          <span>Contrast Checker</span>
+                                          <span>Check the contrast between two colors</span>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\menu_icon_fonts.svg" alt="" />
+                                      <div>
+                                          <span>Fonts
+                                              <div class="badge badge--violet _m-l-1">
+                                                  New
+                                              </div>
+                                          </span>
+                                          <span>Browse and collect free fonts</span>
+                                      </div>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="big-menu--right">
+                          <ul>
+                              <li>
+                                  <a class="link link--black" href="">List of colors<span
+                                          class="badge badge--orange">New</span></a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Browse Gradient</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Create a Gradient</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Make a Gradient Palette</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Color Picker</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Collage Maker</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Image Converter</a>
+                              </li>
+                              <li>
+                                  <div>Apps</div>
+                              </li>
+                              <li><a class="link link--black" href="">iOS App</a></li>
+                              <li><a class="link link--black" href="">Android App</a></li>
+                              <li>
+                                  <a class="link link--black" href="">Figma Plugin</a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Adobe Extension<span
+                                          class="badge badge--pink">New</span></a>
+                              </li>
+                              <li>
+                                  <a class="link link--black" href="">Instagram Page</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </li>
+              <li class="nav__items__list__item nav__items__list__item--small-menu">
+                  Jobs
+                  <div class="small-menu popupMenu">
+                      <div class="small-menu--left">
+                          <ul>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\iconbag.svg" alt="" />
+                                      <div>
+                                          <span>Job Board</span>
+                                          <span>Find your next dream job</span>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="">
+                                      <img src="svg\iconhands.svg" alt="" />
+                                      <div>
+                                          <span>Post a Job</span>
+                                          <span>Hire talented designers worldwide</span>
+                                      </div>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </li>
+              <li class="nav__items__list__item nav__items__list__item--animated">
+                  Go Pro
+              </li>
+          </ul>
+          <ul class="nav__items__list">
+              <li class="nav__items__list__item">Sign in</li>
+              <li class="nav__items__list__item blue__button__small">
+                  <a href="#">Sing up</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+    <main>
+      <div class="hero__container__home">
+        <div class="hero__container__home__left">
+          <div class="hero__container__home__left__text">
+            <h1>The super <span>fast</span> color palettes generator!</h1>
+            <p>
+              Create the perfect palette or get inspired by thousands of
+              beautiful color schemes.
+            </p>
+          </div>
+          <div class="hero__container__home__left__buttons">
+            <div class="blue__button__large">
+              <a href="generator.html">Start the generator!</a>
+            </div>
+            <div class="button__large">
+              <a href="#">Explore trending palettes</a>
+            </div>
+            <div class="hero__container__home__left__textparty">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 34.1 34.2">
+                <title>Risorsa 1iconparty</title>
+                <g id="Livello_2" data-name="Livello 2">
+                  <g id="Livello_1-2" data-name="Livello 1">
+                    <g>
+                      <path
+                        d="M26.5,25.4l-25,8.8C-.2,33-.3,33,.4,31.1c2-6,4.1-11.9,6.2-17.9.7-1.9,1.5-3.9,2.1-5.6Zm-7.4-5.6-.2-.5-.3.3.5.2a18,18,0,0,0,2,6.2c.9-1,2.1-.6,2.8-1.7C22.4,22.8,21.1,20.9,19.1,19.8ZM9.7,10a3.9,3.9,0,0,0-.4,4l4.1,12.3c.2.6.2,1.4,1.2,1.7s3.1-.8,4.7-1.9l-3.2-9.3a3.6,3.6,0,0,0-1-1.4C13.4,13.6,11.6,11.9,9.7,10ZM8,14.8c-2.3,4.5-4,8.7-1.5,13.4a15.7,15.7,0,0,1,.9,2.3c1.7-.6,3.6-.9,5.1-2.1Zm-2.1,16c-.8-1.6-.8-3.4-2.1-5L1.5,32.5A13,13,0,0,0,5.9,30.8Z" />
+                      <path
+                        d="M34,9v1.4l-.5.3c-2.1,0-3,1-3.4,3S28.3,18,25.8,18c-.4,0-.6-.1-.7-.4s0-.7.3-.8c2.1-.4,3.1-1.6,3.4-3.9S30.5,9.5,34,9Z" />
+                      <path
+                        d="M23.3,0h1.5c.1.3.2.4.2.6-.3,2.7-1.6,4.5-4.4,4.7a3.6,3.6,0,0,0-3.2,2.3c-.2.5.1,1.1-.7,1.3S16,8.6,16,8a4.2,4.2,0,0,1,4-4.1C22.3,3.6,23.5,2.6,23.3,0Z" />
+                      <path
+                        d="M33,3.8a2.6,2.6,0,0,1-2.6,3A2.7,2.7,0,0,1,27.3,4a2.8,2.8,0,0,1,2.9-3A2.7,2.7,0,0,1,33,3.8ZM30.2,2.4a1.5,1.5,0,0,0-1.5,1.5,1.5,1.5,0,0,0,3,0A1.5,1.5,0,0,0,30.2,2.4Z" />
+                      <path
+                        d="M21.1,13.9l-.7-.7c-.1-.9,4-4.7,5.6-5.4C26,9.4,26,9.4,21.1,13.9Z" />
+                      <path
+                        d="M28.4,22.7a1.2,1.2,0,0,1-.4-1.1c3.5-2,3.9-2.1,5.3-1A13.3,13.3,0,0,1,28.4,22.7Z" />
+                      <path
+                        d="M11.2,5.5,13.3.8c1.2,1,1.2,1-.6,5.2A1.2,1.2,0,0,1,11.2,5.5Z" />
+                      <path d="M19.1,19.8l-.5-.2.3-.3.2.5Z" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              We are 4 million users!
+            </div>
+          </div>
+        </div>
+        <!--<div class="hero__container__home__right">
+                <img src="svg/homePageHero.svg">
+
+            </div>-->
+        <script src="./js/home-svg.js"></script>
+      </div>
+      <div class="cardsContainer">
+        <cta-card
+          color="cyan"
+          logo="apple"
+          title="iOS App"
+          description="Create, browse and save palettes on the go."
+          cta="View on the App Store"></cta-card>
+          
+        <cta-card
+          color="green"
+          logo="android"
+          title="Android App"
+          description="Thousands of palettes in your pocket."
+          cta="View on the Play Store"></cta-card>
+        <cta-card
+          color="magenta"
+          logo="figma"
+          title="Figma Plugin"
+          description="All palettes in your workspace."
+          cta="Install now"
+          ></cta-card>
+        <cta-card
+          color="purple"
+          logo="chrome"
+          title="Chrome Extension"
+          description="Get and edit a palette every new tab."
+          cta="Add to Chrome"
+          ></cta-card>
+        <cta-card
+          color="yellow"
+          logo="adobe"
+          title="Adobe Extension"
+          description="Use Coolors with your favorite tools"
+          cta="Download"
+          badge="true"></cta-card>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="footer__container">
+          <div class="footer__container__links">
+            <ul class="footer__container__links__column">
+              <li class="footer__container__links__column__item--title">
+                <a href="#">Tools</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Generate your palettes</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Explore popular palettes</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Extract palette from image</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Contrast checker</a>
+              </li>
+              <li classu="footer__container__links__column__item--paragraph">
+                <a href="#">Change image colors</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Color picker</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Browse free fonts</a>
+              </li>
+            </ul>
+            <ul class="footer__container__links__column">
+              <li class="footer__container__links__column__item--title">
+                More
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#"
+                  >List of colors
+                  <div class="badge badge--orange _m-l-1">New</div></a
+                >
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Browse gradients</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Create a gradient</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Make a gradient palette</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Image converter</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Create a collage</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Font Generator</a>
+              </li>
+            </ul>
+            <ul class="footer__container__links__column">
+              <li class="footer__container__links__column__item--title">
+                Jobs
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Find your next job</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Post a job</a>
+              </li>
+              <li class="footer__container__links__column__item--title">
+                Apps
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">iOS App</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Andorid App</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Figma Plugin</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#"
+                  >Adobe Extension
+                  <div class="badge badge--pink _m-l-1">New</div></a
+                >
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Chrome Extension</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Instagram Page</a>
+              </li>
+            </ul>
+            <ul class="footer__container__links__column">
+              <li class="footer__container__links__column__item--title">
+                Company
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Pricing</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Terms of service</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Privacy policy</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Cookie policy</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Manage cookies</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Help center</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Advertise</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Affiliate</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Contact</a>
+              </li>
+              <li class="footer__container__links__column__item--paragraph">
+                <a href="#">Wall of Love</a>
+              </li>
+            </ul>
+          </div>
+          <hr />
+          <div class="footer__container__credits">
+            <div class="footer__container__credits__creator">
+              © Coolors by <a href="#">Fabrizio Bianchi</a>. From a creative to
+              all the others
+            </div>
+            <img class="footer__container__credits__charityWebsite" src="assets/for_the_planet.png" />
+            <div class="footer__container__credits__socials">
+              <img src="./icons/twitter.svg" alt="">
+              <img src="./icons/facebook.svg" alt="">
+              <img src="./icons/pinterest.svg" alt="">
+             <img src="./icons/instagram.svg" alt="">
+              <img src="./icons/producthunt.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      class CtaCard extends HTMLElement {
+        constructor() {
+          super();
+          this.innerHTML = this.getEl();
+        }
+
+        get html() {
+          return `
+      <div class="cta-card"><div class="cta-card__contents" color="${this.getAttribute(
+        "color"
+      )}" logo="${this.getAttribute("logo")}">
+          ${
+            this.getAttribute("badge") === "true"
+              ? '<div class="badge badge--pink _m-l-1">New</div>'
+              : ""
+          }
+          <div class="cta-card__contents__image"></div>
+          <h3 class="cta-card__contents__title">${this.getAttribute(
+            "title"
+          )}</h3>
+          <p class="cta-card__contents__paragraph">
+            ${this.getAttribute("description")}
+          </p>
+          <div class="cta-card__contents__cta">
+            <span>${this.getAttribute("cta")}</span>
+          </div>
+        </div>
+      </div>`;
+        }
+
+        getEl() {
+          return (document.createElement("template").innerHTML = this.html);
+        }
+      }
+      window.customElements.define("cta-card", CtaCard);
+    </script>
+  </body>
+</html>
