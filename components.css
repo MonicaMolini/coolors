@@ -849,7 +849,7 @@ body {
 }
 body main .hero__container__home {
   display: inline-grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 35% 55%;
   width: 100%;
   color: black;
   font-family: "Inter", sans-serif;
