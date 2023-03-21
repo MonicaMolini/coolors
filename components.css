@@ -848,7 +848,8 @@ body {
   overflow-x: hidden;
 }
 body main .hero__container__home {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: 40% 60%;
   width: 100%;
   color: black;
   font-family: "Inter", sans-serif;

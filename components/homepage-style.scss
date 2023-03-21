@@ -42,7 +42,8 @@ body {
   overflow-x: hidden;
   main {
     .hero__container__home {
-      display: inline-flex;
+      display: inline-grid;
+      grid-template-columns: 40% 60%;
       width: 100%;
       //grid-template-columns: 500px 1fr;
       color: black;
