@@ -56,8 +56,9 @@ body {
         color: black;
       }
       .hero__container__home__left {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        //min-width: 100% ;
+        grid-template-columns: 100%;
         justify-content: center;
         padding-top: 50px;
 
@@ -72,7 +73,7 @@ body {
             margin-bottom: 30px;
             text-align: center;
             span {
-              display: inline-block;
+              display: inline;
             }
           }
           p {
@@ -94,7 +95,7 @@ body {
             text-align: center;
             margin-bottom: 14px;
             a {
-              display: block;
+              //display: block;
               border-radius: 10px;
               height: 46px;
               line-height: 46px;
@@ -110,7 +111,7 @@ body {
             text-align: center;
             margin-bottom: 34px;
             a {
-              display: block;
+              //display: block;
               text-decoration: none;
               color: v.$black-text;
               align-items: center;
@@ -144,7 +145,7 @@ body {
       }
       .hero__container__home__right {
         overflow-x: hidden;
-        min-width: 1000px;
+        min-width: 120%;
         //transform: scale(1);
         //transform-origin: left;
         padding-top: 50px;

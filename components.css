@@ -861,8 +861,8 @@ body main .hero__container__home a {
   color: black;
 }
 body main .hero__container__home .hero__container__home__left {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 100%;
   justify-content: center;
   padding-top: 50px;
 }
@@ -877,7 +877,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   text-align: center;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 span {
-  display: inline-block;
+  display: inline;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text p {
   max-width: 400px;
@@ -899,7 +899,6 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   margin-bottom: 14px;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .blue__button__large a {
-  display: block;
   border-radius: 10px;
   height: 46px;
   line-height: 46px;
@@ -915,7 +914,6 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   margin-bottom: 34px;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .button__large a {
-  display: block;
   text-decoration: none;
   color: #000000;
   align-items: center;
@@ -944,7 +942,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
 }
 body main .hero__container__home .hero__container__home__right {
   overflow-x: hidden;
-  min-width: 1000px;
+  min-width: 120%;
   padding-top: 50px;
   padding-left: 50px;
   /*@media (max-width: 1700px) {
