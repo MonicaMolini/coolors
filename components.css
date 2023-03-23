@@ -741,6 +741,28 @@ body {
 .generator__palette:hover .generator_color_container .generator_color_btns {
   display: flex;
 }
+.generator__palette .generator_color_multicompare {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+}
+.generator__palette .generator_color_multicompare .generator_color_multicompare_inner {
+  height: 100%;
+}
+.generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch {
+  width: 100%;
+  line-height: 1;
+  min-height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch .dot {
+  width: 18px;
+}
 .generator__palette .generator_color {
   display: flex;
   flex-direction: column;
@@ -848,9 +870,7 @@ body {
   overflow-x: hidden;
 }
 body main .hero__container__home {
-  display: inline-grid;
-  grid-template-columns: 35% 55%;
-  width: 100%;
+  display: inline-flex;
   color: black;
   font-family: "Inter", sans-serif;
   padding: 100px 42px;
@@ -861,8 +881,8 @@ body main .hero__container__home a {
   color: black;
 }
 body main .hero__container__home .hero__container__home__left {
-  display: grid;
-  grid-template-columns: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   padding-top: 50px;
 }
@@ -877,7 +897,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   text-align: center;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 span {
-  display: inline;
+  display: inline-block;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text p {
   max-width: 400px;
@@ -899,6 +919,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   margin-bottom: 14px;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .blue__button__large a {
+  display: block;
   border-radius: 10px;
   height: 46px;
   line-height: 46px;
@@ -914,6 +935,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
   margin-bottom: 34px;
 }
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .button__large a {
+  display: block;
   text-decoration: none;
   color: #000000;
   align-items: center;
@@ -942,7 +964,7 @@ body main .hero__container__home .hero__container__home__left .hero__container__
 }
 body main .hero__container__home .hero__container__home__right {
   overflow-x: hidden;
-  min-width: 120%;
+  min-width: 1000px;
   padding-top: 50px;
   padding-left: 50px;
   /*@media (max-width: 1700px) {
