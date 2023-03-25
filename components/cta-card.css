@@ -1,0 +1,192 @@
+@keyframes colorRotate {
+  from {
+    color: #0067fb;
+  }
+  33% {
+    color: #10d100;
+  }
+  66% {
+    color: #ff003d;
+  }
+  100% {
+    color: #0067fb;
+  }
+}
+body {
+  font-family: inter, "sans-serif";
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 88.5rem;
+  margin-inline: auto;
+  gap: 1rem;
+  margin-bottom: 6.25rem;
+}
+.cardsContainer > * {
+  flex: 1;
+}
+
+@media screen and (max-width: 990px) and (min-width: 971px) {
+  .cardsContainer > * {
+    min-width: 18.75rem;
+  }
+}
+@media screen and (max-width: 970px) and (min-width: 768px) {
+  .cardsContainer > * {
+    min-width: 21.875rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cardsContainer > * {
+    min-width: 100%;
+  }
+}
+.cta-card {
+  background-color: #f7f7f8;
+  height: 100%;
+  border-radius: calc(1rem - 2px);
+  overflow: hidden;
+  cursor: pointer;
+}
+.cta-card__contents {
+  transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.25s ease;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 15%;
+}
+.cta-card__contents > * {
+  transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.25s ease;
+}
+.cta-card__contents > * > * {
+  transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.25s ease;
+}
+.cta-card__contents > .badge {
+  text-transform: uppercase;
+  font-variation-settings: "wght" 700;
+  font-size: 10px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  line-height: 1em;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-left: 10px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.cta-card__contents > .badge--orange {
+  background-color: #fff2e7;
+  color: #cc660a;
+}
+.cta-card__contents > .badge--pink {
+  background-color: #ffe5f4;
+  color: #cc0078;
+}
+.cta-card__contents > .badge--violet {
+  background-color: #e8e2f7;
+  color: #722ac5;
+}
+.cta-card__contents > * {
+  text-align: center;
+}
+.cta-card__contents__title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.25rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+}
+.cta-card__contents__paragraph {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7em;
+  color: rgb(70, 72, 83);
+}
+.cta-card__contents__image {
+  height: 3.125rem;
+  width: 2.625rem;
+  margin-bottom: 1.875rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cta-card__contents[logo=apple] > .cta-card__contents__image {
+  background-image: url("icons/Apple.svg");
+}
+.cta-card__contents[logo=android] > .cta-card__contents__image {
+  background-image: url("icons/android.svg");
+}
+.cta-card__contents[logo=figma] > .cta-card__contents__image {
+  background-image: url("icons/figma.svg");
+}
+.cta-card__contents[logo=chrome] > .cta-card__contents__image {
+  background-image: url("icons/chrome.svg");
+}
+.cta-card__contents[logo=adobe] > .cta-card__contents__image {
+  background-image: url("icons/adobe.svg");
+}
+.cta-card__contents[color=cyan] > .cta-card__contents__cta {
+  color: #00AEE5;
+}
+.cta-card__contents:hover[color=cyan] {
+  background-color: #D8F6FF;
+}
+.cta-card__contents[color=green] > .cta-card__contents__cta {
+  color: #14B789;
+}
+.cta-card__contents:hover[color=green] {
+  background-color: #D5F8EF;
+}
+.cta-card__contents[color=magenta] > .cta-card__contents__cta {
+  color: #E50087;
+}
+.cta-card__contents:hover[color=magenta] {
+  background-color: #FFE5F4;
+}
+.cta-card__contents[color=purple] > .cta-card__contents__cta {
+  color: #802FDE;
+}
+.cta-card__contents:hover[color=purple] {
+  background-color: #E8E2F7;
+}
+.cta-card__contents[color=yellow] > .cta-card__contents__cta {
+  color: #DAAB00;
+}
+.cta-card__contents:hover[color=yellow] {
+  background-color: #FDF3CE;
+}
+.cta-card__contents__cta {
+  font-weight: 800;
+  font-size: 1.875rem;
+  line-height: 2.625rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15%;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.cta-card__contents:hover > * {
+  opacity: 0;
+}
+.cta-card__contents:hover > .cta-card__contents__cta {
+  opacity: 1;
+  transform: translateY(0);
+}

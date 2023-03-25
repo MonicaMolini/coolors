@@ -1,0 +1,195 @@
+@keyframes colorRotate {
+  from {
+    color: #0067fb;
+  }
+  33% {
+    color: #10d100;
+  }
+  66% {
+    color: #ff003d;
+  }
+  100% {
+    color: #0067fb;
+  }
+}
+@keyframes colorRotateSvg {
+  from {
+    fill: #0067fb;
+  }
+  33% {
+    fill: #10d100;
+  }
+  66% {
+    fill: #ff003d;
+  }
+  100% {
+    fill: #0067fb;
+  }
+}
+@keyframes homepage_hero_palettes {
+  from {
+    y: -30px;
+  }
+  to {
+    y: -1541px;
+  }
+}
+body {
+  overflow-x: hidden;
+}
+body main .hero__container__home {
+  display: inline-grid;
+  grid-template-columns: 35% 55%;
+  width: 100%;
+  color: black;
+  font-family: "Inter", sans-serif;
+  padding: 100px 42px;
+  overflow-x: hidden;
+}
+body main .hero__container__home a {
+  text-decoration: none;
+  color: black;
+}
+body main .hero__container__home .hero__container__home__left {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  padding-top: 50px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 {
+  max-width: 500px;
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 1.1em;
+  letter-spacing: -0.045em;
+  margin: 0px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 span {
+  display: inline;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__text p {
+  max-width: 400px;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.563rem;
+  color: rgb(70, 72, 83);
+  text-align: center;
+  margin: 0 48px;
+  margin-bottom: 35px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons {
+  margin: 0 auto;
+  width: 260px;
+  padding: 0 24px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .blue__button__large {
+  text-align: center;
+  margin-bottom: 14px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .blue__button__large a {
+  border-radius: 10px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 21px;
+  text-decoration: none;
+  color: #ffffff;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .blue__button__large:hover {
+  background-color: #005ce6;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .button__large {
+  text-align: center;
+  margin-bottom: 34px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .button__large a {
+  text-decoration: none;
+  color: #000000;
+  align-items: center;
+  border-radius: 10px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 21px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__buttons .button__large:hover {
+  box-shadow: #b1b0b5 0 0 0 1px;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__textparty {
+  display: flex;
+  font-weight: 400;
+  font-size: 0.938rem;
+  line-height: 0.938rem;
+  animation: colorRotate 5s linear 0s infinite;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+}
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__textparty svg {
+  animation: colorRotateSvg 5s linear 0s infinite;
+}
+body main .hero__container__home .hero__container__home__right {
+  overflow-x: hidden;
+  min-width: 120%;
+  padding-top: 50px;
+  padding-left: 50px;
+  /*@media (max-width: 1700px) {
+    transform: scale(1.1);
+  }
+  @media (max-width: 1600px) {
+    transform: scale(1.1);
+  }
+  @media (max-width: 1500px) {
+    transform: scale(1.1);
+  }*/
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generator-laptop * {
+  transition: all 0.1s ease;
+}
+body main .hero__container__home .hero__container__home__right svg:hover {
+  cursor: pointer;
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-palettes {
+  overflow: hidden;
+  animation: homepage_hero_palettes 30s linear infinite;
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn:hover #homepage_hero-generate-btn-text,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn:hover #homepage_hero-generate-btn-text {
+  transform: scale(1.2);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn:hover #homepage_hero-generate-btn-arrow,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn:hover #homepage_hero-generate-btn-arrow {
+  transform: rotate(15deg);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn:hover #homepage_hero-explore-btn-text,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn:hover #homepage_hero-explore-btn-text {
+  transform: scale(1.2);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn:hover #homepage_hero-explore-btn-arrow,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn:hover #homepage_hero-explore-btn-arrow {
+  transform: rotate(-15deg);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn #homepage_hero-generate-btn-text,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn #homepage_hero-generate-btn-text {
+  transform-origin: 110px 184px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn #homepage_hero-generate-btn-arrow,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn #homepage_hero-generate-btn-arrow {
+  transform-origin: 172px 214px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn #homepage_hero-explore-btn-text,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn #homepage_hero-explore-btn-text {
+  transform-origin: 198px 75px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-generate-btn #homepage_hero-explore-btn-arrow,
+body main .hero__container__home .hero__container__home__right svg #homepage_hero-explore-btn #homepage_hero-explore-btn-arrow {
+  transform-origin: 248px 88px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

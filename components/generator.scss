@@ -1,16 +1,77 @@
 .generator {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: calc(100vh - 120px);
+  display: flex;
+  
+  height: calc(100vh - 120px);
   overflow: hidden;
 
   &__palette {
+    flex: 1;
+
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 80px;
     gap: 2rem;
+
+    &__addBar {
+      background-color: transparent;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      width: 3.125rem;
+      color: black;
+      z-index: 1;
+      &--right {
+        right: 0;
+        & > .generator__palette__addBar__addButton{
+          right: -50%;
+          transform: translate(10%, -50%);
+        }
+      }
+      &--left {
+        left: 0;
+         & > .generator__palette__addBar__addButton{
+          left: -50%;
+          transform: translate(10%, -50%);
+         }
+      }
+
+      &:hover{
+        & > .generator__palette__addBar__addButton{
+          display: grid;
+        }
+      }
+
+      &__addButton{
+        display: none;
+        height: 2.625rem;
+        width: 2.625rem;
+        background-color: white;
+        border-radius: 50%;
+        
+        place-items: center;
+        position: relative;
+        top: 50%;
+        
+        & > span{
+          font-size: 2rem;
+          font-weight: 100;
+          display: block;
+          height: 70%;
+          width: 70%;
+          text-align: center;
+          line-height: 70%;
+          border-radius: 50%;
+          
+          &:hover{
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
 
     &:hover {
       justify-content: space-between;
@@ -39,8 +100,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          .dot{
-            width: 18px;           
+          .dot {
+            width: 18px;
           }
         }
       }
@@ -50,7 +111,7 @@
       flex-direction: column;
       align-items: center;
       &_hex {
-        color: #000000;
+        //color: #000000;
         font-size: 30px;
         padding: 10px;
         font-weight: 500;
@@ -72,7 +133,7 @@
         }
       }
       &_color-info {
-        color: #000000;
+        //color: #000000;
         opacity: 0.6;
         font-size: 11.2px;
         width: 100%;
@@ -106,8 +167,13 @@
           max-width: 40px;
           padding: 10px 12px;
 
-          img {
+          svg {
             width: 18px;
+            height: 18px;
+            /** {
+              fill: currentColor !important;
+              stroke: currentColor !important;
+            }*/
           }
           &:hover {
             background: rgba(0, 0, 0, 0.05);

@@ -1,0 +1,115 @@
+@keyframes colorRotate {
+  from {
+    color: #0067fb;
+  }
+  33% {
+    color: #10d100;
+  }
+  66% {
+    color: #ff003d;
+  }
+  100% {
+    color: #0067fb;
+  }
+}
+.nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0.0625rem;
+  font-size: 0.938rem;
+  line-height: 0.938rem;
+  color: black;
+  font-variation-settings: "wght" 500;
+}
+.nav__logo {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+.nav--generator .nav__items__list__item {
+  padding-inline: 0.75rem;
+}
+.nav--generator .nav__items__list__item a {
+  display: flex;
+  gap: 10px;
+}
+.nav--generator .nav__items__list__item img {
+  width: 18px;
+}
+.nav--generator .nav__items__list__item:hover {
+  color: black;
+  background-color: #f2f2f3;
+}
+.nav__items {
+  display: flex;
+  align-items: center;
+}
+.nav__items__list {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.075);
+  height: 0.4rem;
+}
+.nav__items__list__point {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+.nav__items__list:last-child {
+  border-right: none;
+}
+.nav__items__list__item {
+  width: -moz-max-content;
+  width: max-content;
+  position: relative z-index -1;
+  cursor: pointer;
+  border-radius: 0.625rem;
+  height: 2.2rem;
+  padding-inline: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+.nav__items__list__item--big-menu, .nav__items__list__item--small-menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+.nav__items__list__item--big-menu:hover, .nav__items__list__item--small-menu:hover {
+  height: 3rem;
+}
+.nav__items__list__item--big-menu:hover .popupMenu, .nav__items__list__item--small-menu:hover .popupMenu {
+  display: flex !important;
+  right: 0;
+  top: 3rem;
+}
+.nav__items__list__item--animated {
+  color: #FF0099;
+}
+.nav__items__list__item--animated:hover {
+  animation: colorRotate 3s infinite;
+}
+.nav__items__list__item > a {
+  display: flex;
+  align-items: center;
+}
+.nav__items__list__item > a > svg {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+}
+.nav__items__list__item:hover {
+  color: #0066ff;
+}
+.nav .popupMenu {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+}

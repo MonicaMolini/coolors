@@ -3506,6 +3506,7 @@ function hexToHSL(H) {
 const maxPaletteDiv = 10;
 
 hsl = []
+/*
 
 async function construtor() {
   let palette = document.getElementsByClassName("generator__palette");
@@ -3531,7 +3532,7 @@ window.addEventListener("keypress", (e) => {
     construtor();
   }
 });
-
+*/
 
 
 
