@@ -388,6 +388,17 @@ body {
   z-index: 99;
 }
 
+.tippy-text {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  font-size: 12px;
+}
+
+.tippy-color2 {
+  color: #b1b0b5;
+}
+
 .small-menu {
   font-family: "Inter", sans-serif;
   background-color: #ffffff;

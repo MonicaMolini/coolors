@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="components.css" />    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300400;500;700;800;900&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;800;900&amp;display=swap"
         rel="stylesheet" />
+
 </head>
 
 <body>
@@ -213,39 +214,39 @@
         </div>
         <div class="nav__items">
             <ul class="nav__items__list">
-                <li class="nav__items__list__item nav__items__list__item__point"><img src="svg/icon-more.svg" alt="">
+                <li class="nav__items__list__item nav__items__list__item__point tippy" data-tippy-content="More"><img src="svg/icon-more.svg" alt="">
                 </li>
             </ul>
             <ul class="nav__items__list">
-                <li class="nav__items__list__item"><img src="svg/icon-photo.svg" alt=""></li>
-                <li class="nav__items__list__item"><img src="svg/icon-collage.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content="Create palette from photo"><img src="svg/icon-photo.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='Create a collage'><img src="svg/icon-collage.svg" alt=""></li>
             </ul>
             <ul class="nav__items__list">
-                <li class="nav__items__list__item"><img src="svg/icon-arrow.svg" alt=""></li>
-                <li class="nav__items__list__item"><img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1);">
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Undo<span class="tippy-color2 ">CTRL + Z</span></span>'><img src="svg/icon-arrow.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Redo<span class="tippy-color2 ">CTRL + ALT + Z</span></span>'><img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1);">
                 </li>
             </ul>
             <ul class="nav__items__list">
-                <li class="nav__items__list__item" id="navTools"><img src="svg/icon-shades.svg" alt=""></li>
-                <li class="nav__items__list__item"><img src="svg/icon-contrast.svg" alt=""></li>
-                <li class="nav__items__list__item"><img src="svg/icon-blindness.svg" alt=""></li>
-                <li class="nav__items__list__item"><img src="svg/icon-adjust.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='View palette variations' id="navTools"><img src="svg/icon-shades.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='Check palette contrast'><img src="svg/icon-contrast.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='Color blindness'><img src="svg/icon-blindness.svg" alt=""></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='Adjust palette'><img src="svg/icon-adjust.svg" alt=""></li>
             </ul>
             <ul class="nav__items__list">
-                <li class="nav__items__list__item">
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Quick view palette<span class="tippy-color2 ">CTRL + I</span></span>' >
                     <a href="#"><img src="svg/icon-view.svg" alt="">
                         View
                     </a>
                 </li>
-                <li class="nav__items__list__item">
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Export palette<span class="tippy-color2 ">CTRL + E</span></span>'>
                     <a href="#"><img src="svg/icon-share.svg" alt="">Export</a>
                 </li>
-                <li class="nav__items__list__item">
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Save palette<span class="tippy-color2 ">CTRL + S</span></span>'>
                     <a href="#"><img src="svg/icon-heart.svg" alt=""> Save</a>
                 </li>
             </ul>
-            <ul class="nav__items__list">
-                <li class="nav__items__list__item"><img src="svg/icon-hamburger.svg" alt=""></li>
+            <ul class="nav__items__list" >
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Saved palettes<span class="tippy-color2 ">CTRL + P</span></span>'><img src="svg/icon-hamburger.svg" alt=""></li>
             </ul>
         </div>
     </nav>
@@ -434,6 +435,9 @@
         
         
     </section>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="./js/tippy_components.js"></script>
     <script src="./js/ntc.js"></script>   
     <script src="./js/palette-generator.js"></script>
     <script src="./js/shades.js"></script> 
