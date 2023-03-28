@@ -962,6 +962,9 @@ body main .hero__container__home .hero__container__home__left {
   justify-content: center;
   padding-top: 50px;
 }
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__text {
+  justify-self: center;
+}
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 {
   max-width: 500px;
   font-weight: 900;
