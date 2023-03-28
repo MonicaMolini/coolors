@@ -741,6 +741,16 @@ body {
   align-items: center;
   padding-bottom: 80px;
   gap: 2rem;
+  justify-content: space-between;
+}
+.generator__palette[hidden=true] > * {
+  display: none;
+}
+.generator__palette[hidden=true] > * > * {
+  display: none;
+}
+.generator__palette:hover[hidden=true] > *:not(.generator_color_multicompare) {
+  display: none !important;
 }
 .generator__palette__addBar {
   background-color: transparent;
@@ -812,6 +822,8 @@ body {
   z-index: 2;
 }
 .generator__palette .generator_color_multicompare .generator_color_multicompare_inner {
+  display: flex;
+  justify-content: space-between;
   height: 100%;
 }
 .generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch {
@@ -821,9 +833,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch .dot {
-  width: 18px;
 }
 .generator__palette .generator_color {
   display: flex;
