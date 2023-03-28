@@ -3500,40 +3500,5 @@ function hexToHSL(H) {
   s = +(s * 100).toFixed(1);
   l = +(l * 100).toFixed(1);
 
-  return "hsl(" + h + "," + s + "%," + l + "%)";
+  return "hsl(" + h + "," + s + "%," + 50 + "%)";
 }
-
-const maxPaletteDiv = 10;
-
-hsl = []
-/*
-
-async function construtor() {
-  let palette = document.getElementsByClassName("generator__palette");
-  let hexColor = document.getElementsByClassName("generator_color_hex");
-  let nameColor = document.getElementsByClassName("generator_color_color-info");
-  
-  for (i = 0; i < palette.length; i++) {
-    let randomHex = Math.floor(Math.random() * 0xffffff).toString(16);
-    randomHex = `#${randomHex.padStart(6, "0")}`;
-    let res = ntc.name(randomHex);
-    hexColor[i].innerHTML = res[0].slice(1);
-    nameColor[i].innerHTML = res[1];
-    palette[i].style = `background-color: ${res[0]}`;
-    console.log(hexToHSL(res[0]));
-    hsl.push(hexToHSL(res[0])) 
-  }
-}
-console.log(hsl);
-
-window.onload = construtor();
-window.addEventListener("keypress", (e) => {
-  if (e.code === "Space") {
-    construtor();
-  }
-});
-*/
-
-
-
-
