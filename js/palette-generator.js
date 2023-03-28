@@ -440,7 +440,7 @@ class PaletteGenerator {
 
 const pg = new PaletteGenerator();
 
- pg.rerender();
+pg.rerender();
 
 /*<div class="generator__palette" >
             <div class="generator_color_multicompare">
