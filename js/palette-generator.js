@@ -349,7 +349,7 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div name="${color.name}" color="${color.color}" index="${index}" white="${color.white}" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock' data-tooltip-container="child" data-tooltip="Toggle lock">
+                <div name="${color.name}" color="${color.color}" index="${index}" white="${color.white}" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock ' data-tooltip-container="child" data-tooltip="Toggle lock">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
                       <title>Risorsa 4icon4</title>
                       <g id="Livello_2" data-name="Livello 2">
