@@ -30,6 +30,8 @@ let buttons = document.querySelectorAll(".generator_color_btns");
 let texts = document.querySelectorAll(".generator_color");
 let add = document.querySelectorAll(".generator__palette__addBar__addButton");
 let multicompare =  document.querySelectorAll(".generator_color_multicompare");
+let favoritesSidebar;
+
 function hexToHSL(H) {
   // Convert hex to RGB first
   let r = 0, g = 0, b = 0;
@@ -184,6 +186,12 @@ function pickTextColorBasedOnBgColorAdvanced(bgColor, lightColor, darkColor) {
   var L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
   return L > 0.179 ? darkColor : lightColor;
 }
+
+document
+  .querySelector("#openFavoritesSidebar")
+  .addEventListener("click", () => {
+    favoritesSidebar.toggleAttribute("open")
+  });
 
 class PaletteGenerator {
   colorQuantity = 5;
@@ -364,6 +372,18 @@ class PaletteGenerator {
     return generator__palette;
   }
 
+  getFavoritesSidebar(){
+    const sideBar = document.createElement("div");
+    sideBar.classList.add("favoritesSidebar");
+
+    sideBar.innerHTML = `
+      <div class="favoritesSidebar__header">Library</div>
+      <div class="favoritesSidebar__body"></div>
+    `;
+    return sideBar;
+  }
+
+
   rerender(input = 0) {
     console.log("rendering")
     this.paletteDisplay.innerHTML = "";
@@ -376,6 +396,7 @@ class PaletteGenerator {
     palette.forEach((color, index) =>
       this.paletteDisplay.appendChild(this.getColorElement(color, index))
     );
+    this.paletteDisplay.appendChild(this.getFavoritesSidebar())
     this.attachEvents(palette, this);
   }
 
@@ -425,6 +446,12 @@ class PaletteGenerator {
 
         });
       });
+    
+    //favoritesSidebar
+    
+
+  
+
     buttonShades = document.querySelectorAll(".generator_color_shades-btn");
     hex = document.querySelector(".generator_color_hex");
     supercontainer = document.querySelectorAll(".generator__palette");
@@ -434,6 +461,7 @@ class PaletteGenerator {
     add = document.querySelectorAll(".generator__palette__addBar__addButton");
     multicompare =  document.querySelectorAll(".generator_color_multicompare");
     buttonShades.forEach((el) => el.addEventListener("click", generate));
+    favoritesSidebar = document.querySelector(".favoritesSidebar");
   }
 
 }

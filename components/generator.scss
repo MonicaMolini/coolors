@@ -200,3 +200,25 @@
     }
   }
 }
+
+.favoritesSidebar{
+  
+  height: 100%;
+  background-color: white;
+  width: 0;
+  transition: width .35s ease;
+
+  &[open]{
+    width: 18.75rem;
+  }
+
+  &__header{
+    border: rgba(0, 0, 0, 0.075) solid 1px;
+    height: 2.875rem;
+    display: grid;
+    place-items: center;
+    font-weight: 500;
+    font-size: .9rem;
+  }
+
+}

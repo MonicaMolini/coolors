@@ -908,6 +908,24 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
+.favoritesSidebar {
+  height: 100%;
+  background-color: white;
+  width: 0;
+  transition: width 0.35s ease;
+}
+.favoritesSidebar[open] {
+  width: 18.75rem;
+}
+.favoritesSidebar__header {
+  border: rgba(0, 0, 0, 0.075) solid 1px;
+  height: 2.875rem;
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
 @keyframes colorRotate {
   from {
     color: #0067fb;
