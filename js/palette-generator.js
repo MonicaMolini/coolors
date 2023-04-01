@@ -273,7 +273,7 @@ class PaletteGenerator {
             </div>
             <div class="generator_color_container">
                 <div class="generator_color_btns">
-                <div index="${index}" class="generator_color_remove-btn" data-tooltip="Remove color" data-tooltip-container="child">
+                <div index="${index}" class="generator_color_remove-btn tippy" data-tippy-content='Remove color' data-tooltip="Remove color" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9.8" height="10" viewBox="0 0 9.8 10">
                     <title>Risorsa 6icon6</title>
                     <g id="Livello_2" data-name="Livello 2">
@@ -284,7 +284,7 @@ class PaletteGenerator {
                     </g>
                   </svg>
                 </div>
-                <div class="generator_color_contrast-btn" data-tooltip="Check contrast" data-tooltip-container="child">
+                <div class="generator_color_contrast-btn tippy" data-tippy-content='Check contrast' data-tooltip="Check contrast" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.2" height="13.2" viewBox="0 0 13.2 13.2">
                       <title>Risorsa 5icon5</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -296,7 +296,7 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div index="${index}" class="generator_color_shades-btn" data-tooltip="View shades" data-tooltip-container="child">
+                <div index="${index}" class="generator_color_shades-btn tippy" data-tippy-content='View shades' data-tooltip="View shades" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.7" height="14.1" viewBox="0 0 13.7 14.1">
                       <title>Risorsa 7icon7</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -311,7 +311,7 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div class="generator_color_save-btn" data-tooltip-container="child" data-tooltip="Save color">
+                <div class="generator_color_save-btn tippy" data-tippy-content='Save color' data-tooltip-container="child" data-tooltip="Save color">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14.4" height="12.3" viewBox="0 0 14.4 12.3">
                       <title>Risorsa 3icon3</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -321,7 +321,7 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_drag-btn" data-tooltip="Drag" data-tooltip-container="child">
+                <div class="generator_color_drag-btn tippy" data-tippy-content='Drag' data-tooltip="Drag" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="10.1" height="4.3" viewBox="0 0 10.1 4.3">
                       <title>Risorsa 20icon16</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -335,7 +335,7 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_copy-btn" data-tooltip="Copy HEX" data-tooltip-container="child">
+                <div class="generator_color_copy-btn tippy" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
                       <title>Risorsa 1icon1</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -349,7 +349,7 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div name="${color.name}" color="${color.color}" index="${index}" white="${color.white}" class="generator_color_lock-btn" data-tooltip-container="child" data-tooltip="Toggle lock">
+                <div name="${color.name}" color="${color.color}" index="${index}" white="${color.white}" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock' data-tooltip-container="child" data-tooltip="Toggle lock">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
                       <title>Risorsa 4icon4</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -402,7 +402,7 @@ class PaletteGenerator {
   }
 
   attachEvents(currentPalette, ref){
-    
+  tippyCreator('tippy');  
     //Add Button
     document.querySelectorAll(".generator__palette__addBar__addButton").forEach(function(button)  {
       button.addEventListener("click", function(){
