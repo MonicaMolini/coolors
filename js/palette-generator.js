@@ -439,7 +439,6 @@ class PaletteGenerator {
 }
 
 const pg = new PaletteGenerator();
-
 pg.rerender();
 
 /*<div class="generator__palette" >
