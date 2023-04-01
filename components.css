@@ -926,6 +926,13 @@ body {
   font-size: 0.9rem;
 }
 
+#openFavoritesSidebar {
+  transition: transform 0.35s ease;
+}
+#openFavoritesSidebar[open] {
+  transform: rotate(90deg);
+}
+
 @keyframes colorRotate {
   from {
     color: #0067fb;

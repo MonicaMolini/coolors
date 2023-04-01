@@ -187,10 +187,11 @@ function pickTextColorBasedOnBgColorAdvanced(bgColor, lightColor, darkColor) {
   return L > 0.179 ? darkColor : lightColor;
 }
 
-document
-  .querySelector("#openFavoritesSidebar")
-  .addEventListener("click", () => {
-    favoritesSidebar.toggleAttribute("open")
+const openSidebar =  document.querySelector("#openFavoritesSidebar")
+
+  openSidebar.addEventListener("click", () => {
+    favoritesSidebar.toggleAttribute("open");
+    openSidebar.toggleAttribute("open");
   });
 
 class PaletteGenerator {

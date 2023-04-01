@@ -222,3 +222,10 @@
   }
 
 }
+
+#openFavoritesSidebar{
+  transition: transform .35s ease;
+  &[open]{
+    transform: rotate(90deg);
+  }
+}
