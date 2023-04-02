@@ -56,6 +56,9 @@ body main .hero__container__home .hero__container__home__left {
   justify-content: center;
   padding-top: 50px;
 }
+body main .hero__container__home .hero__container__home__left .hero__container__home__left__text {
+  justify-self: center;
+}
 body main .hero__container__home .hero__container__home__left .hero__container__home__left__text h1 {
   max-width: 500px;
   font-weight: 900;
@@ -193,3 +196,15 @@ body main .hero__container__home .hero__container__home__right svg #homepage_her
   transform-origin: 248px 88px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+@media (max-width: 375px) {
+  #homepage_hero-explore {
+    display: none;
+  }
+  #homepage_hero-generate-btn {
+    display: none;
+  }
+  #homepage_hero-explore-btn {
+    display: none;
+  }
+}/*# sourceMappingURL=homepage-style.css.map */
