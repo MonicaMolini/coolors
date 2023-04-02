@@ -15,6 +15,7 @@
 
 <body>
     <nav class="nav">
+        <div class="nav-hamberger-mobile"><img src="svg/icon-hamburger.svg" alt=""></div>
         <div class="nav__logo">
             <a href="homepage.html">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -222,8 +223,8 @@
                 <li class="nav__items__list__item tippy" data-tippy-content='Create a collage'><img src="svg/icon-collage.svg" alt=""></li>
             </ul>
             <ul class="nav__items__list">
-                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Undo<span class="tippy-color2 ">CTRL + Z</span></span>'><img src="svg/icon-arrow.svg" alt=""></li>
-                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Redo<span class="tippy-color2 ">CTRL + ALT + Z</span></span>'><img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1);">
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Undo<span class="tippy-color2 ">CTRL + Z</span></span>'><img src="svg/icon-arrow.svg" alt="" style="opacity: 0.3;"></li>
+                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Redo<span class="tippy-color2 ">CTRL + ALT + Z</span></span>'><img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1); opacity: 0.3;">
                 </li>
             </ul>
             <ul class="nav__items__list">
@@ -432,16 +433,81 @@
             </div>
             
         </div>
+        <div class="sub-header">
+            <a class="btn-generate-mobile">Generate</a>
+            <nav class="nav-sub-mobile">
+            <ul>
+            <li class="hide-smaller">
+            <a class="link link--black" id="generator_mobile-undo-btn">
+            <img src="svg/icon-arrow.svg" alt="">
+            </a>
+            </li>
+            <li class="hide-smaller">
+            <a class="link link--black" id="generator_mobile-redo-btn">
+            <img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1);">
+            </a>
+            </li>            
+            <li>
+            <a href="" class="link link--black" id="generator_mobile-export-btn">
+                <img src="svg/icon-share.svg" alt="">
+            </a>
+            </li>
+            <li>
+            <a href="" class="link link--black" id="generator_mobile-save-btn">
+            <img src="svg/icon-heart.svg" alt="">
+            </a>
+            </li>            
+            <li>
+            <a class="link link--black" id="generator_mobile-palettes-btn">
+            <img src="svg/icon-hamburger.svg" alt="">
+            </a>
+            </li>
+            </ul>
+            </nav>
+        </div>
         
         
     </section>
+    <div class="sub-header">
+        <a class="btn-generate-mobile">Generate</a>
+        <nav class="nav-sub-mobile">
+        <ul>
+        <li class="hide-smaller">
+        <a class="link link--black" id="generator_mobile-undo-btn">
+        <img src="svg/icon-arrow.svg" alt="" style="opacity: 0.3;">
+        </a>
+        </li>
+        <li class="hide-smaller">
+        <a class="link link--black" id="generator_mobile-redo-btn">
+        <img src="svg/icon-arrow.svg" alt="" style="transform: scaleX(-1); opacity: 0.3;">
+        </a>
+        </li>  
+        <li><span class="divider"></span></li>          
+        <li>
+        <a href="" class="link link--black" id="generator_mobile-export-btn">
+            <img src="svg/icon-share.svg" alt="">
+        </a>
+        </li>
+        <li>
+        <a href="" class="link link--black" id="generator_mobile-save-btn">
+        <img src="svg/icon-heart.svg" alt="">
+        </a>
+        </li> 
+        <li><span class="divider"></span></li>           
+        <li>
+        <a class="link link--black" id="generator_mobile-palettes-btn">
+        <img src="svg/icon-hamburger.svg" alt="">
+        </a>
+        </li>
+        </ul>
+        </nav>
+    </div>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="./js/tippy_components.js"></script>
     <script src="./js/ntc.js"></script>   
-    <script src="./js/palette-generator.js"></script>
-    <script src="./js/shades.js"></script> 
-    <script src="https://unpkg.com/colortranslator@1.10.1/web/colortranslator.js"></script> 
+    <script src="./js/palette-generator.js"></script>    
+    <script src="https://unpkg.com/colortranslator@1.10.1/web/colortranslator.js"></script>     
 
        
 </body>

@@ -76,9 +76,9 @@
   border-color: rgba(0, 0, 0, 0.075);
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .footer__container__links {
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(3, 1fr);
   }
   .footer__container__credits {
     display: grid;
@@ -95,3 +95,22 @@
     margin-left: 30%;
   }
 }
+@media screen and (max-width: 375px) {
+  .footer__container__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__container__credits {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 30%);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer__container__credits__charityWebsite {
+    margin-left: 40%;
+  }
+  .footer__container__credits__socials {
+    margin-left: 30%;
+  }
+}/*# sourceMappingURL=footer.css.map */

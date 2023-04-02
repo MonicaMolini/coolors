@@ -1,3 +1,4 @@
+
 /*const body = {
   prompt: "Hello How are you?",
   temperature: 0.5,
@@ -22,6 +23,7 @@ const options = {
   const stream = await fetch(url, options);
   console.log(await stream.text());
 })();*/
+
 let buttonShades = document.querySelectorAll(".generator_color_shades-btn");
 let hex = document.querySelector(".generator_color_hex");
 let supercontainer = document.querySelectorAll(".generator__palette");
@@ -76,33 +78,75 @@ function hexToHSL(H) {
 
   return "hsl(" + h + "," + s + "%," + 50 + "%)";
 }
+function hexToHSL2(H) {
+  // Convert hex to RGB first
+  let r = 0, g = 0, b = 0;
+  if (H.length == 4) {
+    r = "0x" + H[1] + H[1];
+    g = "0x" + H[2] + H[2];
+    b = "0x" + H[3] + H[3];
+  } else if (H.length == 7) {
+    r = "0x" + H[1] + H[2];
+    g = "0x" + H[3] + H[4];
+    b = "0x" + H[5] + H[6];
+  }
+  // Then to HSL
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  let cmin = Math.min(r,g,b),
+      cmax = Math.max(r,g,b),
+      delta = cmax - cmin,
+      h = 0,
+      s = 0,
+      l = 0;
 
-function getShades(x) {    
-  console.log(x)
+  if (delta == 0)
+    h = 0;
+  else if (cmax == r)
+    h = ((g - b) / delta) % 6;
+  else if (cmax == g)
+    h = (b - r) / delta + 2;
+  else
+    h = (r - g) / delta + 4;
+
+  h = Math.round(h * 60);
+
+  if (h < 0)
+    h += 360;
+
+  l = (cmax + cmin) / 2;
+  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  s = +(s * 100).toFixed(1);
+  l = +(l * 100).toFixed(1);
+
+  return "hsl(" + h + "," + s + "%," + l + "%)";
+}
+
+function getShades(x) {      
   const target = document.querySelector(`[target="${x}"]`) 
   const { ColorTranslator } = colortranslator; 
   const colors = []; 
     const col = target.innerHTML;    
-    const baseColor = hexToHSL(`#${col}`)  
-    console.log(baseColor);    
+    const baseColor = hexToHSL(`#${col}`)        
     const tints = ColorTranslator.getBlendHEX(baseColor, "#000000", 13);
     const firstColor = ColorTranslator.getBlendHEX(baseColor,"#ffffff", 13).reverse();
     firstColor.pop();
     tints.pop();
     const colorsShade = [...firstColor, ...tints];     
-    colors.push(colorsShade)
-    // console.log(target);
-    // console.log(colors);
+    colors.push(colorsShade)    
     return colors  
 }
+
 
 function generate() {
   const ref = this; 
   const x= this.getAttribute("index");
-  const colors = getShades(x); 
-  //buttons.forEach((el) => (el.style.display = "none"));
-  //texts.forEach((el) => (el.style.display = "none"));
-  //add.forEach((el) => (el.style.display = "none"));
+  const target = document.querySelector(`[target="${x}"]`) 
+  const col = target.innerHTML;  
+  const baseColor = hexToHSL2(`#${col}`)  
+  console.log(baseColor);
+  const colors = getShades(x);   
   supercontainer.forEach((el) => {el.setAttribute("hidden", "true"); el.style = `background-color: ${el.style.backgroundColor};`});
   this.setAttribute("hidden", "false")
   containers.forEach((el)=> {el.style.cssText = " display: flex; flex-direction:column; justify-content: flex-start"})  
@@ -125,29 +169,10 @@ function generate() {
     box.classList = "swatch";
     const light = "#fff";
     const dark = "#000";    
-    box.innerHTML = `<p class="color" style="display: none">${c.substring(1)}</p>`;    
-    const boxes = document.querySelectorAll(".swatch");  
-    boxes.forEach((el)=> el.addEventListener("mouseover", show))
-    boxes.forEach((el)=> el.addEventListener("mouseout", hide))
-
-    function hide(event){
-      box.innerHTML = `<p class="color" style="color:${pickTextColorBasedOnBgColorAdvanced(c, light, dark)}; display: none">${c.substring(1)}</p>`;
-      if (box.innerHTML === `<p class="color" style="color:${pickTextColorBasedOnBgColorAdvanced(c, light, dark)}; display: none">${hex}</p>`) {
-        box.innerHTML = `<svg width="18" height="18" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <rect width="18" height="18" fill="currentColor" fill-opacity="0.01"/>
-        <path d="M24 33C28.9706 33 33 28.9706 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33Z" fill="currentColor" stroke="currentColor" stroke-width="4"/>
-        </svg>`;
-      }
-      event.stopImmediatePropagation()
-    } 
-    function show(event){
-      box.innerHTML = `<p class="color" style="color:${pickTextColorBasedOnBgColorAdvanced(c, light, dark)};">${c.substring(1)}</p>`     
-      event.stopImmediatePropagation()
-    }    
-
-    console.log(box.innerHTML, `<p class="color" style="display: none">${hex.innerHTML}</p>`)
-
-    if (box.innerHTML === `<p class="color" style="display: none">${hex.innerHTML}</p>`) {
+    box.innerHTML = `<p class="color">${c.substring(1)}</p>`;    
+    box.style.color += pickTextColorBasedOnBgColorAdvanced(c, light, dark);     
+    
+    if (`#${box.innerHTML}`=== `#${col}`) {
       box.innerHTML = `<svg width="18" height="18" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <rect width="18" height="18" fill="currentColor" fill-opacity="0.01"/>
       <path d="M24 33C28.9706 33 33 28.9706 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33Z" fill="currentColor" stroke="currentColor" stroke-width="4"/>
@@ -217,7 +242,7 @@ class PaletteGenerator {
       if (e.code === "Space") {
         this.rerender();
       }
-    });
+    });   
   }
 
   static hexToRgb(hex) {
@@ -469,6 +494,8 @@ class PaletteGenerator {
 
 const pg = new PaletteGenerator();
 pg.rerender();
+
+
 
 /*<div class="generator__palette" >
             <div class="generator_color_multicompare">
