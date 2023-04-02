@@ -1,17 +1,62 @@
 body {
-  background-color: #72ddf7;
+  background-color: #82d1e7;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: center;
+  margin: 0 150px;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 5px 5px;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+body header img {
+  width: 25%;
+  padding-top: 15px;
+}
+body header h1 {
+  font-size: 4rem;
+  font-family: "Roboto", sans-serif;
+  color: #0066ff;
+  margin: 0;
+  margin-bottom: 0.5rem;
 }
 body main {
   font-family: "Roboto", sans-serif;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: auto auto auto;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  grid-template-areas: "log tip" "col col" "ico but" "com com";
+}
+body main .colors {
+  grid-area: col;
+}
+body main .components {
+  grid-area: com;
+  display: flex;
+}
+body main .icons {
+  grid-area: ico;
+}
+body main .buttons {
+  grid-area: but;
+}
+body main .logo {
+  grid-area: log;
+}
+body main .tipograph {
+  grid-area: tip;
 }
 body main .design__card {
   background-color: #ffffff;
-  padding: 1rem;
+  border-radius: 1rem;
+  padding: 0 2rem 2rem 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-columns: auto;
@@ -26,8 +71,17 @@ body main .design__card {
 body main .design__card h2 {
   font-size: 1.5rem;
   text-decoration: underline;
-  text-underline-offset: 0.5rem;
+  text-underline-offset: 0.2rem;
   text-decoration-color: #72ddf7;
+  background-color: #5f7d8a;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding-left: 0.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 body main .design__card p {
   font-size: 0.8rem;
@@ -37,21 +91,21 @@ body main .design__card h3 {
   font-size: 0.8rem;
 }
 body main .design__card--components {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 500px 350px 250px;
   gap: 1rem;
 }
 body main .design__card--components a:nth-child(1) img {
-  width: 350px;
+  width: 500px;
 }
 body main .design__card--components a:nth-child(2) img {
-  width: 250px;
+  width: 350px;
 }
 body main .design__card--components a:nth-child(3) img {
-  width: 180px;
+  width: 250px;
 }
 body main .design__card--components img[src="img/footer.png"] {
-  width: 300px;
+  width: 1000px;
 }
 body main .design__card--thypography > div {
   display: flex;
@@ -87,17 +141,21 @@ body main .design__card--thypography .ctas {
 }
 body main .design__card__colors {
   display: grid;
-  grid-template-columns: 80%;
+  grid-template-columns: 150px 1.5fr 150px 2fr;
   justify-content: start;
+}
+body main .design__card__colors h3 {
+  padding-left: 20px;
 }
 body main .design__card__colors__color {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: 50px;
   gap: 0.5rem;
+  justify-items: center;
 }
 body main .design__card__colors__color p {
-  color: white;
+  color: #797979;
   font-size: 0.6rem;
   font-weight: 600;
 }
@@ -105,34 +163,40 @@ body main .design__card__colors__color--1 {
   width: 5rem;
   height: 2.5rem;
   background-color: #0066ff;
+  border-radius: 4rem;
 }
 body main .design__card__colors__color--2 {
   width: 5rem;
   height: 2.5rem;
   background-color: #000000;
+  border-radius: 4rem;
 }
 body main .design__card__colors__color--3 {
   width: 5rem;
   height: 2.5rem;
   background-color: #f7f7f8;
+  border-radius: 4rem;
 }
 body main .design__card__colors__color--3 p {
-  color: #000000;
+  color: #797979;
 }
 body main .design__card__colors__secondary {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   gap: 0.5rem;
+  justify-items: center;
 }
 body main .design__card__colors__secondary p {
   font-size: 0.6rem;
   font-weight: 600;
+  color: #797979;
 }
 body main .design__card__colors__secondary--1 {
   width: 5rem;
   height: 2.5rem;
   background-color: #d8f6ff;
+  border-radius: 4rem;
 }
 body main .design__card__colors__secondary--1 p {
   color: #00aee5;
@@ -141,6 +205,7 @@ body main .design__card__colors__secondary--2 {
   width: 5rem;
   height: 2.5rem;
   background-color: #d5f8ef;
+  border-radius: 4rem;
 }
 body main .design__card__colors__secondary--2 p {
   color: #14b789;
@@ -149,6 +214,7 @@ body main .design__card__colors__secondary--3 {
   width: 5rem;
   height: 2.5rem;
   background-color: #ffe5f4;
+  border-radius: 4rem;
 }
 body main .design__card__colors__secondary--3 p {
   color: #e50087;
@@ -157,6 +223,7 @@ body main .design__card__colors__secondary--4 {
   width: 5rem;
   height: 2.5rem;
   background-color: #e8e2f7;
+  border-radius: 4rem;
 }
 body main .design__card__colors__secondary--4 p {
   color: #802fde;
@@ -165,13 +232,19 @@ body main .design__card__colors__secondary--5 {
   width: 5rem;
   height: 2.5rem;
   background-color: #fdf3ce;
+  border-radius: 4rem;
 }
 body main .design__card__colors__secondary--5 p {
   color: #daab00;
 }
 body main .design__card__icons {
   display: grid;
+  grid-template-columns: 0.6fr;
   row-gap: 1rem;
+}
+body main .design__card__icons div {
+  display: flex;
+  justify-content: space-around;
 }
 body main .design__card__icons .icon__apple {
   width: 2.625rem;
@@ -260,7 +333,10 @@ body main .container__buttons {
   width: 35rem;
   padding: 1rem 3rem 1rem 3rem;
 }
-body main .container__buttons .blue__button__small, body main .container__buttons .blue__button__large, body main .container__buttons .button__small, body main .container__buttons .button__large {
+body main .container__buttons .blue__button__small,
+body main .container__buttons .blue__button__large,
+body main .container__buttons .button__small,
+body main .container__buttons .button__large {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,35 +344,41 @@ body main .container__buttons .blue__button__small, body main .container__button
   border-radius: 0.5rem;
   cursor: pointer;
 }
-body main .container__buttons .blue__button__small, body main .container__buttons .blue__button__large {
+body main .container__buttons .blue__button__small,
+body main .container__buttons .blue__button__large {
   background-color: #0066ff;
 }
-body main .container__buttons .blue__button__small a, body main .container__buttons .blue__button__large a {
+body main .container__buttons .blue__button__small a,
+body main .container__buttons .blue__button__large a {
   text-decoration: none;
   color: #ffffff;
 }
-body main .container__buttons .blue__button__small:hover, body main .container__buttons .blue__button__large:hover {
+body main .container__buttons .blue__button__small:hover,
+body main .container__buttons .blue__button__large:hover {
   background-color: #005ce6;
 }
-body main .container__buttons .button__small, body main .container__buttons .button__large {
+body main .container__buttons .button__small,
+body main .container__buttons .button__large {
   border: 0.06rem solid #f7f7f8;
   background-color: #ffffff;
   box-shadow: #d8d8da 0 0 0 1px;
 }
-body main .container__buttons .button__small a, body main .container__buttons .button__large a {
+body main .container__buttons .button__small a,
+body main .container__buttons .button__large a {
   text-decoration: none;
   color: #000000;
 }
-body main .container__buttons .button__small:hover, body main .container__buttons .button__large:hover {
+body main .container__buttons .button__small:hover,
+body main .container__buttons .button__large:hover {
   box-shadow: #b1b0b5 0 0 0 1px;
 }
-body main .container__buttons .blue__button__large, body main .container__buttons .button__large {
+body main .container__buttons .blue__button__large,
+body main .container__buttons .button__large {
   width: 15rem;
   height: 2.8rem;
 }
-body main .container__buttons .blue__button__small, body main .container__buttons .button__small {
+body main .container__buttons .blue__button__small,
+body main .container__buttons .button__small {
   width: 4rem;
   padding: 0.2rem 0.55rem;
-}
-
-/*# sourceMappingURL=design-logo.css.map */
+}/*# sourceMappingURL=design-logo.css.map */

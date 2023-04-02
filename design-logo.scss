@@ -19,18 +19,68 @@ $border-button: #d8d8da;
 $border-button-hover: #b1b0b5;
 
 body {
-  background-color: #72ddf7;
+  background-color: #82d1e7ff;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: center;
+  margin: 0 150px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 5px 5px;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    img {
+      width: 25%;
+      padding-top: 15px;
+    }
+    h1 {
+      font-size: 4rem;
+      font-family: "Roboto", sans-serif;
+      color: $theme-color;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+
   main {
     font-family: "Roboto", sans-serif;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: auto auto auto;
-    gap: 2rem;
-
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    grid-template-areas:
+      "log tip"
+      "col col"
+      "ico but"
+      "com com";
+    .colors {
+      grid-area: col;
+    }
+    .components {
+      grid-area: com;
+      display: flex;
+    }
+    .icons {
+      grid-area: ico;
+    }
+    .buttons {
+      grid-area: but;
+    }
+    .logo {
+      grid-area: log;
+    }
+    .tipograph {
+      grid-area: tip;
+    }
     .design__card {
       background-color: #ffffff;
-      padding: 1rem;
+      border-radius: 1rem;
+      padding: 0 2rem 2rem 2rem;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-columns: auto;
@@ -38,8 +88,17 @@ body {
       h2 {
         font-size: 1.5rem;
         text-decoration: underline;
-        text-underline-offset: 0.5rem;
+        text-underline-offset: 0.2rem;
         text-decoration-color: #72ddf7;
+        background-color: #5f7d8aff;
+        color: white;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        padding-left: 0.5rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
       }
       p {
         font-size: 0.8rem;
@@ -49,26 +108,26 @@ body {
         font-size: 0.8rem;
       }
       &--components {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 500px 350px 250px;
         gap: 1rem;
         a:nth-child(1) {
-          img {            
-              width: 350px;            
+          img {
+            width: 500px;
           }
         }
         a:nth-child(2) {
-          img {            
-              width: 250px;            
+          img {
+            width: 350px;
           }
         }
         a:nth-child(3) {
-          img {            
-              width: 180px;            
+          img {
+            width: 250px;
           }
         }
-        img[src="img/footer.png"]{
-          width: 300px;
+        img[src="img/footer.png"] {
+          width: 1000px;
         }
       }
       /*
@@ -116,16 +175,20 @@ body {
 
       &__colors {
         display: grid;
-        grid-template-columns: 80%;
+        grid-template-columns: 150px 1.5fr 150px 2fr;
         justify-content: start;
+        h3{
+          padding-left: 20px;
+        }
 
         &__color {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: auto;
+          grid-template-rows: 50px;
           gap: 0.5rem;
+          justify-items: center;
           p {
-            color: white;
+            color: #797979;
             font-size: 0.6rem;
             font-weight: 600;
           }
@@ -133,18 +196,21 @@ body {
             width: 5rem;
             height: 2.5rem;
             background-color: $theme-color;
+            border-radius: 4rem;
           }
           &--2 {
             width: 5rem;
             height: 2.5rem;
             background-color: #000000;
+            border-radius: 4rem;
           }
           &--3 {
             width: 5rem;
             height: 2.5rem;
             background-color: $theme-color-grey;
+            border-radius: 4rem;
             p {
-              color: #000000;
+              color: #797979;
             }
           }
         }
@@ -154,14 +220,18 @@ body {
           grid-template-columns: 1fr 1fr 1fr;
           grid-template-rows: auto;
           gap: 0.5rem;
+          justify-items: center;
+
           p {
             font-size: 0.6rem;
             font-weight: 600;
+            color: #797979;
           }
           &--1 {
             width: 5rem;
             height: 2.5rem;
             background-color: $pastel-color-blue;
+            border-radius: 4rem;
             p {
               color: $color-blue;
             }
@@ -170,6 +240,7 @@ body {
             width: 5rem;
             height: 2.5rem;
             background-color: $pastel-color-green;
+            border-radius: 4rem;
             p {
               color: $color-green;
             }
@@ -178,6 +249,7 @@ body {
             width: 5rem;
             height: 2.5rem;
             background-color: $pastel-color-pink;
+            border-radius: 4rem;
             p {
               color: $color-pink;
             }
@@ -186,6 +258,7 @@ body {
             width: 5rem;
             height: 2.5rem;
             background-color: $pastel-color-violet;
+            border-radius: 4rem;
             p {
               color: $color-violet;
             }
@@ -194,6 +267,7 @@ body {
             width: 5rem;
             height: 2.5rem;
             background-color: $pastel-color-yellow;
+            border-radius: 4rem;
             p {
               color: $color-yellow;
             }
@@ -203,7 +277,12 @@ body {
     }
     .design__card__icons {
       display: grid;
+      grid-template-columns: 0.6fr;
       row-gap: 1rem;
+      div {
+        display: flex;
+        justify-content: space-around;
+      }
       .icon {
         &__apple {
           width: 2.625rem;
@@ -288,54 +367,60 @@ body {
       }
     }
 
-    .container__buttons{
+    .container__buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
       width: 35rem;
       padding: 1rem 3rem 1rem 3rem;
-      .blue__button__small, .blue__button__large, .button__small, .button__large{
+      .blue__button__small,
+      .blue__button__large,
+      .button__small,
+      .button__large {
         display: flex;
         align-items: center;
         justify-content: center;
-        height:2.25rem;
+        height: 2.25rem;
         border-radius: 0.5rem;
         cursor: pointer;
-
-      }      
-      .blue__button__small, .blue__button__large{
+      }
+      .blue__button__small,
+      .blue__button__large {
         background-color: $theme-color;
-         a{
+        a {
           text-decoration: none;
           color: $white-button;
-         }
-        &:hover{
+        }
+        &:hover {
           background-color: $button-hover;
           //transition: 0.5s;
         }
       }
-  
-      .button__small, .button__large{
+
+      .button__small,
+      .button__large {
         border: 0.06rem solid $theme-color-grey;
         background-color: $white-button;
         //box-sizing: border-box;
         box-shadow: $border-button 0 0 0 1px;
-        a{
+        a {
           text-decoration: none;
-          color: $black-text
+          color: $black-text;
         }
-        &:hover{
+        &:hover {
           //transition: 0.5s;
           box-shadow: $border-button-hover 0 0 0 1px;
         }
       }
-  
-      .blue__button__large, .button__large{
+
+      .blue__button__large,
+      .button__large {
         width: 15rem;
         height: 2.8rem;
       }
-      
-      .blue__button__small, .button__small{
+
+      .blue__button__small,
+      .button__small {
         width: 4rem;
         padding: 0.2rem 0.55rem;
       }
