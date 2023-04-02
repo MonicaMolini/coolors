@@ -203,8 +203,7 @@ function generate() {
   const x= this.getAttribute("index");
   const target = document.querySelector(`[target="${x}"]`) 
   const col = target.innerHTML;  
-  const baseColor = hexToHSL2(`#${col}`)  
-  console.log(baseColor);
+  const baseColor = hexToHSL2(`#${col}`)    
   const colors = getShades(x);   
   supercontainer.forEach((el) => {el.setAttribute("hidden", "true"); el.style = `background-color: ${el.style.backgroundColor};`});
   this.setAttribute("hidden", "false")
@@ -360,7 +359,7 @@ class PaletteGenerator {
     const generator__palette = document.createElement("div");
     generator__palette.classList.add("generator__palette");
     //generator__palette.setAttribute("hidden", "true");
-    generator__palette.style.backgroundColor = color.color;
+    generator__palette.style.backgroundColor = color.color;    
     generator__palette.style.color = color.white ? "#fff" : "#000";
     generator__palette.innerHTML = `<div class="generator_color_multicompare">
                 <div container="${index}" class="generator_color_multicompare_inner">                    
@@ -430,7 +429,7 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_copy-btn tippy" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
+                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom(); copyHex()" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
                       <title>Risorsa 1icon1</title>
                       <g id="Livello_2" data-name="Livello 2">
