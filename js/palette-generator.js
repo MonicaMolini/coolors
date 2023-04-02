@@ -129,7 +129,7 @@ function hexToHSL2(H) {
 }
 if(localStorage.getItem("coolors") === null) localStorage.setItem("coolors", JSON.stringify([]))
 
-const savedColors = JSON.parse(localStorage.getItem("coolors"));
+let savedColors = JSON.parse(localStorage.getItem("coolors"));
 
 saveColorButton.addEventListener("click", (e) => {
 
@@ -146,6 +146,12 @@ saveColorButton.addEventListener("click", (e) => {
     type: saving,
     color: saving === "palette" ? pg.currentPalette : colorBoxName.getAttribute("color")
   };
+
+  fromBottom(saving.charAt(0).toUpperCase() + saving.slice(1) + " saved successfully");
+
+  //Color saved successfully
+  //Color delete successfully
+  //Palette saved successfully
 
   savedColors.push(toSave);
 
@@ -429,7 +435,7 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom(); copyHex()" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
+                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex()" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
                       <title>Risorsa 1icon1</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -479,26 +485,64 @@ class PaletteGenerator {
 
     savedColors.forEach((el, index) => {
 
+      /*const obscurer = `
+      <div class="favoritesSidebar__body__item__color__obscurer style='color:white'">
+        <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex()"  data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
+              <title>Risorsa 1icon1</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="Livello_1-2" data-name="Livello 1">
+                  <g>
+                    <polyline points="9.4 4.7 9.4 0.5 0.5 0.5 0.5 9.4 4.7 9.4" style="fill: none;stroke: currentColor;stroke-miterlimit: 10"/>
+                    <polygon points="9.4 4.7 9.4 9.4 4.7 9.4 4.7 12.9 12.9 12.9 12.9 4.7 9.4 4.7" style="fill: none;stroke: currentColor;stroke-miterlimit: 10"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+        </div>
+      </div>`;*/
+
       console.log(el)
       const item = document.createElement("div");
       item.classList.add("favoritesSidebar__body__item");
       item.setAttribute("index", index)
 
       item.innerHTML = `
-        <div class="favoritesSidebar__body__item__name">${el.name}</div>
+        <div class="favoritesSidebar__body__item__name">${el.name} 
+          <div class="favoritesSidebar__body__item__name__icons">
+            <svg class="favoritesSidebar__body__item__name__icons__delete" xmlns="http://www.w3.org/2000/svg" width="9.8" height="10" viewBox="0 0 9.8 10">
+              <title>Risorsa 6icon6</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="Livello_1-2" data-name="Livello 1">
+                  <path d="M.7,1,9.1,9.3" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
+                  <path d="M9.1.7.7,9.1" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
       `;
 
       if(el.type === "color"){
-        item.innerHTML += `<div class="favoritesSidebar__body__item__color" style="background-color:${el.color}"></div>`
+        item.innerHTML += `<div class="favoritesSidebar__body__item__color" onclick="fromBottom('Color copied to the clipboard!'); navigator.clipboard.writeText('${el.color}')" style="background-color:${el.color}; color: ${pickTextColorBasedOnBgColorAdvanced(el.color, "white", "black")}"><span>${ntc.name(el.color)[1].replaceAll(" ", '<span class="transparent">_</span>')}</span></div>`;
       }
 
       else {
         let add = '<div class="favoritesSidebar__body__item__palette">'
         el.color.forEach(c => {
-          add += `<div style="background-color:${c.color}"></div>`;
+          add += `<div style="background-color:${c.color}; color: ${c.white ? "white" : "black"}" onclick="fromBottom('Palette copied to the clipboard!'); navigator.clipboard.writeText('${getColors()}')";><span>${c.name.replaceAll(" ", '<span class="transparent">_</span>')}</span></div>`;
         })
-        add += "</div>";
+        add += `</div>`;
         item.innerHTML += add;
+      }
+
+      function getColors(){
+        return JSON.stringify(el.color.map((p) => p.color))
+          .replaceAll("[", "")
+          .replaceAll("]", "")
+          .replaceAll('"', "")
+          .replaceAll(",", " ");
       }
       
 
@@ -605,6 +649,16 @@ class PaletteGenerator {
         colorBoxColor.style.backgroundColor = color;
         colorBoxName.setAttribute("color", color);
         setTimeout(() => window.addEventListener("click", exitSave), 100);
+      })
+    });
+
+    //Delete Button
+
+    document.querySelectorAll(".favoritesSidebar__body__item__name__icons__delete").forEach((del, index) => {
+      del.addEventListener("click", () => {
+        savedColors = savedColors.filter((el, i) => i !== index)
+        this.rerender(this.currentPalette);
+        localStorage.setItem("coolors", JSON.stringify(savedColors))
       })
     });
     
