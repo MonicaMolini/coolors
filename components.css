@@ -925,6 +925,31 @@ body {
   font-weight: 500;
   font-size: 0.9rem;
 }
+.favoritesSidebar__body {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 5%;
+  gap: 1rem;
+  max-height: 100%;
+}
+.favoritesSidebar__body__item {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+.favoritesSidebar__body__item__color, .favoritesSidebar__body__item__palette {
+  margin-top: 5px;
+  flex: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.favoritesSidebar__body__item__palette {
+  display: flex;
+}
+.favoritesSidebar__body__item__palette > * {
+  flex: 1;
+}
 
 #openFavoritesSidebar {
   transition: transform 0.35s ease;
@@ -933,6 +958,130 @@ body {
   transform: rotate(90deg);
 }
 
+.saveColor {
+  width: 23.75rem;
+  height: 25rem;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.saveColor__header {
+  border: rgba(0, 0, 0, 0.075) solid 1px;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+}
+.saveColor__content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-inline: auto;
+}
+.saveColor__content__label {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+.saveColor__content > input {
+  margin-top: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  outline: #d8d8da solid 1px;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.saveColor__content > input:focus {
+  outline: #005ce6 solid 1px;
+}
+.saveColor__content__colorBox {
+  margin-top: 0.5rem;
+  border: #d8d8da solid 1px;
+  height: 3rem;
+  border-radius: 1rem;
+  display: none;
+  align-items: center;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+.saveColor__content__colorBox__name::after {
+  content: attr(color);
+}
+.saveColor__content__colorBox__color {
+  margin-left: auto;
+  height: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
+.saveColor__content__save {
+  margin: auto;
+  margin-top: 1.5rem;
+}
+.saveColor__content__paletteBox {
+  margin-top: 0.5rem;
+  border: #d8d8da solid 1px;
+  height: 8rem;
+  border-radius: 1rem;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+.saveColor__content__paletteBox__color {
+  height: 100%;
+  flex: 1;
+}
+
+.colorBoxLabel {
+  display: none;
+}
+
+/*
+    <div id="obscurer" active="true">
+        <div class="saveColor">
+            <div class="saveColor__header"></div>
+            <div class="saveColor__content">
+                <label for="colorName" class="saveColor__content__label">Name</label>
+                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();"
+                />
+                <div class="saveColor__content__label colorBoxLabel">Color</div>
+                <div class="saveColor__content__colorBox">
+                    <div class="saveColor__content__colorBox__name" color="#6f6329"></div>
+                    <div class="saveColor__content__colorBox__color" color="#6f6329"></div>
+                </div>
+                <div class="saveColor__content__label paletteBoxLabel">Palette</div>
+                <div class="saveColor__content__paletteBox">
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                </div>
+                <div class="blue__button__large saveColor__content__save" style="color:white">Save</div>
+            </div>
+        </div>
+    </div>
+*/
 @keyframes colorRotate {
   from {
     color: #0067fb;
@@ -1144,6 +1293,20 @@ a {
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+#obscurer {
+  display: none;
+}
+
+#obscurer[active=true] {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 21, 24, 0.45);
+  position: absolute;
+  z-index: 200000;
 }
 
 .badge {

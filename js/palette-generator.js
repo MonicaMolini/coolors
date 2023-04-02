@@ -32,6 +32,31 @@ let add = document.querySelectorAll(".generator__palette__addBar__addButton");
 let multicompare =  document.querySelectorAll(".generator_color_multicompare");
 let favoritesSidebar;
 
+const obscurer = document.getElementById("obscurer");
+
+const colorBox = document.querySelector(".saveColor__content__colorBox");
+
+const colorBoxName = document.querySelector(
+  ".saveColor__content__colorBox__name"
+);
+const colorBoxColorLabel = document.querySelector(".colorBoxLabel");
+const colorBoxColor = document.querySelector(
+  ".saveColor__content__colorBox__color"
+);
+
+const colorBoxPaletteLabel = document.querySelector(".paletteBoxLabel");
+
+const colorBoxPalette = document.querySelector(
+  ".saveColor__content__paletteBox"
+);
+
+const saveColor = document.querySelector(".saveColor");
+const saveColorButton = document.querySelector(".saveColor__content__save");
+const colorNameInput = document.querySelector("#colorName");
+const saveColorHeader = document.querySelector(".saveColor__header");
+
+let saving;
+
 function hexToHSL(H) {
   // Convert hex to RGB first
   let r = 0, g = 0, b = 0;
@@ -76,6 +101,36 @@ function hexToHSL(H) {
 
   return "hsl(" + h + "," + s + "%," + 50 + "%)";
 }
+
+if(localStorage.getItem("coolors") === null) localStorage.setItem("coolors", JSON.stringify([]))
+
+const savedColors = JSON.parse(localStorage.getItem("coolors"));
+
+saveColorButton.addEventListener("click", (e) => {
+
+  const c = colorNameInput.value;
+
+  if(c === "") return;
+  if(savedColors.some((el) => el.name === c)){ 
+    alert("Name already existing");
+    return;
+  }
+
+  const toSave = {
+    name: c,
+    type: saving,
+    color: saving === "palette" ? pg.currentPalette : colorBoxName.getAttribute("color")
+  };
+
+  savedColors.push(toSave);
+
+  localStorage.setItem("coolors", JSON.stringify(savedColors));
+
+  window.removeEventListener("click", exitSave);
+  obscurer.setAttribute("active", "false");
+
+  pg.rerender(pg.currentPalette)
+})
 
 function getShades(x) {    
   console.log(x)
@@ -160,6 +215,15 @@ function generate() {
    });    
 }
 
+function exitSave(e){
+
+    if (e.target !== saveColor && !saveColor.contains(e.target)) {
+      window.removeEventListener("click", exitSave);
+      obscurer.setAttribute("active", "false")
+    }
+
+}
+
 
 //buttonShades.forEach((el) => el.addEventListener("click", generate));
 
@@ -193,6 +257,8 @@ const openSidebar =  document.querySelector("#openFavoritesSidebar")
     favoritesSidebar.toggleAttribute("open");
     openSidebar.toggleAttribute("open");
   });
+
+
 
 class PaletteGenerator {
   colorQuantity = 5;
@@ -311,7 +377,7 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div class="generator_color_save-btn tippy" data-tippy-content='Save color' data-tooltip-container="child" data-tooltip="Save color">
+                <div color="${color.color}" class="generator_color_save-btn tippy" data-tippy-content='Save color' data-tooltip-container="child" data-tooltip="Save color">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14.4" height="12.3" viewBox="0 0 14.4 12.3">
                       <title>Risorsa 3icon3</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -349,7 +415,11 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div name="${color.name}" color="${color.color}" index="${index}" white="${color.white}" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock ' data-tooltip-container="child" data-tooltip="Toggle lock">
+                <div name="${color.name}" color="${
+      color.color
+    }" index="${index}" white="${
+      color.white
+    }" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock ' data-tooltip-container="child" data-tooltip="Toggle lock">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
                       <title>Risorsa 4icon4</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -365,7 +435,9 @@ class PaletteGenerator {
             </div>
             
             <div class="generator_color">
-            <div class="generator_color_hex" target="${index}" data-tooltip="Select color">${color.color.substring(1)}</div>
+            <div class="generator_color_hex" target="${index}" data-tooltip="Select color">${color.color.substring(
+      1
+    )}</div>
             <div class="generator_color_color-info">${color.name}</div>
             </div>
             <div class="generator__palette__addBar generator__palette__addBar--right"><div index="${index}" position="right" class="generator__palette__addBar__addButton"><span>+</span></div></div>
@@ -373,13 +445,51 @@ class PaletteGenerator {
     return generator__palette;
   }
 
+  getFavoritesSidebarContent(){
+    const favoritesBody = document.createElement("div");
+    favoritesBody.classList.add("favoritesSidebar__body");
+
+    savedColors.forEach((el, index) => {
+
+      console.log(el)
+      const item = document.createElement("div");
+      item.classList.add("favoritesSidebar__body__item");
+      item.setAttribute("index", index)
+
+      item.innerHTML = `
+        <div class="favoritesSidebar__body__item__name">${el.name}</div>
+      `;
+
+      if(el.type === "color"){
+        item.innerHTML += `<div class="favoritesSidebar__body__item__color" style="background-color:${el.color}"></div>`
+      }
+
+      else {
+        let add = '<div class="favoritesSidebar__body__item__palette">'
+        el.color.forEach(c => {
+          add += `<div style="background-color:${c.color}"></div>`;
+        })
+        add += "</div>";
+        item.innerHTML += add;
+      }
+      
+
+      favoritesBody.appendChild(item);
+
+    })
+
+    return favoritesBody;
+
+  };
+
   getFavoritesSidebar(){
     const sideBar = document.createElement("div");
     sideBar.classList.add("favoritesSidebar");
+    sideBar.setAttribute("open", "true");
+
 
     sideBar.innerHTML = `
       <div class="favoritesSidebar__header">Library</div>
-      <div class="favoritesSidebar__body"></div>
     `;
     return sideBar;
   }
@@ -397,7 +507,10 @@ class PaletteGenerator {
     palette.forEach((color, index) =>
       this.paletteDisplay.appendChild(this.getColorElement(color, index))
     );
-    this.paletteDisplay.appendChild(this.getFavoritesSidebar())
+    const favoritesSidebarTemp = this.getFavoritesSidebar();
+    favoritesSidebarTemp.appendChild(this.getFavoritesSidebarContent());
+    this.paletteDisplay.appendChild(favoritesSidebarTemp);
+    
     this.attachEvents(palette, this);
   }
 
@@ -447,6 +560,25 @@ class PaletteGenerator {
 
         });
       });
+
+    //Save Button
+    document.querySelectorAll(".generator_color_save-btn").forEach(function(button){
+      button.addEventListener("click", function(){
+        saving = "color"
+        saveColorHeader.innerText = "Save Color";
+        saveColor.style.height = "20rem"
+        colorBoxColorLabel.style.display = "block";
+        colorBox.style.display = "flex";
+        colorBoxPalette.style.display = "none";
+        colorBoxPaletteLabel.style.display = "none";
+        obscurer.setAttribute("active", "true");
+        const color = this.getAttribute("color");
+        console.log(colorBoxColor)
+        colorBoxColor.style.backgroundColor = color;
+        colorBoxName.setAttribute("color", color);
+        setTimeout(() => window.addEventListener("click", exitSave), 100);
+      })
+    });
     
     //favoritesSidebar
     
@@ -463,12 +595,36 @@ class PaletteGenerator {
     multicompare =  document.querySelectorAll(".generator_color_multicompare");
     buttonShades.forEach((el) => el.addEventListener("click", generate));
     favoritesSidebar = document.querySelector(".favoritesSidebar");
+
+    //Save Button
   }
 
 }
 
 const pg = new PaletteGenerator();
 pg.rerender();
+
+document.getElementById("savePalette").addEventListener("click", () => {
+  saving = "palette";
+  saveColorHeader.innerText = "Save Palette";
+  saveColor.style.height = "25rem";
+  colorBoxColorLabel.style.display = "none";
+  colorBox.style.display = "none";
+
+  colorBoxPalette.style.display = "flex";
+  colorBoxPaletteLabel.style.display = "block";
+  obscurer.setAttribute("active", "true");
+  setTimeout(() => window.addEventListener("click", exitSave), 100);
+
+  colorBoxPalette.innerHTML="";
+  pg.currentPalette.forEach((color) => {
+    const paletteColor = document.createElement("div");
+    paletteColor.classList.add("saveColor__content__paletteBox__color");
+    paletteColor.setAttribute("color", color.color);
+    paletteColor.style.backgroundColor = color.color;
+    colorBoxPalette.appendChild(paletteColor);
+  })
+})
 
 /*<div class="generator__palette" >
             <div class="generator_color_multicompare">

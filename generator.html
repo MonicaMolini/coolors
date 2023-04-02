@@ -14,6 +14,30 @@
 </head>
 
 <body>
+    <div id="obscurer">
+        <div class="saveColor">
+            <div class="saveColor__header"></div>
+            <div class="saveColor__content">
+                <label for="colorName" class="saveColor__content__label">Name</label>
+                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();"
+                />
+                <div class="saveColor__content__label colorBoxLabel">Color</div>
+                <div class="saveColor__content__colorBox">
+                    <div class="saveColor__content__colorBox__name" color="#6f6329"></div>
+                    <div class="saveColor__content__colorBox__color" color="#6f6329"></div>
+                </div>
+                <div class="saveColor__content__label paletteBoxLabel">Palette</div>
+                <div class="saveColor__content__paletteBox">
+                    <div class="saveColor__content__paletteBox__color" color="#551fbb"></div>
+                    <div class="saveColor__content__paletteBox__color" color="#551fbb"></div>
+                    <div class="saveColor__content__paletteBox__color" color="#551fbb"></div>
+                    <div class="saveColor__content__paletteBox__color" color="#551fbb"></div>
+                    <div class="saveColor__content__paletteBox__color" color="#551fbb"></div>
+                </div>
+                <div class="blue__button__large saveColor__content__save" style="color:white">Save</div>
+            </div>
+        </div>
+    </div>
     <nav class="nav">
         <div class="nav__logo">
             <a href="homepage.html">
@@ -241,7 +265,7 @@
                 <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Export palette<span class="tippy-color2 ">CTRL + E</span></span>'>
                     <a href="#"><img src="svg/icon-share.svg" alt="">Export</a>
                 </li>
-                <li class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Save palette<span class="tippy-color2 ">CTRL + S</span></span>'>
+                <li id="savePalette" class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Save palette<span class="tippy-color2 ">CTRL + S</span></span>'>
                     <a href="#"><img src="svg/icon-heart.svg" alt=""> Save</a>
                 </li>
             </ul>

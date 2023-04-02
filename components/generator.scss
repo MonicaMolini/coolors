@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 .generator {
   display: flex;
   
@@ -221,6 +223,34 @@
     font-size: .9rem;
   }
 
+  &__body{
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    
+    padding-inline: 5%;
+    gap: 1rem;
+    max-height: 100%;
+    &__item{
+      min-height: 10rem;
+      display: flex;
+      flex-direction: column;
+      
+      &__color, &__palette{
+        margin-top: 5px;
+        flex: 1;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      &__palette{
+        display: flex;
+        & > *{
+          flex: 1;
+        }
+      }
+    }
+  }
+
 }
 
 #openFavoritesSidebar{
@@ -229,3 +259,158 @@
     transform: rotate(90deg);
   }
 }
+
+.saveColor{
+  width: 23.75rem;
+  //height: 20rem;
+  height: 25rem;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+
+
+  &__header{
+    border: rgba(0, 0, 0, 0.075) solid 1px;
+    height: 3rem;
+    
+    display: grid;
+    place-items: center;
+
+    font-weight: 500;
+  };
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-inline: auto;
+
+
+    &__label{
+      font-size: .8rem;
+      margin-top: 1rem;
+    }
+
+    & > input{
+      margin-top: .5rem;
+      height: 3rem;
+      width: 100%;
+      outline: v.$border-button solid 1px;
+      border: none;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-sizing: border-box;
+      font-size: .9rem;
+      display: flex;
+      flex-direction: column-reverse;
+
+      &:focus{
+        outline: v.$button-hover solid 1px;
+      }
+    }
+
+    &__colorBox{
+      margin-top: .5rem;
+      border: v.$border-button solid 1px;
+      height: 3rem;
+      border-radius: 1rem;
+      display: none;
+      align-items: center;
+      padding-inline: 1rem;
+      box-sizing: border-box;
+
+      &__name{
+        &::after{
+          content: attr(color);
+        }
+      }
+
+      &__color{
+        margin-left: auto;
+        height: 70%;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+        //background-color: #6f6329;
+      }
+    }
+
+    &__save{
+      margin: auto;
+      margin-top: 1.5rem;
+
+
+    }
+
+    &__paletteBox{
+      margin-top: .5rem;
+      border: v.$border-button solid 1px;
+      height: 8rem;
+      border-radius: 1rem;
+      align-items: center;
+
+      box-sizing: border-box;
+
+      display: flex;
+
+      overflow: hidden;
+
+      &__color{
+        height: 100%;
+        flex: 1;
+      }
+    }
+
+
+  }
+
+  
+
+}
+
+.colorBoxLabel{
+  display: none;
+}
+
+
+/*
+    <div id="obscurer" active="true">
+        <div class="saveColor">
+            <div class="saveColor__header"></div>
+            <div class="saveColor__content">
+                <label for="colorName" class="saveColor__content__label">Name</label>
+                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();"
+                />
+                <div class="saveColor__content__label colorBoxLabel">Color</div>
+                <div class="saveColor__content__colorBox">
+                    <div class="saveColor__content__colorBox__name" color="#6f6329"></div>
+                    <div class="saveColor__content__colorBox__color" color="#6f6329"></div>
+                </div>
+                <div class="saveColor__content__label paletteBoxLabel">Palette</div>
+                <div class="saveColor__content__paletteBox">
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                </div>
+                <div class="blue__button__large saveColor__content__save" style="color:white">Save</div>
+            </div>
+        </div>
+    </div>
+*/
