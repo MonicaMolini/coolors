@@ -589,7 +589,12 @@
             multiDrag: true,
             selectedClass: "selected",
             animation: 150,
-            draggable: ".generator__palette"     //rimuovere classe da div bloccati      
+            draggable: ".generator__palette",     //rimuovere classe da div bloccati  
+            onEnd: function(e){
+                const temp = pg.blockedColors[e.oldIndex];
+                pg.blockedColors[e.oldIndex] = pg.blockedColors[e.newIndex];
+                pg.blockedColors[e.newIndex] = temp;
+            }         
         });
     </script>
 </body>
