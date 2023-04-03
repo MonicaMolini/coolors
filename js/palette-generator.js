@@ -435,7 +435,7 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex()" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
+                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex('#${color.color.substring(1)}')" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
                       <title>Risorsa 1icon1</title>
                       <g id="Livello_2" data-name="Livello 2">
