@@ -1284,7 +1284,7 @@ body {
     height: auto;
     min-height: auto;
     margin-top: 30px;
-    opacity: 0;
+    opacity: 1;
   }
   .generator__palette .generator_color_container .generator_color_btns {
     height: auto;
