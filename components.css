@@ -268,9 +268,9 @@ body {
   border-color: rgba(0, 0, 0, 0.075);
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .footer__container__links {
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(2, 1fr);
   }
   .footer__container__credits {
     display: grid;
@@ -279,12 +279,40 @@ body {
     align-content: center;
     justify-content: center;
     text-align: center;
+    row-gap: 2rem;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
   }
   .footer__container__credits__charityWebsite {
-    margin-left: 40%;
+    margin: auto;
   }
   .footer__container__credits__socials {
-    margin-left: 30%;
+    margin: auto;
+  }
+  .footer__container__credits__creator {
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer__container__links {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+  .footer__container__credits {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 30%);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer__container__credits__charityWebsite {
+    margin: auto;
+  }
+  .footer__container__credits__socials {
+    margin: auto;
   }
 }
 .nav {
@@ -296,6 +324,9 @@ body {
   line-height: 0.938rem;
   color: black;
   font-variation-settings: "wght" 500;
+}
+.nav .nav-hamberger-mobile {
+  display: none;
 }
 .nav__logo {
   display: flex;
@@ -399,6 +430,16 @@ body {
   background-color: black;
 }
 
+@media screen and (max-width: 1100px) {
+  .nav--generator .nav__logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 875px) {
+  .nav--generator .nav__logo {
+    display: none;
+  }
+}
 .small-menu {
   font-family: "Inter", sans-serif;
   background-color: #ffffff;
@@ -834,6 +875,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch p {
+  display: none;
+}
+.generator__palette .generator_color_multicompare .generator_color_multicompare_inner .swatch:hover p {
+  display: flex;
+}
 .generator__palette .generator_color {
   display: flex;
   flex-direction: column;
@@ -904,6 +951,10 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
+.sub-header {
+  display: none;
+}
+
 .favoritesSidebar {
   height: 100%;
   background-color: white;
@@ -921,6 +972,94 @@ body {
   font-weight: 500;
   font-size: 0.9rem;
 }
+.favoritesSidebar__body {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 5%;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
+  max-height: calc(100% - 2.875rem);
+}
+.favoritesSidebar__body__item {
+  min-height: 3.5rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.favoritesSidebar__body__item__color {
+  display: grid;
+  place-items: center;
+}
+.favoritesSidebar__body__item__color:hover > span {
+  display: block;
+}
+.favoritesSidebar__body__item__color > span {
+  display: none;
+}
+.favoritesSidebar__body__item__name {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+}
+.favoritesSidebar__body__item__name__icons {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+}
+.favoritesSidebar__body__item__name__icons > * {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.favoritesSidebar__body__item__name__icons__delete:hover {
+  color: red;
+}
+.favoritesSidebar__body__item__color, .favoritesSidebar__body__item__palette {
+  flex: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.favoritesSidebar__body__item__color__obscurer, .favoritesSidebar__body__item__palette__obscurer {
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: 0.35s opacity ease;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.favoritesSidebar__body__item__color__obscurer:hover, .favoritesSidebar__body__item__palette__obscurer:hover {
+  opacity: 0.4;
+}
+.favoritesSidebar__body__item__palette {
+  display: flex;
+}
+.favoritesSidebar__body__item__palette > * {
+  transition: width 1s ease;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+}
+.favoritesSidebar__body__item__palette > *:hover {
+  width: max-content;
+}
+.favoritesSidebar__body__item__palette > *:hover > span {
+  display: block;
+}
+.favoritesSidebar__body__item__palette > * > span {
+  display: none;
+  font-size: 0.8rem;
+}
+
+.transparent {
+  opacity: 0;
+}
 
 #openFavoritesSidebar {
   transition: transform 0.35s ease;
@@ -929,6 +1068,297 @@ body {
   transform: rotate(90deg);
 }
 
+.saveColor {
+  width: 23.75rem;
+  height: 25rem;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.saveColor__header {
+  border: rgba(0, 0, 0, 0.075) solid 1px;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+}
+.saveColor__content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-inline: auto;
+}
+.saveColor__content__label {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+.saveColor__content > input {
+  margin-top: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  outline: #d8d8da solid 1px;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.saveColor__content > input:focus {
+  outline: #005ce6 solid 1px;
+}
+.saveColor__content__colorBox {
+  margin-top: 0.5rem;
+  border: #d8d8da solid 1px;
+  height: 3rem;
+  border-radius: 1rem;
+  display: none;
+  align-items: center;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+.saveColor__content__colorBox__name::after {
+  content: attr(color);
+}
+.saveColor__content__colorBox__color {
+  margin-left: auto;
+  height: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
+.saveColor__content__save {
+  margin: auto;
+  margin-top: 1.5rem;
+}
+.saveColor__content__paletteBox {
+  margin-top: 0.5rem;
+  border: #d8d8da solid 1px;
+  height: 8rem;
+  border-radius: 1rem;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+.saveColor__content__paletteBox__color {
+  height: 100%;
+  flex: 1;
+}
+
+.colorBoxLabel {
+  display: none;
+}
+
+/*
+    <div id="obscurer" active="true">
+        <div class="saveColor">
+            <div class="saveColor__header"></div>
+            <div class="saveColor__content">
+                <label for="colorName" class="saveColor__content__label">Name</label>
+                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();"
+                />
+                <div class="saveColor__content__label colorBoxLabel">Color</div>
+                <div class="saveColor__content__colorBox">
+                    <div class="saveColor__content__colorBox__name" color="#6f6329"></div>
+                    <div class="saveColor__content__colorBox__color" color="#6f6329"></div>
+                </div>
+                <div class="saveColor__content__label paletteBoxLabel">Palette</div>
+                <div class="saveColor__content__paletteBox">
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                    <div class="saveColor__content__paletteBox__color">
+                        <div class="saveColor__content__paletteBox__color__color"></div>
+                        <div class="saveColor__content__paletteBox__color__name" color="#551fbb"></div>
+                    </div>
+                </div>
+                <div class="blue__button__large saveColor__content__save" style="color:white">Save</div>
+            </div>
+        </div>
+    </div>
+*/
+@media screen and (max-width: 875px) {
+  .sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    height: 56px;
+  }
+  .sub-header .btn-generate-mobile {
+    display: inline-block;
+    position: relative;
+    transition: box-shadow 0.1s, color 0.1s, background 0.1s;
+    cursor: pointer;
+    width: auto;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 0 12px;
+    height: 36px;
+    line-height: 36px;
+    color: black;
+    background: none;
+    background: white;
+    box-shadow: inset #d8d8da 0 0 0 1px;
+  }
+  .sub-header .nav-sub-mobile ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+  }
+  .sub-header .nav-sub-mobile ul li {
+    height: 56px;
+    display: flex;
+    align-items: center;
+  }
+  .sub-header .nav-sub-mobile ul .divider {
+    height: 60%;
+    width: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.075);
+    display: block;
+  }
+  .sub-header .nav-sub-mobile ul img {
+    width: 18px;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+  }
+  .nav .nav-hamberger-mobile {
+    display: flex;
+    align-items: center;
+  }
+  .nav__logo {
+    padding: 0;
+    display: flex;
+    padding-right: 35%;
+  }
+  .nav__items {
+    display: none;
+  }
+  .nav--generator {
+    display: none;
+  }
+  .generator {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    z-index: 1;
+  }
+  .generator__palette {
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+  }
+  .generator__palette:hover .generator_color_container {
+    opacity: 1;
+  }
+  .generator__palette:hover:active .generator_color_container {
+    opacity: 1;
+  }
+  .generator__palette .generator_color_container {
+    height: auto;
+    min-height: auto;
+    margin-top: 30px;
+    opacity: 0;
+  }
+  .generator__palette .generator_color_container .generator_color_btns {
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+  .generator__palette .generator_color_container .generator_color_btns .generator_color_remove-btn,
+  .generator__palette .generator_color_container .generator_color_btns .generator_color_contrast-btn,
+  .generator__palette .generator_color_container .generator_color_btns .generator_color_shades-btn,
+  .generator__palette .generator_color_container .generator_color_btns .generator_color_save-btn {
+    display: none;
+  }
+  .generator__palette .generator_color_container .generator_color_btns .generator_color_drag-btn {
+    transform: rotate(90deg);
+  }
+  .generator .favoritesSidebar {
+    display: none;
+  }
+  .generator .generator__palette__addBar {
+    display: none;
+  }
+  .generator .generator_color_multicompare {
+    display: none;
+  }
+  .generator .generator_color_color-info {
+    display: none;
+  }
+  .generator:hover .generator_color_multicompare {
+    display: none;
+  }
+  .generator:hover .generator__palette__addBar {
+    display: none;
+  }
+  .generator__palette {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+  .generator__palette:hover {
+    display: flex;
+    justify-content: space-around;
+  }
+  .generator__palette:hover .generator_color_container {
+    height: auto;
+  }
+  .generator__palette:hover .generator__palette__addBar {
+    display: none;
+  }
+  .generator__palette:hover .generator_color_multicompare {
+    display: none;
+  }
+  .generator__palette:hover .generator_color_color-info {
+    display: none;
+  }
+  .generator__palette .generator_color_hex {
+    cursor: pointer;
+    color: inherit;
+    font-family: "Inter", sans-serif;
+    font-variation-settings: "wght" 600;
+    opacity: 1;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate3d(0, 50%, 0) scale(1);
+    transition: background 0.1s;
+    font-size: 16px;
+    z-index: 1;
+    transform-origin: 50% 100%;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
 @keyframes colorRotate {
   from {
     color: #0067fb;
@@ -976,6 +1406,9 @@ body main .hero__container__home {
   font-family: "Inter", sans-serif;
   padding: 100px 42px;
   overflow-x: hidden;
+}
+body main .hero__container__home #homepage_hero_image {
+  display: none;
 }
 body main .hero__container__home a {
   text-decoration: none;
@@ -1128,6 +1561,19 @@ body main .hero__container__home .hero__container__home__right svg #homepage_her
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+@media screen and (max-width: 875px) {
+  body main .hero__container__home {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0px;
+  }
+  body main .hero__container__home .hero__container__home__right {
+    display: none;
+  }
+  body main .hero__container__home #homepage_hero_image {
+    display: inline;
+  }
+}
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -1140,6 +1586,20 @@ a {
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+#obscurer {
+  display: none;
+}
+
+#obscurer[active=true] {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 21, 24, 0.45);
+  position: absolute;
+  z-index: 200000;
 }
 
 .badge {

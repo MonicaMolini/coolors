@@ -2850,6 +2850,7 @@
   parentTag.appendChild(svg);
 
   const setFill = () => {
+    const mobile = document.getElementById("homepage_hero_image-mobile")
     const div = document.getElementById("homepage_hero-generator-laptop");
     const color1 = div.querySelector("path.st325");
     const color2 = div.querySelector("rect.st326");
@@ -2863,6 +2864,21 @@
           "#" + Math.floor(Math.random() * 16777215).toString(16))
     );
   };
+  const setFill2 = () => {
+    const div = document.getElementById("homepage_hero_image-mobile");
+    const color1 = div.querySelector("path.st01");
+    const color2 = div.querySelector("rect.st11");
+    const color3 = div.querySelector("rect.st21");
+    const color4 = div.querySelector("rect.st31");
+    const color5 = div.querySelector("path.st41");
+    const colors = [color1, color2, color3, color4, color5];
+    colors.forEach(
+      (el) =>
+        (el.style.fill =
+          "#" + Math.floor(Math.random() * 16777215).toString(16))
+    );
+  };
 
   setInterval(setFill, 1000);
+  setInterval(setFill2, 1000);
 }

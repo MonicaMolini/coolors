@@ -21,6 +21,21 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+#obscurer{
+  display: none;
+}
+
+#obscurer[active="true"]{
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 21, 24, 0.45);
+  position: absolute;
+  z-index: 200000;
+
+}
+
 .badge{
   @include h.badge()
 }

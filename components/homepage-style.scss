@@ -50,6 +50,9 @@ body {
       font-family: "Inter", sans-serif;
       padding: 100px 42px;
       overflow-x: hidden;
+      #homepage_hero_image {
+        display: none;
+      }
 
       a {
         text-decoration: none;
@@ -210,6 +213,20 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 875px) {
+  body main .hero__container__home {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0px;
+    .hero__container__home__right{
+      display: none;
+    }
+    #homepage_hero_image {
+      display: inline;
     }
   }
 }
