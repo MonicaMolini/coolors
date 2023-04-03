@@ -298,7 +298,7 @@
         </div>
     </nav>
     <section id="generator" class="generator">
-        <div class="generator__palette">
+        <div class="generator__palette ignore-elements">
             <div class="generator_color_multicompare">
                 <div class="generator_color_multicompare_inner">
                 </div>
@@ -582,12 +582,13 @@
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
     <script>        
         const el = document.getElementById("generator");               
-        Sortable.create(el, {
+        Sortable.create(el, {            
             handle: '.generator_color_drag-btn',
             group: 'shared',
             multiDrag: true,
             selectedClass: "selected",
-            animation: 150
+            animation: 150,
+            draggable: ".generator__palette"     //rimuovere classe da div bloccati      
         });
     </script>
 </body>

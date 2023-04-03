@@ -651,10 +651,10 @@ class PaletteGenerator {
       .querySelectorAll(".generator_color_lock-btn")
       .forEach(function (button) {
         button.addEventListener("click", function () {
-          const index = parseInt(this.getAttribute("index"));
+          const index = parseInt(this.getAttribute("index"));                  
           const name = this.getAttribute("name");
-          const color = this.getAttribute("color");
-          const white = JSON.parse(this.getAttribute("white"))
+          const color = this.getAttribute("color");                
+          const white = JSON.parse(this.getAttribute("white"));          
           if (ref.blockedColors[index].name != "N")
             ref.blockedColors[index] = { name: "N" };
           else ref.blockedColors[index] = { name: name, color: color, white: white};
