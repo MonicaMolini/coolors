@@ -22,8 +22,7 @@
             <div class="saveColor__header"></div>
             <div class="saveColor__content">
                 <label for="colorName" class="saveColor__content__label">Name</label>
-                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();"
-                />
+                <input type="text" placeholder="My new color" id="colorName" onClick="this.select();" />
                 <div class="saveColor__content__label colorBoxLabel">Color</div>
                 <div class="saveColor__content__colorBox">
                     <div class="saveColor__content__colorBox__name" color="#6f6329"></div>
@@ -285,7 +284,8 @@
                     data-tippy-content='<span class="tippy-text">Export palette<span class="tippy-color2 ">CTRL + E</span></span>'>
                     <a href="#"><img src="svg/icon-share.svg" alt="">Export</a>
                 </li>
-                <li id="savePalette" class="nav__items__list__item tippy" data-tippy-content='<span class="tippy-text">Save palette<span class="tippy-color2 ">CTRL + S</span></span>'>
+                <li id="savePalette" class="nav__items__list__item tippy"
+                    data-tippy-content='<span class="tippy-text">Save palette<span class="tippy-color2 ">CTRL + S</span></span>'>
                     <a href="#"><img src="svg/icon-heart.svg" alt=""> Save</a>
                 </li>
             </ul>
@@ -297,7 +297,7 @@
             </ul>
         </div>
     </nav>
-    <section class="generator">
+    <section id="generator" class="generator">
         <div class="generator__palette">
             <div class="generator_color_multicompare">
                 <div class="generator_color_multicompare_inner">
@@ -516,8 +516,6 @@
                 </ul>
             </nav>
         </div>
-
-
     </section>
     <div class="sub-header">
         <a class="btn-generate-mobile">Generate</a>
@@ -563,8 +561,8 @@
     <script
         src="https://www.cssscript.com/demo/create-android-style-toasts-notification-bars-pure-javascript-native-toast/js/native-toast.js"></script>
     <script>
-        function copyHex(t){                    
-            const y= document.querySelector(".generator_color_copy-btn").getAttribute("value"); 
+        function copyHex(t) {
+            const y = document.querySelector(".generator_color_copy-btn").getAttribute("value");
             navigator.clipboard.writeText(t)
             console.log(y);
         }
@@ -578,9 +576,20 @@
             })
         }
     </script>
-
-
-
+    <script src="https://sortablejs.github.io/Sortable/Sortable.js"></script>
+    <script type="text/javascript" src="https://sortablejs.github.io/Sortable/st/prettify/prettify.js"></script>
+    <script src="https://sortablejs.github.io/Sortable/st/app.js"></script>
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+    <script>        
+        const el = document.getElementById("generator");               
+        Sortable.create(el, {
+            handle: '.generator_color_drag-btn',
+            group: 'shared',
+            multiDrag: true,
+            selectedClass: "selected",
+            animation: 150
+        });
+    </script>
 </body>
 
 </html>
