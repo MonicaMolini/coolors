@@ -6,8 +6,8 @@ function tippyCreator(className) {
     content: function(reference) {
       return reference.getAttribute('data-tippy-content')
     },
-    allowHTML: true
+    allowHTML: true,
   });
 }
-tippyCreator('tippy');
+tippyCreator();
 //export default tippyCreator("tippy") 
