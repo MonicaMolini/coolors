@@ -560,13 +560,13 @@ class PaletteGenerator {
       allowHTML: true,
     });
 
-    bubb();
-
+    //bubb();
+/*
     const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
 
     contrastBtn.addEventListener('click', () => {
     bubb.toggle('my-toggle');
-    });
+    });*/
 
     /*const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
 
