@@ -503,7 +503,7 @@ class PaletteGenerator {
   getFavoritesSidebar(){
     const sideBar = document.createElement("div");
     sideBar.classList.add("favoritesSidebar");
-    sideBar.setAttribute("open", "true");
+    //sideBar.setAttribute("open", "true");
 
 
     sideBar.innerHTML = `
