@@ -973,7 +973,7 @@ body {
   font-size: 0.9rem;
 }
 .favoritesSidebar__body {
-  overflow: scroll;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   padding-inline: 5%;
@@ -1502,15 +1502,6 @@ body main .hero__container__home .hero__container__home__right {
   min-width: 120%;
   padding-top: 50px;
   padding-left: 50px;
-  /*@media (max-width: 1700px) {
-    transform: scale(1.1);
-  }
-  @media (max-width: 1600px) {
-    transform: scale(1.1);
-  }
-  @media (max-width: 1500px) {
-    transform: scale(1.1);
-  }*/
 }
 body main .hero__container__home .hero__container__home__right svg #homepage_hero-generator-laptop * {
   transition: all 0.1s ease;
