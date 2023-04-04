@@ -553,45 +553,22 @@ class PaletteGenerator {
   attachEvents(currentPalette, ref) {
     tippyCreator("tippy");
 
-    tippy(document.querySelector(".generator_color_contrast-btn"), {
+    tippy(document.querySelectorAll(".generator_color_contrast-btn"), {
       content: function (reference) {
         return reference.getAttribute("tippy-content-1");
       },
       allowHTML: true,
     });
 
-    //bubb();
-/*
-    const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
-
-    contrastBtn.addEventListener('click', () => {
-    bubb.toggle('my-toggle');
-    });*/
-
-    /*const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
-
-    const config = {
-      bubbContrast: {
-        text: 'Contenuto da mostrare nel toggle',
-        _: {
-          background: 'white',
-          toggle: true
-        }
-      }
-    };
-    bubb(config);*/
-
-    /*const contrastBtn = document.querySelector('.generator_color_contrast-btn');
-  
-  contrastBtn.addEventListener('click', () => {
-    tippyContrast.show();
-  });
-  
-  document.addEventListener('click', (e) => {
-    if (!tippyContrast.popper.contains(e.target)) {
-      tippyContrast.hide();
-    }
-  });*/
+    const name = "Mario";
+    const externalContent = `<div><span">${name}</span></div>`;
+    tippy(document.querySelectorAll('.generator_color_contrast-btn'), {
+        content: externalContent,
+        trigger: 'click',
+        allowHTML: true,
+        hideOnClick: true,
+        theme: 'ligth'
+      });
 
     //Add Button
     document

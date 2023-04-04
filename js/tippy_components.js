@@ -6,6 +6,7 @@ function tippyCreator(className) {
     content: function(reference) {
       return reference.getAttribute('data-tippy-content')
     },
+    theme: 'translucent',
     allowHTML: true,
   });
 }
