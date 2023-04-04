@@ -350,7 +350,10 @@ class PaletteGenerator {
                     </g>
                   </svg>
                 </div>
-                <div class="generator_color_contrast-btn" tippy-content-1='Check contrast' tippy-content-2='' data-tooltip="Check contrast" data-tooltip-container="child">
+                <div class="generator_color_contrast-btn" tippy-content-1='Check contrast' data-tooltip="Check contrast" data-tooltip-container="child">
+                            <div class="bubb-content" data-bubb="my-toggle" style="display: none;">
+                            <div style="background: white; color: black;">Testo</div>
+                            </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.2" height="13.2" viewBox="0 0 13.2 13.2">
                       <title>Risorsa 5icon5</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -557,18 +560,26 @@ class PaletteGenerator {
       allowHTML: true,
     });
 
-    tippy(document.querySelector(".generator_color_contrast-btn"), {
-      content:
-        "<span>White text</span><br><span>Black text</span><br><a>View more</a>",
-      trigger: "click",
-      allowHTML: true,
-      style: {
-        margin: 40,
-        backgroundColor: "white",
-        display: "flex",
-        flexDirection: "column",
-      },
+    bubb();
+
+    const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
+
+    contrastBtn.addEventListener('click', () => {
+      bubb.toggle('my-toggle');
     });
+
+    /*const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
+
+    const config = {
+      bubbContrast: {
+        text: 'Contenuto da mostrare nel toggle',
+        _: {
+          background: 'white',
+          toggle: true
+        }
+      }
+    };
+    bubb(config);*/
 
     /*const contrastBtn = document.querySelector('.generator_color_contrast-btn');
   
