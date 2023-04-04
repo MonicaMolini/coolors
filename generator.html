@@ -576,25 +576,23 @@
                 square: false,
             })
         }
-    </script>
-    <script src="https://sortablejs.github.io/Sortable/Sortable.js"></script>
-    <script type="text/javascript" src="https://sortablejs.github.io/Sortable/st/prettify/prettify.js"></script>
-    <script src="https://sortablejs.github.io/Sortable/st/app.js"></script>
-    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+    </script>    
+    <script type="text/javascript" src="https://sortablejs.github.io/Sortable/st/prettify/prettify.js"></script>    
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>     
     <script>        
-        const el = document.getElementById("generator");               
+        const el = document.getElementById("generator");              
         Sortable.create(el, {            
             handle: '.generator_color_drag-btn',
             group: 'shared',
             multiDrag: true,
             selectedClass: "selected",
             animation: 150,
-            draggable: ".generator__palette",     //rimuovere classe da div bloccati  
+            draggable: ".generator__palette",                 //rimuovere classe da div bloccati  
             onEnd: function(e){
                 const temp = pg.blockedColors[e.oldIndex];
                 pg.blockedColors[e.oldIndex] = pg.blockedColors[e.newIndex];
                 pg.blockedColors[e.newIndex] = temp;
-            }         
+            }    
         });
     </script>
 </body>
