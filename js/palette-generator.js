@@ -258,6 +258,7 @@ function pickTextColorBasedOnBgColorAdvanced(bgColor, lightColor, darkColor) {
 const openSidebar =  document.querySelector("#openFavoritesSidebar")
 
   openSidebar.addEventListener("click", () => {
+    pg.openedSidebar = !pg.openedSidebar;
     favoritesSidebar.toggleAttribute("open");
     openSidebar.toggleAttribute("open");
   });
@@ -265,6 +266,7 @@ const openSidebar =  document.querySelector("#openFavoritesSidebar")
 
 
 class PaletteGenerator {
+  openedSidebar = false;
   colorQuantity = 5;
   blockedColors = [
     { name: "N" },
@@ -287,7 +289,7 @@ class PaletteGenerator {
       if (e.code === "Space") {
         this.rerender();
       }
-    });   
+    });
   }
 
   static hexToRgb(hex) {
@@ -296,7 +298,6 @@ class PaletteGenerator {
     const r = (bigint >> 16) & 255;
     const g = (bigint >> 8) & 255;
     const b = bigint & 255;
-
 
     return { red: r, green: g, blue: b };
   }
@@ -325,13 +326,12 @@ class PaletteGenerator {
         return ret;
       } else return e;
     });
-  } 
-  
+  }
 
   getColorElement(color, index) {
     const generator__palette = document.createElement("div");
     generator__palette.classList.add("generator__palette");
-    generator__palette.style.backgroundColor = color.color;    
+    generator__palette.style.backgroundColor = color.color;
     generator__palette.style.color = color.white ? "#fff" : "#000";
     generator__palette.innerHTML = `<div class="generator_color_multicompare">
                 <div container="${index}" class="generator_color_multicompare_inner">                    
@@ -377,7 +377,9 @@ class PaletteGenerator {
                     </svg>
 
                 </div>
-                <div color="${color.color}" class="generator_color_save-btn tippy" data-tippy-content='Save color' data-tooltip-container="child" data-tooltip="Save color">
+                <div color="${
+                  color.color
+                }" class="generator_color_save-btn tippy" data-tippy-content='Save color' data-tooltip-container="child" data-tooltip="Save color">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14.4" height="12.3" viewBox="0 0 14.4 12.3">
                       <title>Risorsa 3icon3</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -401,7 +403,11 @@ class PaletteGenerator {
                       </g>
                     </svg>
                 </div>
-                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex('#${color.color.substring(1)}')" value="#${color.color.substring(1)}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
+                <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex('#${color.color.substring(
+      1
+    )}')" value="#${color.color.substring(
+      1
+    )}" data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
                       <title>Risorsa 1icon1</title>
                       <g id="Livello_2" data-name="Livello 2">
@@ -445,14 +451,14 @@ class PaletteGenerator {
     return generator__palette;
   }
 
-  getFavoritesSidebarContent(){
+  getFavoritesSidebarContent() {
     const favoritesBody = document.createElement("div");
     favoritesBody.classList.add("favoritesSidebar__body");
 
-    savedColors.forEach((el, index) => {     
+    savedColors.forEach((el, index) => {
       const item = document.createElement("div");
       item.classList.add("favoritesSidebar__body__item");
-      item.setAttribute("index", index)
+      item.setAttribute("index", index);
 
       item.innerHTML = `
         <div class="favoritesSidebar__body__item__name">${el.name} 
@@ -470,48 +476,57 @@ class PaletteGenerator {
         </div>
       `;
 
-      if(el.type === "color"){
-        item.innerHTML += `<div class="favoritesSidebar__body__item__color" onclick="fromBottom('Color copied to the clipboard!'); navigator.clipboard.writeText('${el.color}')" style="background-color:${el.color}; color: ${pickTextColorBasedOnBgColorAdvanced(el.color, "white", "black")}"><span>${ntc.name(el.color)[1].replaceAll(" ", '<span class="transparent">_</span>')}</span></div>`;
-      }
-
-      else {
-        let add = '<div class="favoritesSidebar__body__item__palette">'
-        el.color.forEach(c => {
-          add += `<div style="background-color:${c.color}; color: ${c.white ? "white" : "black"}" onclick="fromBottom('Palette copied to the clipboard!'); navigator.clipboard.writeText('${getColors()}')";><span>${c.name.replaceAll(" ", '<span class="transparent">_</span>')}</span></div>`;
-        })
+      if (el.type === "color") {
+        item.innerHTML += `<div class="favoritesSidebar__body__item__color" onclick="fromBottom('Color copied to the clipboard!'); navigator.clipboard.writeText('${
+          el.color
+        }')" style="background-color:${
+          el.color
+        }; color: ${pickTextColorBasedOnBgColorAdvanced(
+          el.color,
+          "white",
+          "black"
+        )}"><span>${ntc
+          .name(el.color)[1]
+          .replaceAll(" ", '<span class="transparent">_</span>')}</span></div>`;
+      } else {
+        let add = '<div class="favoritesSidebar__body__item__palette">';
+        el.color.forEach((c) => {
+          add += `<div style="background-color:${c.color}; color: ${
+            c.white ? "white" : "black"
+          }" onclick="fromBottom('Palette copied to the clipboard!'); navigator.clipboard.writeText('${getColors()}')";><span>${c.name.replaceAll(
+            " ",
+            '<span class="transparent">_</span>'
+          )}</span></div>`;
+        });
         add += `</div>`;
         item.innerHTML += add;
       }
 
-      function getColors(){
+      function getColors() {
         return JSON.stringify(el.color.map((p) => p.color))
           .replaceAll("[", "")
           .replaceAll("]", "")
           .replaceAll('"', "")
           .replaceAll(",", " ");
       }
-      
 
       favoritesBody.appendChild(item);
-
-    })
+    });
 
     return favoritesBody;
+  }
 
-  };
-
-  getFavoritesSidebar(){
+  getFavoritesSidebar() {
     const sideBar = document.createElement("div");
     sideBar.classList.add("favoritesSidebar");
-    //sideBar.setAttribute("open", "true");
 
+    if (this.openedSidebar) sideBar.setAttribute("open", "true");
 
     sideBar.innerHTML = `
       <div class="favoritesSidebar__header">Library</div>
     `;
     return sideBar;
   }
-
 
   rerender(input = 0) {
     this.paletteDisplay.innerHTML = "";
@@ -525,32 +540,34 @@ class PaletteGenerator {
     const favoritesSidebarTemp = this.getFavoritesSidebar();
     favoritesSidebarTemp.appendChild(this.getFavoritesSidebarContent());
     this.paletteDisplay.appendChild(favoritesSidebarTemp);
-    
+
     this.attachEvents(palette, this);
   }
 
-  attachEvents(currentPalette, ref){
-  tippyCreator('tippy');  
+  attachEvents(currentPalette, ref) {
+    tippyCreator("tippy");
 
-  tippy(document.querySelector('.generator_color_contrast-btn'), {
-    content: function(reference) {
-      return reference.getAttribute('tippy-content-1')
-    }, allowHTML: true
-  });
+    tippy(document.querySelector(".generator_color_contrast-btn"), {
+      content: function (reference) {
+        return reference.getAttribute("tippy-content-1");
+      },
+      allowHTML: true,
+    });
 
-  tippy(document.querySelector('.generator_color_contrast-btn'), {
-    content: '<span>White text</span><br><span>Black text</span><br><a>View more</a>',
-    trigger: "click",
-    allowHTML: true,
-    style: {
-      margin: 40,
-      backgroundColor: "white",
-      display: "flex",
-      flexDirection: "column"
-    },
-  });
-  
-  /*const contrastBtn = document.querySelector('.generator_color_contrast-btn');
+    tippy(document.querySelector(".generator_color_contrast-btn"), {
+      content:
+        "<span>White text</span><br><span>Black text</span><br><a>View more</a>",
+      trigger: "click",
+      allowHTML: true,
+      style: {
+        margin: 40,
+        backgroundColor: "white",
+        display: "flex",
+        flexDirection: "column",
+      },
+    });
+
+    /*const contrastBtn = document.querySelector('.generator_color_contrast-btn');
   
   contrastBtn.addEventListener('click', () => {
     tippyContrast.show();
@@ -562,96 +579,103 @@ class PaletteGenerator {
     }
   });*/
 
-
     //Add Button
-    document.querySelectorAll(".generator__palette__addBar__addButton").forEach(function(button)  {
-      button.addEventListener("click", function(){
-        let position = parseInt(this.getAttribute("index"));
-        position += this.getAttribute("position") === "right" ? 1 : 0;
-        if(currentPalette.length < 10){
-          currentPalette.splice(position, 0, { name: "N" });
-          ref.blockedColors.splice(position, 0, { name: "N" });
-        }
-        
-        ref.rerender(currentPalette)
-      })
-    });
+    document
+      .querySelectorAll(".generator__palette__addBar__addButton")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          let position = parseInt(this.getAttribute("index"));
+          position += this.getAttribute("position") === "right" ? 1 : 0;
+          if (currentPalette.length < 10) {
+            currentPalette.splice(position, 0, { name: "N" });
+            ref.blockedColors.splice(position, 0, { name: "N" });
+          }
+
+          ref.rerender(currentPalette);
+        });
+      });
     //Remove Button
-    document.querySelectorAll(".generator_color_remove-btn").forEach(button => {
-      button.addEventListener("click", function(){
-        const position = parseInt(this.getAttribute("index"));
-        if(currentPalette.length > 2){
-          currentPalette.splice(position, 1);
-          ref.blockedColors.splice(position, 1);
-        }
-        ref.rerender(currentPalette)
-      })
-    });
+    document
+      .querySelectorAll(".generator_color_remove-btn")
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const position = parseInt(this.getAttribute("index"));
+          if (currentPalette.length > 2) {
+            currentPalette.splice(position, 1);
+            ref.blockedColors.splice(position, 1);
+          }
+          ref.rerender(currentPalette);
+        });
+      });
     //Lock Button
     document
       .querySelectorAll(".generator_color_lock-btn")
       .forEach(function (button) {
         button.addEventListener("click", function () {
-          const index = parseInt(this.getAttribute("index"));                  
+          const index = parseInt(this.getAttribute("index"));
           const name = this.getAttribute("name");
-          const color = this.getAttribute("color");                
-          const white = JSON.parse(this.getAttribute("white"));          
+          const color = this.getAttribute("color");
+          const white = JSON.parse(this.getAttribute("white"));
           if (ref.blockedColors[index].name != "N")
             ref.blockedColors[index] = { name: "N" };
-          else ref.blockedColors[index] = { name: name, color: color, white: white};
-
-
-
+          else
+            ref.blockedColors[index] = {
+              name: name,
+              color: color,
+              white: white,
+            };
         });
       });
 
     //Save Button
-    document.querySelectorAll(".generator_color_save-btn").forEach(function(button){
-      button.addEventListener("click", function(){
-        saving = "color"
-        saveColorHeader.innerText = "Save Color";
-        saveColor.style.height = "20rem"
-        colorBoxColorLabel.style.display = "block";
-        colorBox.style.display = "flex";
-        colorBoxPalette.style.display = "none";
-        colorBoxPaletteLabel.style.display = "none";
-        obscurer.setAttribute("active", "true");
-        const color = this.getAttribute("color");        
-        colorBoxColor.style.backgroundColor = color;
-        colorBoxName.setAttribute("color", color);
-        setTimeout(() => window.addEventListener("click", exitSave), 100);
-      })
-    });
+    document
+      .querySelectorAll(".generator_color_save-btn")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          saving = "color";
+          saveColorHeader.innerText = "Save Color";
+          saveColor.style.height = "20rem";
+          colorBoxColorLabel.style.display = "block";
+          colorBox.style.display = "flex";
+          colorBoxPalette.style.display = "none";
+          colorBoxPaletteLabel.style.display = "none";
+          obscurer.setAttribute("active", "true");
+          const color = this.getAttribute("color");
+          colorBoxColor.style.backgroundColor = color;
+          colorBoxName.setAttribute("color", color);
+          setTimeout(() => window.addEventListener("click", exitSave), 100);
+        });
+      });
 
     //Delete Button
 
-    document.querySelectorAll(".favoritesSidebar__body__item__name__icons__delete").forEach((del, index) => {
-      del.addEventListener("click", () => {
-        savedColors = savedColors.filter((el, i) => i !== index)
-        this.rerender(this.currentPalette);
-        localStorage.setItem("coolors", JSON.stringify(savedColors))
-      })
-    });
-    
-    //favoritesSidebar
-    
+    document
+      .querySelectorAll(".favoritesSidebar__body__item__name__icons__delete")
+      .forEach((del, index) => {
+        del.addEventListener("click", () => {
+          savedColors = savedColors.filter((el, i) => i !== index);
+          this.rerender(this.currentPalette);
+          localStorage.setItem("coolors", JSON.stringify(savedColors));
+        });
+      });
 
-  
+    //favoritesSidebar
 
     buttonShades = document.querySelectorAll(".generator_color_shades-btn");
     hex = document.querySelector(".generator_color_hex");
     supercontainer = document.querySelectorAll(".generator__palette");
-    containers = document.querySelectorAll(".generator_color_multicompare_inner");
+    containers = document.querySelectorAll(
+      ".generator_color_multicompare_inner"
+    );
     buttons = document.querySelectorAll(".generator_color_btns");
     texts = document.querySelectorAll(".generator_color");
     add = document.querySelectorAll(".generator__palette__addBar__addButton");
-    multicompare =  document.querySelectorAll(".generator_color_multicompare");
+    multicompare = document.querySelectorAll(".generator_color_multicompare");
     buttonShades.forEach((el) => el.addEventListener("click", generate));
     favoritesSidebar = document.querySelector(".favoritesSidebar");
 
     //Save Button
   }
-
 }
 
 const pg = new PaletteGenerator();
