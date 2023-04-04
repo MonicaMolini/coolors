@@ -460,22 +460,6 @@ class PaletteGenerator {
       item.classList.add("favoritesSidebar__body__item");
       item.setAttribute("index", index);
 
-      item.innerHTML = `
-        <div class="favoritesSidebar__body__item__name">${el.name} 
-          <div class="favoritesSidebar__body__item__name__icons">
-            <svg class="favoritesSidebar__body__item__name__icons__delete" xmlns="http://www.w3.org/2000/svg" width="9.8" height="10" viewBox="0 0 9.8 10">
-              <title>Risorsa 6icon6</title>
-              <g id="Livello_2" data-name="Livello 2">
-                <g id="Livello_1-2" data-name="Livello 1">
-                  <path d="M.7,1,9.1,9.3" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
-                  <path d="M9.1.7.7,9.1" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-        </div>
-      `;
-
       if (el.type === "color") {
         item.innerHTML += `<div class="favoritesSidebar__body__item__color" onclick="fromBottom('Color copied to the clipboard!'); navigator.clipboard.writeText('${
           el.color
@@ -501,6 +485,25 @@ class PaletteGenerator {
         add += `</div>`;
         item.innerHTML += add;
       }
+
+      item.innerHTML += `
+        <div class="favoritesSidebar__body__item__name">${el.name} 
+          <div class="favoritesSidebar__body__item__name__icons">
+            <svg class="favoritesSidebar__body__item__name__icons__generator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+              <path d="M20,3c0-1.654-1.346-3-3-3H3C1.346,0,0,1.346,0,3v2c0,1.654,1.346,3,3,3h14c1.654,0,3-1.346,3-3,1.103,0,2,.897,2,2v1c0,1.103-.897,2-2,2h-7c-2.206,0-4,1.794-4,4v.184c-1.161,.414-2,1.514-2,2.816v4c0,1.654,1.346,3,3,3s3-1.346,3-3v-4c0-1.302-.839-2.402-2-2.816v-.184c0-1.103,.897-2,2-2h7c2.206,0,4-1.794,4-4v-1c0-2.206-1.794-4-4-4Zm-2,2c0,.552-.449,1-1,1H3c-.551,0-1-.448-1-1V3c0-.552,.449-1,1-1h14c.551,0,1,.448,1,1v2Zm-7,16c0,.552-.449,1-1,1s-1-.448-1-1v-4c0-.552,.449-1,1-1s1,.448,1,1v4Z"/>
+            </svg>
+            <svg class="favoritesSidebar__body__item__name__icons__delete" xmlns="http://www.w3.org/2000/svg" width="9.8" height="10" viewBox="0 0 9.8 10">
+              <title>Risorsa 6icon6</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="Livello_1-2" data-name="Livello 1">
+                  <path d="M.7,1,9.1,9.3" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
+                  <path d="M9.1.7.7,9.1" style="fill: none;stroke: currentColor;stroke-linecap: square;stroke-miterlimit: 10"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      `;
 
       function getColors() {
         return JSON.stringify(el.color.map((p) => p.color))
@@ -657,6 +660,23 @@ class PaletteGenerator {
           this.rerender(this.currentPalette);
           localStorage.setItem("coolors", JSON.stringify(savedColors));
         });
+      });
+
+    //Show on Generator Button
+
+    document
+      .querySelectorAll(".favoritesSidebar__body__item__name__icons__generator")
+      .forEach((show, index) => {
+        show.addEventListener("click"  , () => {
+          this.rerender(savedColors[index].color);
+          this.blockedColors = [
+            { name: "N" },
+            { name: "N" },
+            { name: "N" },
+            { name: "N" },
+            { name: "N" },
+          ];
+        })
       });
 
     //favoritesSidebar
