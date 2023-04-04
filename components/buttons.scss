@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  //height: 1.95rem;
   height: 2.25rem;
   border-radius: 0.6rem;
   cursor: pointer;
@@ -23,7 +22,6 @@
   }
   &:hover {
     background-color: v.$button-hover;
-    //transition: 0.5s;
   }
 }
 
@@ -31,14 +29,12 @@
 .button__large {
   border: 0.06rem solid v.$theme-color-grey;
   background-color: v.$white-button;
-  //box-sizing: border-box;
   box-shadow: v.$border-button 0 0 0 1px;
   a {
     text-decoration: none;
     color: v.$black-text;
   }
   &:hover {
-    //transition: 0.5s;
     box-shadow: v.$border-button-hover 0 0 0 1px;
   }
 }

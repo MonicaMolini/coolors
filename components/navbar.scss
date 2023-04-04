@@ -1,9 +1,5 @@
 @use "variables" as v;
 @use "helpers" as h;
-//http://127.0.0.1:5500/develhope/coolors-ds/coolors/thypography/
-//http://127.0.0.1:5500/develhope/coolors-ds/coolors/design.html
-
-//nav__items__list__item
 
 .nav {
   .nav-hamberger-mobile{
@@ -13,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   box-shadow: rgb(0 0 0 / 8%) 0 0.0625rem;
-  //border-bottom: 0.1rem solid v.$border-button;
 
   font-size: 0.938rem;
   line-height: 0.938rem;
@@ -51,7 +46,6 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      //gap: 1rem;
       list-style-type: none;
       border-right: 1px solid v.$separator;
       height: 0.4rem;

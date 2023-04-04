@@ -1,29 +1,3 @@
-
-/*const body = {
-  prompt: "Hello How are you?",
-  temperature: 0.5,
-  max_tokens: 64,
-};
-
-const headers = new Headers();
-
-headers.set("Authorization", `Bearer ${API_KEY}`);
-headers.set("Content-Type", "application/json");
-
-console.log(headers);
-
-const options = {
-  headers: headers,
-  method: "POST",
-  body: JSON.stringify(body),
-};
-
-(async () => {
-  console.log(options);
-  const stream = await fetch(url, options);
-  console.log(await stream.text());
-})();*/
-
 let buttonShades = document.querySelectorAll(".generator_color_shades-btn");
 let hex = document.querySelector(".generator_color_hex");
 let supercontainer = document.querySelectorAll(".generator__palette");
@@ -163,8 +137,7 @@ saveColorButton.addEventListener("click", (e) => {
   pg.rerender(pg.currentPalette)
 })
 
-function getShades(x) {    
-  console.log(x)
+function getShades(x) {  
   if (delta == 0)
     h = 0;
   else if (cmax == r)
@@ -217,7 +190,6 @@ function generate() {
   multicompare.forEach((el) => el.style = `display: flex;`) 
 
   function showNamesBack(){
-    console.log("clicked")
     supercontainer.forEach((el) => {el.setAttribute("hidden", "false");});
     window.removeEventListener("click", showNamesBack)
     pg.rerender(pg.currentPalette);
@@ -258,8 +230,6 @@ function exitSave(e){
 
 }
 
-
-//buttonShades.forEach((el) => el.addEventListener("click", generate));
 
 function reset(event){
   containers.forEach((el)=> {el.style.cssText = " display: none;"})  
@@ -327,7 +297,6 @@ class PaletteGenerator {
     const g = (bigint >> 8) & 255;
     const b = bigint & 255;
 
-    console.log(r, g, b);
 
     return { red: r, green: g, blue: b };
   }
@@ -352,8 +321,6 @@ class PaletteGenerator {
         const ret = {};
         ret.color = PaletteGenerator.generateRandomColor();
         ret.name = ntc.name(ret.color)[1];
-        //const {red, green, blue} = PaletteGenerator.hexToRgb(ret.color);
-        //ret.white = (red * 0.299 + green * 0.587 + blue * 0.114) < 186;
         ret.white = pickTextColorBasedOnBgColorAdvanced(ret.color, true, false);
         return ret;
       } else return e;
@@ -364,7 +331,6 @@ class PaletteGenerator {
   getColorElement(color, index) {
     const generator__palette = document.createElement("div");
     generator__palette.classList.add("generator__palette");
-    //generator__palette.setAttribute("hidden", "true");
     generator__palette.style.backgroundColor = color.color;    
     generator__palette.style.color = color.white ? "#fff" : "#000";
     generator__palette.innerHTML = `<div class="generator_color_multicompare">
@@ -483,27 +449,7 @@ class PaletteGenerator {
     const favoritesBody = document.createElement("div");
     favoritesBody.classList.add("favoritesSidebar__body");
 
-    savedColors.forEach((el, index) => {
-
-      /*const obscurer = `
-      <div class="favoritesSidebar__body__item__color__obscurer style='color:white'">
-        <div class="generator_color_copy-btn tippy" index="${index}" onclick="fromBottom('Color copied to the clipboard!'); copyHex()"  data-tippy-content='Copy HEX' data-tooltip="Copy HEX" data-tooltip-container="child">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13.4" height="13.4" viewBox="0 0 13.4 13.4">
-              <title>Risorsa 1icon1</title>
-              <g id="Livello_2" data-name="Livello 2">
-                <g id="Livello_1-2" data-name="Livello 1">
-                  <g>
-                    <polyline points="9.4 4.7 9.4 0.5 0.5 0.5 0.5 9.4 4.7 9.4" style="fill: none;stroke: currentColor;stroke-miterlimit: 10"/>
-                    <polygon points="9.4 4.7 9.4 9.4 4.7 9.4 4.7 12.9 12.9 12.9 12.9 4.7 9.4 4.7" style="fill: none;stroke: currentColor;stroke-miterlimit: 10"/>
-                  </g>
-                </g>
-              </g>
-            </svg>
-
-        </div>
-      </div>`;*/
-
-      console.log(el)
+    savedColors.forEach((el, index) => {     
       const item = document.createElement("div");
       item.classList.add("favoritesSidebar__body__item");
       item.setAttribute("index", index)
@@ -568,13 +514,10 @@ class PaletteGenerator {
 
 
   rerender(input = 0) {
-    console.log("rendering")
     this.paletteDisplay.innerHTML = "";
     const palette = this.getPalette(input === 0 ? this.blockedColors : input);
 
     this.currentPalette = palette;
-
-    // console.log(palette)
 
     palette.forEach((color, index) =>
       this.paletteDisplay.appendChild(this.getColorElement(color, index))
@@ -630,7 +573,6 @@ class PaletteGenerator {
           ref.blockedColors.splice(position, 0, { name: "N" });
         }
         
-        //console.log(currentPalette)
         ref.rerender(currentPalette)
       })
     });
@@ -642,7 +584,6 @@ class PaletteGenerator {
           currentPalette.splice(position, 1);
           ref.blockedColors.splice(position, 1);
         }
-        //ref.blockedColors = currentPalette.filter(e => ref.blockedColors.some(j => {console.log(j, e.color); return j.color === e.color}))
         ref.rerender(currentPalette)
       })
     });
@@ -659,7 +600,6 @@ class PaletteGenerator {
             ref.blockedColors[index] = { name: "N" };
           else ref.blockedColors[index] = { name: name, color: color, white: white};
 
-          console.log(ref.blockedColors);
 
 
         });
@@ -676,8 +616,7 @@ class PaletteGenerator {
         colorBoxPalette.style.display = "none";
         colorBoxPaletteLabel.style.display = "none";
         obscurer.setAttribute("active", "true");
-        const color = this.getAttribute("color");
-        console.log(colorBoxColor)
+        const color = this.getAttribute("color");        
         colorBoxColor.style.backgroundColor = color;
         colorBoxName.setAttribute("color", color);
         setTimeout(() => window.addEventListener("click", exitSave), 100);

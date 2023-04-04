@@ -45,7 +45,6 @@ body {
       display: inline-grid;
       grid-template-columns: 35% 55%;
       width: 100%;
-      //grid-template-columns: 500px 1fr;
       color: black;
       font-family: "Inter", sans-serif;
       padding: 100px 42px;
@@ -60,7 +59,6 @@ body {
       }
       .hero__container__home__left {
         display: grid;
-        //min-width: 100% ;
         grid-template-columns: 100%;
         justify-content: center;
         padding-top: 50px;
@@ -99,7 +97,6 @@ body {
             text-align: center;
             margin-bottom: 14px;
             a {
-              //display: block;
               border-radius: 10px;
               height: 46px;
               line-height: 46px;
@@ -115,7 +112,6 @@ body {
             text-align: center;
             margin-bottom: 34px;
             a {
-              //display: block;
               text-decoration: none;
               color: v.$black-text;
               align-items: center;
@@ -150,19 +146,8 @@ body {
       .hero__container__home__right {
         overflow-x: hidden;
         min-width: 120%;
-        //transform: scale(1);
-        //transform-origin: left;
         padding-top: 50px;
         padding-left: 50px;
-        /*@media (max-width: 1700px) {
-          transform: scale(1.1);
-        }
-        @media (max-width: 1600px) {
-          transform: scale(1.1);
-        }
-        @media (max-width: 1500px) {
-          transform: scale(1.1);
-        }*/
         svg {
           #homepage_hero-generator-laptop * {
             transition: all 0.1s ease;
