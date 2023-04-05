@@ -171,9 +171,18 @@ function getShades(x) {
     const firstColor = ColorTranslator.getBlendHEX(baseColor,"#ffffff", 13).reverse();
     firstColor.pop();
     tints.pop();
-    const colorsShade = [...firstColor, ...tints];     
-    colors.push(colorsShade)    
+    const colorsShade = [...firstColor, ...tints];   
+    const finder = ColorFinder(colorsShade);
+    const i = colorsShade.findIndex(el => el === finder.findClosestColor(`#${col}`));
+    colorsShade[i] = `#${col}`;
+    colors.push(colorsShade);
+    
     return colors  
+}
+
+function hasSomeParentTheClass(element, classname) {
+    if (element.className.split(' ').indexOf(classname)>=0) return element;
+    return element.parentNode && hasSomeParentTheClass(element.parentNode, classname);
 }
 
 
@@ -189,7 +198,28 @@ function generate() {
   containers.forEach((el)=> {el.style.cssText = " display: flex; flex-direction:column; justify-content: flex-start"})  
   multicompare.forEach((el) => el.style = `display: flex;`) 
 
-  function showNamesBack(){
+  function showNamesBack(e){
+    const shades = document.getElementsByClassName("swatch");
+    //console.log(shades);
+    let inside = -1;
+    let colorClicked;
+    for(let i = 0; i < shades.length; i++){
+      if(e.target === shades[i] || shades[i].contains(e.target)) inside = i;
+    } 
+    if(inside > -1){
+      colorClicked = hasSomeParentTheClass(e.target, "swatch");
+      console.log(pg.currentPalette);
+      pg.currentPalette[parseInt(ref.getAttribute("index"))].color = colorClicked.getAttribute("color");
+      pg.currentPalette[parseInt(ref.getAttribute("index"))].name = ntc.name(
+        colorClicked.getAttribute("color")
+      )[1];
+      pg.currentPalette[parseInt(ref.getAttribute("index"))].white =
+        pickTextColorBasedOnBgColorAdvanced(colorClicked.getAttribute("color"), true, false);
+      
+      
+
+    }
+
     supercontainer.forEach((el) => {el.setAttribute("hidden", "false");});
     window.removeEventListener("click", showNamesBack)
     pg.rerender(pg.currentPalette);
@@ -203,16 +233,20 @@ function generate() {
     const box = document.createElement("div");
     box.style.backgroundColor = c;
     box.classList = "swatch";
+    box.setAttribute("color", c);
     const light = "#fff";
     const dark = "#000";    
-    box.innerHTML = `<p class="color">${c.substring(1)}</p>`;    
-    box.style.color += pickTextColorBasedOnBgColorAdvanced(c, light, dark);     
-    
-    if (`#${box.innerHTML}`=== `#${col}`) {
-      box.innerHTML = `<svg width="18" height="18" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    box.innerHTML = `<p class="color">${c.substring(
+      1
+    )}</p><svg width="18" height="18" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <rect width="18" height="18" fill="currentColor" fill-opacity="0.01"/>
       <path d="M24 33C28.9706 33 33 28.9706 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33Z" fill="currentColor" stroke="currentColor" stroke-width="4"/>
-      </svg>`;
+      </svg>`;    
+    box.style.color += pickTextColorBasedOnBgColorAdvanced(c, light, dark);     
+    //console.log(box.firstChild.innerHTML, col)
+    if (`#${box.firstChild.innerHTML}` === `#${col}`) {
+      //console.log(box);
+      box.firstChild.toggleAttribute("dot");
     }   
     document.querySelector(`[container="${x}"]`).append(box) 
    
@@ -428,8 +462,12 @@ class PaletteGenerator {
       color.color
     }" index="${index}" white="${
       color.white
-    }" class="generator_color_lock-btn tippy" data-tippy-content='Toggle lock ' data-tooltip-container="child" data-tooltip="Toggle lock">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
+    }" class="generator_color_lock-btn tippy" locked="${
+      this.blockedColors[index].name !== "N"
+    }" data-tippy-content='Toggle lock ' data-tooltip-container="child" data-tooltip="Toggle lock">
+                    ${
+                      this.blockedColors[index].name === "N"
+                        ? `<svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
                       <title>Risorsa 4icon4</title>
                       <g id="Livello_2" data-name="Livello 2">
                         <g id="Livello_1-2" data-name="Livello 1">
@@ -437,7 +475,17 @@ class PaletteGenerator {
                           <path d="M8.6,1.5C6.4-.5,3.2.4,3.2,4.7" style="fill: none;stroke: currentColor;stroke-linecap: round;stroke-linejoin: round"/>
                         </g>
                       </g>
-                    </svg>
+                    </svg>`
+                        : `<svg xmlns="http://www.w3.org/2000/svg" width="10.8" height="12.4" viewBox="0 0 10.8 12.4">
+                    <title>Risorsa 20icon-lock-close</title>
+                    <g id="Livello_2" data-name="Livello 2">
+                      <g id="Livello_1-2" data-name="Livello 1">
+                        <rect x="0.4" y="4.1" width="10" height="7.91" rx="1.8" style="stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                        <path d="M8.2,4.1a5,5,0,0,0-.8-2.7A2.3,2.3,0,0,0,4.3.8,3.2,3.2,0,0,0,2.9,3.2a2.8,2.8,0,0,0-.1.9" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                      </g>
+                    </g>
+                  </svg>`
+                    }
 
                 </div>
             </div>
@@ -630,6 +678,29 @@ class PaletteGenerator {
           const name = this.getAttribute("name");
           const color = this.getAttribute("color");
           const white = JSON.parse(this.getAttribute("white"));
+          this.setAttribute("locked", `${ref.blockedColors[index].name === "N"}`);
+          if (ref.blockedColors[index].name !== "N"){
+            this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12.4" height="14.2" viewBox="0 0 12.4 14.2">
+                      <title>Risorsa 4icon4</title>
+                      <g id="Livello_2" data-name="Livello 2">
+                        <g id="Livello_1-2" data-name="Livello 1">
+                          <rect x="0.5" y="4.7" width="11.4" height="9.02" rx="1.8" style=" fill: currentColor; stroke: currentColor;stroke-linecap: round;stroke-linejoin: round"/>
+                          <path d="M8.6,1.5C6.4-.5,3.2.4,3.2,4.7" style="fill: none;stroke: currentColor;stroke-linecap: round;stroke-linejoin: round"/>
+                        </g>
+                      </g>
+                    </svg>`;
+          } 
+          else {
+            this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="10.8" height="12.4" viewBox="0 0 10.8 12.4">
+                      <title>Risorsa 20icon-lock-close</title>
+                      <g id="Livello_2" data-name="Livello 2">
+                        <g id="Livello_1-2" data-name="Livello 1">
+                          <rect x="0.4" y="4.1" width="10" height="7.91" rx="1.8" style="stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                          <path d="M8.2,4.1a5,5,0,0,0-.8-2.7A2.3,2.3,0,0,0,4.3.8,3.2,3.2,0,0,0,2.9,3.2a2.8,2.8,0,0,0-.1.9" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                        </g>
+                      </g>
+                    </svg>`;
+          }
           if (ref.blockedColors[index].name != "N")
             ref.blockedColors[index] = { name: "N" };
           else

@@ -116,8 +116,19 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          cursor: pointer;
           p {
             display: none;
+            &+svg{
+              display: none;
+            }
+          }
+          &:hover > p[dot]+svg{
+            display: none;
+          }
+          p[dot]+svg{
+            display: block;
+            position: absolute;
           }
           &:hover {
             p {
@@ -680,4 +691,12 @@
       }
     }
   }
+}
+
+.generator_color_lock-btn{
+  transition: transform .35s linear;
+}
+
+.generator_color_lock-btn[locked="true"]{
+  transform: scale(1.2);
 }
