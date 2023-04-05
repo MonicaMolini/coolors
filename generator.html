@@ -591,9 +591,17 @@
             animation: 150,
             draggable: ".generator__palette",
             onEnd: function (e) {
-                const temp = pg.blockedColors[e.oldIndex];
-                pg.blockedColors[e.oldIndex] = pg.blockedColors[e.newIndex];
-                pg.blockedColors[e.newIndex] = temp;
+                function moveElement(array, fromIndex, toIndex) {
+                    const element = array.splice(fromIndex, 1)[0];
+
+                    array.splice(toIndex, 0, element);
+
+                    return array;
+                }
+                const {oldIndex, newIndex} = e;
+
+                pg.blockedColors = moveElement(pg.blockedColors, oldIndex, newIndex);
+                pg.currentPalette = moveElement(pg.currentPalette, oldIndex, newIndex)                
             }
         });
     </script>
