@@ -207,14 +207,16 @@ function generate() {
       if(e.target === shades[i] || shades[i].contains(e.target)) inside = i;
     } 
     if(inside > -1){
+      const currentIndex = parseInt(ref.getAttribute("index"));
       colorClicked = hasSomeParentTheClass(e.target, "swatch");
       console.log(pg.currentPalette);
-      pg.currentPalette[parseInt(ref.getAttribute("index"))].color = colorClicked.getAttribute("color");
-      pg.currentPalette[parseInt(ref.getAttribute("index"))].name = ntc.name(
+      pg.currentPalette[currentIndex].color = colorClicked.getAttribute("color");
+      pg.currentPalette[currentIndex].name = ntc.name(
         colorClicked.getAttribute("color")
       )[1];
-      pg.currentPalette[parseInt(ref.getAttribute("index"))].white =
-        pickTextColorBasedOnBgColorAdvanced(colorClicked.getAttribute("color"), true, false);
+      pg.currentPalette[currentIndex].white = pickTextColorBasedOnBgColorAdvanced(colorClicked.getAttribute("color"), true, false);
+
+      if(pg.blockedColors[currentIndex].name !== "N") pg.blockedColors[currentIndex] = pg.currentPalette[currentIndex];
       
       
 
