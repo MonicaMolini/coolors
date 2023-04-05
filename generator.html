@@ -577,10 +577,10 @@
                 position: 'bottom',
                 square: false,
             })
-        }
+        } 
     </script>
-    <script type="text/javascript" src="https://sortablejs.github.io/Sortable/st/prettify/prettify.js"></script>
-    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+    <script type="text/javascript" src="js/SortablePrettify.js"></script>
+    <script src="js/Sortable.js"></script>
     <script>
         const el = document.getElementById("generator");
         Sortable.create(el, {
@@ -601,7 +601,8 @@
                 const {oldIndex, newIndex} = e;
 
                 pg.blockedColors = moveElement(pg.blockedColors, oldIndex, newIndex);
-                pg.currentPalette = moveElement(pg.currentPalette, oldIndex, newIndex)                
+                pg.currentPalette = moveElement(pg.currentPalette, oldIndex, newIndex);
+                pg.rerender(pg.currentPalette);               
             }
         });
     </script>
