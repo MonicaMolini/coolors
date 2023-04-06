@@ -686,7 +686,7 @@ class PaletteGenerator {
                       <title>Risorsa 4icon4</title>
                       <g id="Livello_2" data-name="Livello 2">
                         <g id="Livello_1-2" data-name="Livello 1">
-                          <rect x="0.5" y="4.7" width="11.4" height="9.02" rx="1.8" style=" fill: currentColor; stroke: currentColor;stroke-linecap: round;stroke-linejoin: round"/>
+                          <rect x="0.5" y="4.7" width="11.4" height="9.02" rx="1.8" style=" fill: currentColor; stroke: currentColor;  stroke-linecap: round;stroke-linejoin: round"/>
                           <path d="M8.6,1.5C6.4-.5,3.2.4,3.2,4.7" style="fill: none;stroke: currentColor;stroke-linecap: round;stroke-linejoin: round"/>
                         </g>
                       </g>
@@ -697,8 +697,8 @@ class PaletteGenerator {
                       <title>Risorsa 20icon-lock-close</title>
                       <g id="Livello_2" data-name="Livello 2">
                         <g id="Livello_1-2" data-name="Livello 1">
-                          <rect x="0.4" y="4.1" width="10" height="7.91" rx="1.8" style="stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
-                          <path d="M8.2,4.1a5,5,0,0,0-.8-2.7A2.3,2.3,0,0,0,4.3.8,3.2,3.2,0,0,0,2.9,3.2a2.8,2.8,0,0,0-.1.9" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                          <rect x="0.4" y="4.1" width="10" height="7.91" rx="1.8" style="fill: currentColor; stroke: currentColor; stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
+                          <path d="M8.2,4.1a5,5,0,0,0-.8-2.7A2.3,2.3,0,0,0,4.3.8,3.2,3.2,0,0,0,2.9,3.2a2.8,2.8,0,0,0-.1.9" style="fill: none;stroke: currentColor;stroke-linecap: round;stroke-linejoin: round;stroke-width: 0.876777480411065px"/>
                         </g>
                       </g>
                     </svg>`;
