@@ -8,15 +8,29 @@ function tippyCreator(className) {
     },
     theme: 'translucent',
     allowHTML: true,
-    theme: "standard"
+    theme: "black",
+    onShow: (instance) => {
+      if(showButtons) return;
+      instance.popper.style.display = "none"
+      
+    }
+
   });
 }
 
 tippy.setDefaultProps({
-  theme: 'standard'
+  theme: 'black',
+  onShow: (instance) => {
+      if(showButtons) return;
+      instance.popper.style.display = "none"
+      
+    }
+
 });
 
-tippy.setThemes({
+
+
+/*tippy.setThemes({
   standard: {
     'data-theme': 'translucent',
     arrow: '.tippy-arrow',
@@ -61,5 +75,5 @@ tippy.setThemes({
     performance: true
   }
 });
-tippyCreator();
-//export default tippyCreator("tippy") 
+tippyCreator();*/
+//export default tippyCreator("tippy") */

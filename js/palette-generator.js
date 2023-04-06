@@ -8,6 +8,7 @@ let add = document.querySelectorAll(".generator__palette__addBar__addButton");
 let multicompare =  document.querySelectorAll(".generator_color_multicompare");
 let favoritesSidebar;
 
+
 const obscurer = document.getElementById("obscurer");
 
 const colorBox = document.querySelector(".saveColor__content__colorBox");
@@ -386,7 +387,7 @@ class PaletteGenerator {
                     </g>
                   </svg>
                 </div>
-                <div class="generator_color_contrast-btn" tippy-content-1='Check contrast' data-tooltip="Check contrast" data-tooltip-container="child">
+                <div color="${color.color}" class="generator_color_contrast-btn" tippy-content-1='Check contrast' data-tooltip="Check contrast" data-tooltip-container="child">
                             <div class="bubb-content" data-bubb="my-toggle" style="display: none;">
                             <div style="background: white; color: black;">Testo</div>
                             </div>
@@ -612,24 +613,58 @@ class PaletteGenerator {
 
     //const name = "Mario";
     //const externalContent = `<div><span>White Text</span><span>Black Text</span><a href="#">View more</a></div>`;
-    const buttonsToHide = document.querySelectorAll('.generator_color_remove-btn, .generator_color_shades-btn, .generator_color_save-btn, .generator_color_drag-btn, .generator_color_copy-btn, .generator_color_lock-btn');
+    const buttonsToHide = document.querySelectorAll('.generator_color_remove-btn, .generator_color_shades-btn, .generator_color_contrast-btn, .generator_color_save-btn, .generator_color_drag-btn, .generator_color_copy-btn, .generator_color_lock-btn');
     const buttonsToShow = () => {
       buttonsToHide.forEach(button => {
-        button.style.display = 'block';
+        button.style.opacity = 1;
+        showButtons = true;
       });
     };
     
     tippy(document.querySelectorAll('.generator_color_contrast-btn'), {
-      content: () => {
+      content: (e) => {
+        const xSvg = `<?xml version="1.0" ?><svg class="feather feather-x" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>`;
+        const tickSvg = `<?xml version="1.0" ?><svg class="feather feather-check" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>`;
         const link = document.createElement('a');
         link.href = '#';
-        link.textContent = 'View more';
-    
+        link.innerHTML = '<span>View more</span>';
+        
+        link.style = "color: blue; padding-top: 15px; display:flex; gap: .5rem; align-items: center";
+        link.innerHTML += `<svg  xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 30.1 33">
+  <title>Risorsa 1flower</title>
+  <g id="Livello_2" data-name="Livello 2">
+    <g id="Livello_1-2" data-name="Livello 1">
+      <path d="M0,11.8V10.4c.1-.1.1-.1.1-.2A5.6,5.6,0,0,1,8.1,6,7.1,7.1,0,0,1,9.5,7a5.8,5.8,0,0,1,5.3-7,5.8,5.8,0,0,1,5.8,7,3.5,3.5,0,0,1,1-.8,5.6,5.6,0,0,1,8.2,3.1l.3,1v1.6c-.1,0-.1.1-.1.2a5.6,5.6,0,0,1-3.2,4.1c-.2.1-.5.1-.7.3a6.1,6.1,0,0,1,3.4,2.9,9.5,9.5,0,0,1,.6,1.8v1.7A5.7,5.7,0,0,1,21.8,27l-1.2-.9h0a5.8,5.8,0,0,1-3.1,6.3l-1.7.5H14.1a5.5,5.5,0,0,1-4.7-6c0-.3.1-.5.1-.8l-.3.2a5.8,5.8,0,0,1-3.1,1.3,5.5,5.5,0,0,1-5.4-3,6.8,6.8,0,0,1-.7-2V21.2c.1,0,.1-.1.1-.2A5.5,5.5,0,0,1,2,17.6a6.4,6.4,0,0,1,2-1.1H3.9a.1.1,0,0,0-.1-.1A5.4,5.4,0,0,1,.4,13.2C.2,12.8.2,12.3,0,11.8Z" style="fill: #e82f89"/>
+    </g>`;
+        link.lastChild.classList.add("fiorellino")
+
+
         const whiteText = document.createElement('span');
-        whiteText.textContent = 'White Text';
+        whiteText.classList.add("contrastPopup");
+        whiteText.innerHTML = '<span>White Text</span>';
+        whiteText.style.display = "flex";
+        whiteText.style.gap = ".5rem";
+        whiteText.style.justifyContent = "center";
+        whiteText.style.width = "100%";
+        whiteText.innerHTML += pickTextColorBasedOnBgColorAdvanced(e.getAttribute("color"), tickSvg, xSvg);
+        whiteText.lastChild.style.backgroundColor = "#f2f2f3";
+        whiteText.lastChild.style.borderRadius = "50%";
+        console.log(whiteText.lastChild.style);
     
         const blackText = document.createElement('span');
-        blackText.textContent = 'Black Text';
+        blackText.classList.add("contrastPopup");
+        blackText.innerHTML = "<span>Black Text</span>";
+        blackText.style.display = "flex";
+        blackText.style.gap = ".5rem";
+        blackText.style.justifyContent = "center";
+        blackText.style.width = "100%";
+        blackText.innerHTML += pickTextColorBasedOnBgColorAdvanced(
+          e.getAttribute("color"),
+          xSvg,
+          tickSvg
+        );
+        blackText.lastChild.style.backgroundColor = "#f2f2f3";
+        blackText.lastChild.style.borderRadius = "50%";
     
         const div = document.createElement('div');
         div.appendChild(whiteText);
@@ -649,9 +684,16 @@ class PaletteGenerator {
       allowHTML: true,
       hideOnClick: true,
       theme: 'white',
+      
       onShow: (instance) => {
+        showButtons = false;
+        
         buttonsToHide.forEach(button => {
-          button.style.display = 'none';
+          if(instance.reference === button) return;
+          button.style.opacity = 0;
+          
+
+          
         });
       },
       onHidden: buttonsToShow

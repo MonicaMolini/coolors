@@ -742,3 +742,19 @@ $shadow-small: 0 2px 4px rgba(0, 0, 0, 0.15);
     fill: white;
   }
 }
+
+@keyframes r {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.fiorellino {
+    animation: r 4s infinite linear;
+
+  
+}
+
