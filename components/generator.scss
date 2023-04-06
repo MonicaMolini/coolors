@@ -700,3 +700,45 @@
 .generator_color_lock-btn[locked="true"]{
   transform: scale(1.2);
 }
+
+.generator_color_lock-btn{
+  transition: transform .35s linear;
+}
+
+.generator_color_lock-btn[locked="true"]{
+  transform: scale(1.2);
+}
+
+$shadow-color: rgba(154, 161, 177, 0.15);
+$shadow-big: 0 0 20px 4px $shadow-color, 0 4px 80px -8px rgba(36, 40, 47, 0.25), 0 4px 4px -2px rgba(91, 94, 105, 0.15);
+$shadow-small: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+.tippy-box[data-theme~=white] {
+  color: black;
+  box-shadow: $shadow-big;
+  background-color: white;
+
+  &[data-placement^=top] > .tippy-arrow:before {
+    border-top-color: white;
+  }
+
+  &[data-placement^=bottom] > .tippy-arrow:before {
+    border-bottom-color: white;
+  }
+
+  &[data-placement^=left] > .tippy-arrow:before {
+    border-left-color: white;
+  }
+
+  &[data-placement^=right] > .tippy-arrow:before {
+    border-right-color: white;
+  }
+
+  > .tippy-backdrop {
+    background-color: white;
+  }
+
+  > .tippy-svg-arrow {
+    fill: white;
+  }
+}

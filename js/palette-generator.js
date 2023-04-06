@@ -603,46 +603,59 @@ class PaletteGenerator {
   attachEvents(currentPalette, ref) {
     tippyCreator("tippy");
 
-    tippy(document.querySelector(".generator_color_contrast-btn"), {
+    tippy(document.querySelectorAll(".generator_color_contrast-btn"), {
       content: function (reference) {
         return reference.getAttribute("tippy-content-1");
       },
       allowHTML: true,
     });
 
-    //bubb();
-/*
-    const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
-
-    contrastBtn.addEventListener('click', () => {
-    bubb.toggle('my-toggle');
-    });*/
-
-    /*const contrastBtn = document.querySelectorAll('.generator_color_contrast-btn');
-
-    const config = {
-      bubbContrast: {
-        text: 'Contenuto da mostrare nel toggle',
-        _: {
-          background: 'white',
-          toggle: true
-        }
-      }
+    //const name = "Mario";
+    //const externalContent = `<div><span>White Text</span><span>Black Text</span><a href="#">View more</a></div>`;
+    const buttonsToHide = document.querySelectorAll('.generator_color_remove-btn, .generator_color_shades-btn, .generator_color_save-btn, .generator_color_drag-btn, .generator_color_copy-btn, .generator_color_lock-btn');
+    const buttonsToShow = () => {
+      buttonsToHide.forEach(button => {
+        button.style.display = 'block';
+      });
     };
-    bubb(config);*/
-
-    /*const contrastBtn = document.querySelector('.generator_color_contrast-btn');
-  
-  contrastBtn.addEventListener('click', () => {
-    tippyContrast.show();
-  });
-  
-  document.addEventListener('click', (e) => {
-    if (!tippyContrast.popper.contains(e.target)) {
-      tippyContrast.hide();
-    }
-  });*/
-
+    
+    tippy(document.querySelectorAll('.generator_color_contrast-btn'), {
+      content: () => {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = 'View more';
+    
+        const whiteText = document.createElement('span');
+        whiteText.textContent = 'White Text';
+    
+        const blackText = document.createElement('span');
+        blackText.textContent = 'Black Text';
+    
+        const div = document.createElement('div');
+        div.appendChild(whiteText);
+        div.appendChild(blackText);
+        div.appendChild(link);
+        div.style.display = 'flex';
+        div.style.flexDirection = 'column';
+        div.style.height = "5rem";
+        div.style.width = "7rem";
+        div.style.justifyContent = "center";
+        div.style.alignItems = "center",
+        div.style.rowGap = "0";
+        div.style.borderRadius = "100px";
+        return div;
+      },
+      trigger: 'click',
+      allowHTML: true,
+      hideOnClick: true,
+      theme: 'white',
+      onShow: (instance) => {
+        buttonsToHide.forEach(button => {
+          button.style.display = 'none';
+        });
+      },
+      onHidden: buttonsToShow
+    });
     //Add Button
     document
       .querySelectorAll(".generator__palette__addBar__addButton")

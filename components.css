@@ -426,12 +426,12 @@ body {
   font-size: 12px;
 }
 
-.tippy-box {
-  background-color: black;
-}
-
 .tippy-color2 {
   color: gray;
+}
+
+.tippy-box {
+  background-color: black;
 }
 
 @media screen and (max-width: 1100px) {
@@ -1377,14 +1377,6 @@ body {
     border-radius: 10px;
   }
 }
-.generator_color_lock-btn {
-  transition: transform 0.35s linear;
-}
-
-.generator_color_lock-btn[locked=true] {
-  transform: scale(1.2);
-}
-
 @keyframes colorRotate {
   from {
     color: #0067fb;
