@@ -752,14 +752,18 @@ class PaletteGenerator {
       .querySelectorAll(".favoritesSidebar__body__item__name__icons__generator")
       .forEach((show, index) => {
         show.addEventListener("click"  , () => {
+          while(this.blockedColors.length < savedColors[index].color.length)this.blockedColors.push({name:"N"});
+          this.blockedColors.fill({name: "N"});
+          //console.log(this.blockedColors);
           this.rerender(savedColors[index].color);
-          this.blockedColors = [
+          
+          /*this.blockedColors = [
             { name: "N" },
             { name: "N" },
             { name: "N" },
             { name: "N" },
             { name: "N" },
-          ];
+          ];*/
         })
       });
 
